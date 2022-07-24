@@ -12,10 +12,11 @@ RESOURCES += \
         Resources/qrc/emoji_6.qrc \
         Resources/qrc/emoji_preview.qrc \
         Resources/qrc/sounds.qrc \
-        SourceFiles/view/qml.qrc
+        SourceFiles/view/qml.qrc \
+        translations.qrc
 
-#TRANSLATIONS += \
-#    QMLTelegram_fa_IR.ts
+TRANSLATIONS += \
+        Resources/translations/qrcQMLTelegram_fa_IR.ts
 
 #CONFIG += lrelease
 

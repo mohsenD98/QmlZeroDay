@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/translations/QMLTelegram_fa_IR.ts</file>
+    </qresource>
+</RCC>

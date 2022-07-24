@@ -9,7 +9,7 @@ Window {
     width: 480
     height: 720
     title: qsTr("Qml Telegram")
-    color: "yellow"// materialStatics.grey_100_
+    color: "purple"// materialStatics.grey_100_
     flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
            | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0)
 

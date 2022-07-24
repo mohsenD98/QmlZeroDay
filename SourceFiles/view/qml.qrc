@@ -20,5 +20,6 @@
         <file>components/toolbar/CustomTabButton.qml</file>
         <file>tools/RippleLayout.qml</file>
         <file>components/buttons/Fab.qml</file>
+        <file>components/drawer/CustomDrawer.qml</file>
     </qresource>
 </RCC>

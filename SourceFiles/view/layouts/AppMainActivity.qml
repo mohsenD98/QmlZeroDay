@@ -5,6 +5,7 @@ import Style 1.0
 
 import "../components/toolbar"
 import "../components/buttons"
+import "../components/drawer"
 import "../tools"
 
 Rectangle {
@@ -71,18 +72,8 @@ Rectangle {
         anchors.margins: 20
     }
 
-    Drawer{
+    CustomDrawer{
         id: mainMenu
-        width: Math.min(parent.width/1.4, 360)
-        height: parent.height
         edge: Qt.LeftEdge
-        dim: true
-        modal: false
-        Overlay.modeless: Rectangle {
-            color: "#33000000"
-        }
-        background: Rectangle{
-            color: headerBox.color
-        }
     }
 }

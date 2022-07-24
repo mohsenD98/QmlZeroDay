@@ -11,7 +11,8 @@ import "themes/nightGreen"
 Item {
     // todo: set NightColors to QtObject to fix -> "Error: Cannot assign QObject* to NightColors_QMLTYPE_3*"
     // it's type is NightColors for IDE's autocompletion
-    property NightColors theme: nightColors
+    property QtObject theme: nightColors
+    property string currentThemeName: "NightColors"
 
     DayBlueColors{
         id: dayBlueColors
@@ -34,6 +35,7 @@ Item {
     }
 
     function setTheme(name){
+        currentThemeName = name
         if(name === "NightGreenColors"){
             theme = nightGreenColors
         }

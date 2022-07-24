@@ -4,39 +4,43 @@ import QtQuick.Controls.Material 2.12
 
 import Style 1.0
 
-Rectangle {
-    height: bar.height
-    property real currentSelectedBarIndex: bar.currentIndex
-
-    function setIndex(index){
-        bar.setCurrentIndex(index)
+Drawer{
+    id: control
+    width: Math.min(parent.width/1.4, 360)
+    height: parent.height
+    dim: true
+    modal: false
+    closePolicy: Popup.CloseOnPressOutside
+    Overlay.modeless: Rectangle {
+        color: "#33000000"
     }
+    background: Rectangle{
+        color: headerBox.color
 
-    TabBar {
-        id: bar
-        width: parent.width
-        Material.accent: Style.theme.sideBarIconFgActive
-        Material.background: "transparent"
+        Rectangle{
+            id: accountInfo
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.left: parent.left
+            height: 200
+            color: "transparent"
+        }
+        Rectangle{
+            id: menuBody
+            anchors.top: accountInfo.bottom
+            anchors.right: parent.right
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            color: Style.theme.windowBg
 
-        CustomTabButton {
-            text: qsTr("Calendar")
-            isSelected: bar.currentIndex == 0
-        }
-        CustomTabButton {
-            text: qsTr("Messages")
-            isSelected: bar.currentIndex == 1
-        }
-        CustomTabButton {
-            text: qsTr("Archive")
-            isSelected: bar.currentIndex == 2
-        }
-        CustomTabButton {
-            text: qsTr("Profile")
-            isSelected: bar.currentIndex == 3
-        }
-        CustomTabButton {
-            text: qsTr("Discover")
-            isSelected: bar.currentIndex == 4
+            Button{
+                onClicked: {
+                    if(Style.currentThemeName === "DayCustomBaseColors")
+                        Style.setTheme("NightColors")
+                    else
+                        Style.setTheme("DayCustomBaseColors")
+                }
+            }
         }
     }
 }

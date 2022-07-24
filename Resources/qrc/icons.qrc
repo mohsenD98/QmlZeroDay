@@ -6,5 +6,6 @@
         <file>../icons/info/info_search.png</file>
         <file>../icons/info/info_search@2x.png</file>
         <file>../icons/info/info_search@3x.png</file>
+        <file>../icons/mGram/logo.png</file>
     </qresource>
 </RCC>

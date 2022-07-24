@@ -11,18 +11,18 @@ int main(int argc, char *argv[])
 #endif
     QGuiApplication app(argc, argv);
 
-    QTranslator translator;
-    const QStringList uiLanguages = QLocale::system().uiLanguages();
-    for (const QString &locale : uiLanguages) {
-        const QString baseName = "QMLTelegram_" + QLocale(locale).name();
-        if (translator.load(":/i18n/" + baseName)) {
-            app.installTranslator(&translator);
-            break;
-        }
-    }
+//    QTranslator translator;
+//    const QStringList uiLanguages = QLocale::system().uiLanguages();
+//    for (const QString &locale : uiLanguages) {
+//        const QString baseName = "QMLTelegram_" + QLocale(locale).name();
+//        if (translator.load(":/i18n/" + baseName)) {
+//            app.installTranslator(&translator);
+//            break;
+//        }
+//    }
 
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/SourceFiles/view/main.qml"));
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)

@@ -4,18 +4,13 @@
         <file>style/colors/colors.qml</file>
         <file>style/Themes/dayBlue/background.png</file>
         <file>style/Themes/dayBlue/colors.qml</file>
-        <file>style/Themes/dayBlue/colors.text</file>
         <file>style/Themes/dayCustomBase/background.jpg</file>
         <file>style/Themes/dayCustomBase/colors.qml</file>
-        <file>style/Themes/dayCustomBase/colors.text</file>
         <file>style/Themes/night/background.png</file>
         <file>style/Themes/night/colors.qml</file>
-        <file>style/Themes/night/colors.text</file>
         <file>style/Themes/nightCustomBase/background.jpg</file>
         <file>style/Themes/nightCustomBase/colors.qml</file>
-        <file>style/Themes/nightCustomBase/colors.text</file>
         <file>style/Themes/nightGreen/background.png</file>
         <file>style/Themes/nightGreen/colors.qml</file>
-        <file>style/Themes/nightGreen/colors.text</file>
     </qresource>
 </RCC>

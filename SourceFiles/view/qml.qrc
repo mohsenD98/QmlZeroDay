@@ -14,5 +14,8 @@
         <file>style/themes/nightCustomBase/NightCustomColors.qml</file>
         <file>style/themes/nightGreen/background.png</file>
         <file>style/themes/nightGreen/NightGreenColors.qml</file>
+        <file>components/toolbar/ListHeader.qml</file>
+        <file>components/toolbar/TitleHeader.qml</file>
+        <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

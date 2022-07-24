@@ -4,6 +4,8 @@ import QtQuick.Controls 2.12
 import Style 1.0
 
 import "../components/toolbar"
+import "../components/buttons"
+import "../tools"
 
 Rectangle {
     id:root
@@ -23,6 +25,9 @@ Rectangle {
                 height: 50
                 width: parent.width
                 color: "transparent"
+                onSettingsBtnClicked:{
+                    mainMenu.open()
+                }
             }
             ListHeader{
                 id: bar
@@ -40,8 +45,6 @@ Rectangle {
         anchors.bottom: parent.bottom
         currentIndex: bar.currentSelectedBarIndex
         onCurrentIndexChanged: bar.setIndex(currentIndex)
-
-
         Repeater {
             model: 5
             Loader {
@@ -55,6 +58,31 @@ Rectangle {
                     }
                 }
             }
+        }
+    }
+
+    Fab {
+        width: 62
+        height: width
+        radius: width/2
+        color: Style.theme.dialogsBgActive
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 20
+    }
+
+    Drawer{
+        id: mainMenu
+        width: Math.min(parent.width/1.4, 360)
+        height: parent.height
+        edge: Qt.LeftEdge
+        dim: true
+        modal: false
+        Overlay.modeless: Rectangle {
+            color: "#33000000"
+        }
+        background: Rectangle{
+            color: headerBox.color
         }
     }
 }

@@ -17,5 +17,8 @@
         <file>components/toolbar/ListHeader.qml</file>
         <file>components/toolbar/TitleHeader.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>components/toolbar/CustomTabButton.qml</file>
+        <file>tools/RippleLayout.qml</file>
+        <file>components/buttons/Fab.qml</file>
     </qresource>
 </RCC>

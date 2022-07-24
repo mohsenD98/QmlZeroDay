@@ -17,25 +17,26 @@ Rectangle {
         width: parent.width
         Material.accent: Style.theme.sideBarIconFgActive
         Material.background: "transparent"
-        TabButton {
+
+        CustomTabButton {
             text: qsTr("Calendar")
-            font.capitalization: Font.MixedCase
+            isSelected: bar.currentIndex == 0
         }
-        TabButton {
+        CustomTabButton {
             text: qsTr("Messages")
-            font.capitalization: Font.MixedCase
+            isSelected: bar.currentIndex == 1
         }
-        TabButton {
+        CustomTabButton {
             text: qsTr("Archive")
-            font.capitalization: Font.MixedCase
+            isSelected: bar.currentIndex == 2
         }
-        TabButton {
+        CustomTabButton {
             text: qsTr("Profile")
-            font.capitalization: Font.MixedCase
+            isSelected: bar.currentIndex == 3
         }
-        TabButton {
+        CustomTabButton {
             text: qsTr("Discover")
-            font.capitalization: Font.MixedCase
+            isSelected: bar.currentIndex == 4
         }
     }
 }

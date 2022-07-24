@@ -1,3 +1,6 @@
+# change black background of icons to transparent !
+
+
 from pathlib import Path
 import cv2
 

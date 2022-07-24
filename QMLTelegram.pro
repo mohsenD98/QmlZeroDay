@@ -11,6 +11,7 @@ RESOURCES += \
         Resources/qrc/emoji_5.qrc \
         Resources/qrc/emoji_6.qrc \
         Resources/qrc/emoji_preview.qrc \
+        Resources/qrc/icons.qrc \
         Resources/qrc/sounds.qrc \
         SourceFiles/view/qml.qrc \
         translations.qrc

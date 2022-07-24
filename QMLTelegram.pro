@@ -1,24 +1,25 @@
 QT += quick
 
-# You can make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
 SOURCES += \
-        main.cpp
+        ./SourceFiles/main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += \
+        Resources/qrc/emoji_1.qrc \
+        Resources/qrc/emoji_2.qrc \
+        Resources/qrc/emoji_3.qrc \
+        Resources/qrc/emoji_4.qrc \
+        Resources/qrc/emoji_5.qrc \
+        Resources/qrc/emoji_6.qrc \
+        Resources/qrc/emoji_preview.qrc \
+        Resources/qrc/sounds.qrc \
+        SourceFiles/view/qml.qrc
 
-TRANSLATIONS += \
-    QMLTelegram_fa_IR.ts
-CONFIG += lrelease
-CONFIG += embed_translations
+#TRANSLATIONS += \
+#    QMLTelegram_fa_IR.ts
 
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+#CONFIG += lrelease
 
-# Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
+#CONFIG += embed_translations
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

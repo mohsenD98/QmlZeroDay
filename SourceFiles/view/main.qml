@@ -3,20 +3,22 @@ import QtQuick.Controls 2.12
 import QtQuick.Window 2.12
 import QtGraphicalEffects 1.0
 
-Window {
+import Style 1.0
+
+ApplicationWindow {
     id: mainWindow
     visible: true
     width: 480
     height: 720
     title: qsTr("Qml Telegram")
-    color: "purple"// materialStatics.grey_100_
+    color: "black"
     flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
            | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0)
 
     StackView {
         id: stackview
         anchors.fill: parent
-//        initialItem: "qrc:/Layouts/AppMainWindow.qml"
+        initialItem: "qrc:/layouts/AppMainActivity.qml"
         Keys.onBackPressed: pop()
         focus: true
 

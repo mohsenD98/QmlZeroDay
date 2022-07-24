@@ -374,7 +374,7 @@ Item
 	property color profileVerifiedCheckFg: "#ffffff"
 	property color profileAdminStartFg: "#62a9e6"
 	property color notificationsBoxMonitorFg: windowFg
-	property color notificationsBoxScreenBg: "dialogsBgActive"
+    property color notificationsBoxScreenBg: dialogsBgActive
 	property color notificationSampleUserpicFg: windowBgActive
 	property color notificationSampleCloseFg: "#d7d7d7"
 	property color notificationSampleTextFg: "#d7d7d7"
@@ -458,4 +458,6 @@ Item
 	property color sideBarIconFgActive: "#5eb5f7"
 	property color sideBarBadgeBg: "#5eb5f7"
 	property color sideBarBadgeBgMuted: "#768c9e"
+
+    Behavior on windowBg { ColorAnimation { duration: 100 } }
 }

@@ -21,6 +21,9 @@ int main(int argc, char *argv[])
 //        }
 //    }
 
+    // We register the qml file by specifying its path.
+    qmlRegisterSingletonType(QUrl("qrc:/style/Style.qml"), "Style", 1, 0, "Style");
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

@@ -3,5 +3,8 @@
         <file>../icons/dialogs/dialogs_menu.png</file>
         <file>../icons/dialogs/dialogs_menu@2x.png</file>
         <file>../icons/dialogs/dialogs_menu@3x.png</file>
+        <file>../icons/info/info_search.png</file>
+        <file>../icons/info/info_search@2x.png</file>
+        <file>../icons/info/info_search@3x.png</file>
     </qresource>
 </RCC>

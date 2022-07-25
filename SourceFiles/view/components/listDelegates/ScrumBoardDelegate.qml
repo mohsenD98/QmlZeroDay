@@ -1,8 +1,9 @@
 import QtQuick 2.12
-
 import QtGraphicalEffects 1.0
 
 import Style 1.0
+
+import "../../tools"
 
 Rectangle {
     id: root
@@ -17,6 +18,8 @@ Rectangle {
     property string  lbl2Options
     property color imageBaseColor
     property string icon
+
+    signal selected
 
     Rectangle{
         id: imageSection
@@ -95,5 +98,19 @@ Rectangle {
                 font.family: "Open Sans"
             }
         }
+    }
+
+    MouseArea{
+        id: mouse
+        anchors.fill: parent
+        onClicked: {
+            selected()
+        }
+    }
+
+    RippleLayout{
+        anchors.fill: parent
+        mRadius: 4
+        mouseArea: mouse
     }
 }

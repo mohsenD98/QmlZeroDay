@@ -26,6 +26,8 @@ Rectangle {
             lbl2: qsTr("Labels:   ")
             lbl2Options: qsTr("important, better Do, shoud Do")
             imageBaseColor: Style.theme.sideBarIconFgActive
+
+            onSelected: pageFrame.open()
         }
         ScrumBoardDelegate{
             width: parent.width

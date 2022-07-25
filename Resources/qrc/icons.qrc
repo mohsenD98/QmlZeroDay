@@ -10,5 +10,18 @@
         <file>../icons/listItems/kanban.png</file>
         <file>../icons/listItems/calendar.png</file>
         <file>../icons/listItems/timeline.png</file>
+        <file>../icons/menu/mute_for_plain@3x.png</file>
+        <file>../icons/info/info_report.png</file>
+        <file>../icons/info/info_report@2x.png</file>
+        <file>../icons/info/info_report@3x.png</file>
+        <file>../icons/mediaview_more.png</file>
+        <file>../icons/mediaview_more@2x.png</file>
+        <file>../icons/mediaview_more@3x.png</file>
+        <file>../icons/settings/add.png</file>
+        <file>../icons/settings/add@2x.png</file>
+        <file>../icons/settings/add@3x.png</file>
+        <file>../icons/media_play.png</file>
+        <file>../icons/media_play@2x.png</file>
+        <file>../icons/media_play@3x.png</file>
     </qresource>
 </RCC>

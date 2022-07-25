@@ -20,8 +20,16 @@
         <file>components/toolbar/CustomTabButton.qml</file>
         <file>tools/RippleLayout.qml</file>
         <file>components/buttons/Fab.qml</file>
-        <file>components/drawer/CustomDrawer.qml</file>
+        <file>components/drawer/CustomMenuDrawer.qml</file>
         <file>components/listDelegates/ScrumBoardDelegate.qml</file>
         <file>layouts/mainActivityPages/BoardsPage.qml</file>
+        <file>components/drawer/CustomPageDrawer.qml</file>
+        <file>layouts/KanbanActivity.qml</file>
+        <file>components/toolbar/BoardHeaderLayout.qml</file>
+        <file>components/editField/BoardSearchBar.qml</file>
+        <file>components/listDelegates/BoardCard.qml</file>
+        <file>components/listDelegates/BoardCardColumn.qml</file>
+        <file>components/buttons/CustomButton.qml</file>
+        <file>components/listDelegates/CardLabel.qml</file>
     </qresource>
 </RCC>

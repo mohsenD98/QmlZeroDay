@@ -44,20 +44,18 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        anchors.topMargin: 8
         currentIndex: bar.currentSelectedBarIndex
         onCurrentIndexChanged: bar.setIndex(currentIndex)
         Repeater {
-            model: 5
+            model: ["qrc:/layouts/mainActivityPages/BoardsPage.qml",
+                "qrc:/layouts/mainActivityPages/BoardsPage.qml",
+                "qrc:/layouts/mainActivityPages/BoardsPage.qml",
+                "qrc:/layouts/mainActivityPages/BoardsPage.qml",
+                "qrc:/layouts/mainActivityPages/BoardsPage.qml"]
             Loader {
                 active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
-                sourceComponent: Rectangle {
-                    color: "transparent"
-                    Text {
-                        anchors.centerIn: parent
-                        color: "white"
-                        text: index
-                    }
-                }
+                source: modelData
             }
         }
     }

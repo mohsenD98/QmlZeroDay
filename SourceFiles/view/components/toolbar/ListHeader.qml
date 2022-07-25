@@ -19,11 +19,11 @@ Rectangle {
         Material.background: "transparent"
 
         CustomTabButton {
-            text: qsTr("Calendar")
+            text: qsTr("Boards")
             isSelected: bar.currentIndex == 0
         }
         CustomTabButton {
-            text: qsTr("Messages")
+            text: qsTr("Diary")
             isSelected: bar.currentIndex == 1
         }
         CustomTabButton {
@@ -31,7 +31,7 @@ Rectangle {
             isSelected: bar.currentIndex == 2
         }
         CustomTabButton {
-            text: qsTr("Profile")
+            text: qsTr("Catalan")
             isSelected: bar.currentIndex == 3
         }
         CustomTabButton {

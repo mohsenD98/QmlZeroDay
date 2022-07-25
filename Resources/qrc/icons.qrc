@@ -7,5 +7,8 @@
         <file>../icons/info/info_search@2x.png</file>
         <file>../icons/info/info_search@3x.png</file>
         <file>../icons/mGram/logo.png</file>
+        <file>../icons/listItems/kanban.png</file>
+        <file>../icons/listItems/calendar.png</file>
+        <file>../icons/listItems/timeline.png</file>
     </qresource>
 </RCC>

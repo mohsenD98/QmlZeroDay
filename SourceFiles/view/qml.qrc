@@ -21,5 +21,7 @@
         <file>tools/RippleLayout.qml</file>
         <file>components/buttons/Fab.qml</file>
         <file>components/drawer/CustomDrawer.qml</file>
+        <file>components/listDelegates/ScrumBoardDelegate.qml</file>
+        <file>layouts/mainActivityPages/BoardsPage.qml</file>
     </qresource>
 </RCC>

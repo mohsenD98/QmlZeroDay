@@ -31,5 +31,11 @@
         <file>components/listDelegates/BoardCardColumn.qml</file>
         <file>components/buttons/CustomButton.qml</file>
         <file>components/listDelegates/CardLabel.qml</file>
+        <file>components/dragableLayout/DragableColumn.qml</file>
+        <file>components/drawer/CustomAddCardDrawer.qml</file>
+        <file>components/listDelegates/LabelSelectionRow.qml</file>
+        <file>components/buttons/GlowingButton.qml</file>
+        <file>components/menu/CardMenuOptions.qml</file>
+        <file>components/listDelegates/MenuRow.qml</file>
     </qresource>
 </RCC>

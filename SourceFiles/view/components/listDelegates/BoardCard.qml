@@ -5,6 +5,7 @@ import QtQuick.Controls 2.12
 import Style 1.0
 
 import "../../tools"
+import "../menu"
 
 Item {
     width: parent.width
@@ -12,14 +13,17 @@ Item {
 
     property bool glowing: false
     property string title
+    property var labels
     property var labelsModel: []
-    signal cardSelected
 
-    MouseArea{
-        anchors.fill: parent
-        onClicked: {
-            glowing = !glowing
-            cardSelected()
+    signal deleteRequest
+    signal duplicateRequest
+
+    onLabelsChanged: {
+        var splitted = labels.split(",")
+
+        for(var i=0; i<splitted.length; i= i+2){
+            labelsModel.push({title:splitted[i] , color:splitted[i+1]})
         }
     }
 
@@ -47,7 +51,7 @@ Item {
         opacity: 1
         anchors.centerIn: parent
         width: parent.width - 12
-        height: inpText.implicitHeight * 1.3 + labelsFlow.height + 10
+        height: 140//inpText.implicitHeight * 1.3 + labelsFlow.height + 10
         radius: 4
 
         RoundButton{
@@ -60,6 +64,21 @@ Item {
             icon.source: "qrc:/../icons/mediaview_more@3x.png"
             opacity: .5
             flat: true
+
+            onClicked: cardMenuOptions.open()
+        }
+
+        CardMenuOptions{
+            id: cardMenuOptions
+            x: options.x + options.width/2
+            y: options.y + options.height
+
+            onDeleted:{
+                deleteRequest()
+            }
+            onDuplicated: {
+                duplicateRequest()
+            }
         }
 
         Text {
@@ -79,13 +98,13 @@ Item {
 
         Flow{
             id: labelsFlow
-            anchors.top: inpText.bottom
-            anchors.topMargin: 16
+            anchors.bottom: dateText.top
+            anchors.bottomMargin: 8
             anchors.leftMargin: 8
             anchors.rightMargin: 8
             anchors.left: parent.left
             anchors.right: parent.right
-            height: 45
+            height: childrenRect.height
             spacing: 8
 
             Repeater{

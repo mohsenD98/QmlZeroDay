@@ -6,12 +6,13 @@ import Style 1.0
 
 import "../../tools"
 import "../../components/buttons"
+import "../../components/dragableLayout"
 
 Rectangle {
     id: root
     radius: 2
     color: Style.theme.titleBgActive
-    clip: true
+    clip: false
 
     width: simpleView? 35 : 250
     height: simpleView? parent.height - 8 : cardsCol.height + smallestHeight
@@ -100,57 +101,27 @@ Rectangle {
         flat: true
     }
 
-    Column{
+    DragableColumn{
         id: cardsCol
         anchors.top: columnCollapsorRow.bottom
         anchors.topMargin: 18
         visible: !simpleView
         anchors.right: parent.right
         anchors.left: parent.left
-        spacing: 8
-
-        BoardCard{
-            id: card1
-            title: "Enter your work items in this column, then drag them to 'In Progress' when you are ready to start working on them."
-            labelsModel: [{"title":"fantastic", "color":"#1F7E38"}]
-            onCardSelected: {
-                card2.glowing = false
-                card3.glowing = false
-            }
-        }
-        BoardCard{
-            id: card2
-            title: "Enter your work items in this column, then drag them to 'In Progress' when you are ready to start working on them."
-            labelsModel: [{"title":"fantastic", "color":"#1F7E38"}, {"title":"Bug", "color":"#BC2E2A"}]
-            onCardSelected: {
-                card1.glowing = false
-                card3.glowing = false
-            }
-        }
-        BoardCard{
-            id: card3
-            title: "Enter your work items in this column, then drag them to 'In Progress' when you are ready to start working on them."
-            labelsModel: [{"title":"Exelent", "color":"#B6AA37"}]
-            onCardSelected: {
-                card1.glowing = false
-                card2.glowing = false
-            }
-        }
-
     }
 
-
-  CustomButton{
-      title: qsTr("Add a card")
-      color: "transparent"
-      visible: !simpleView
-      textColor: Style.theme.sideBarIconFgActive
-      anchors.bottom: parent.bottom
-      anchors.left: parent.left
-      anchors.margins: 4
-      radius: 4
-      onBtnClicked: {
-
-      }
-  }
+    CustomButton{
+        title: qsTr("Add a card")
+        color: "transparent"
+        visible: !simpleView
+        textColor: Style.theme.sideBarIconFgActive
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.margins: 4
+        radius: 4
+        onBtnClicked: {
+            addNewCard.refrenceCol = cardsCol
+            addNewCard.open()
+        }
+    }
 }

@@ -6,6 +6,7 @@ import Style 1.0
 import "../components/toolbar"
 import "../components/editField"
 import "../components/listDelegates"
+import "../components/drawer"
 
 Rectangle {
     id:root
@@ -29,6 +30,7 @@ Rectangle {
         height: 35
         anchors.horizontalCenter: parent.horizontalCenter
     }
+
     Rectangle{
         anchors.top: searchBar.bottom
         anchors.topMargin: 8
@@ -61,6 +63,13 @@ Rectangle {
             }
         }
 
+    }
+
+    CustomAddCardDrawer{
+        id: addNewCard
+        edge: Qt.RightEdge
+        width: parent.width/3 * 2
+        height: parent.height
     }
 
 

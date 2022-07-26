@@ -23,5 +23,12 @@
         <file>../icons/media_play.png</file>
         <file>../icons/media_play@2x.png</file>
         <file>../icons/media_play@3x.png</file>
+        <file>../icons/history_file_cancel.png</file>
+        <file>../icons/history_file_cancel@2x.png</file>
+        <file>../icons/history_file_cancel@3x.png</file>
+        <file>../icons/top_bar_group_call.png</file>
+        <file>../icons/top_bar_group_call@2x.png</file>
+        <file>../icons/top_bar_group_call@3x.png</file>
+        <file>../icons/passport_ready@3x.png</file>
     </qresource>
 </RCC>

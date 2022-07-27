@@ -19,13 +19,13 @@ GridView {
     }
 
     function reset(){
-        console.log(mKanbanTableId)
         visualModel.model.kanbanTableId = mKanbanTableId
         visualModel.model.colId = colName
     }
 
     property string mKanbanTableId
     property string colName
+    property real selectedCardRow: -1
 
     Behavior on height{
         NumberAnimation{
@@ -59,19 +59,20 @@ GridView {
                 title: model.cardDesc
                 labels: model.cardLabels
                 time: model.timestamp
-                glowing: false
-//                visible: colName === model.columnId
+                glowing: selectedCardRow === model.row
 
-//                TapHandler {
-//                    onTapped: {
-//                        for(var i=0; i < cardModel.count; ++i){
-//                            cardModel.setProperty(i, "selected", false)
-//                        }
-//                        cardModel.setProperty(index, "selected", true)
-//                        starRain.enabled= true
-//                        starRainTimer.running = true
-//                    }
-//                }
+                TapHandler {
+                    onTapped: {
+                        if(selectedCardRow === model.row){
+                            selectedCardRow = -1
+                        }else{
+                            selectedCardRow = model.row
+                        }
+
+                        starRain.enabled= true
+                        starRainTimer.running = true
+                    }
+                }
 
                 ParticleSystem {
                     anchors.fill: parent
@@ -132,11 +133,11 @@ GridView {
                 ]
 
                 onDeleteRequest: {
-//                    cardModel.remove(index)
+                    visualModel.model.removeCard(model.row)
                 }
 
                 onDuplicateRequest: {
-//                    cardModel.append({mLabelsModel:cardModel.get(index).mLabelsModel, mTitle:cardModel.get(index).mTitle, selected:false})
+                    addCard({mLabelsModel:model.cardLabels, mTitle:model.cardDesc, selected:false})
                 }
             }
         }

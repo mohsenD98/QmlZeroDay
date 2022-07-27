@@ -123,10 +123,18 @@ void SqlKanbanColumnsModel::addCard(const QString &kanbanTableId, const QString 
     newRecord.setValue("cardDesc", cardDesc);
     newRecord.setValue("cardLabels", labels);
     newRecord.setValue("columnId", colId);
+
     if (!insertRecord(rowCount(), newRecord)) {
-        qWarning() << "Failed to send message:" << lastError().text();
+        qWarning() << "Failed to add card:" << lastError().text();
         return;
     }
+
+    submitAll();
+}
+
+void SqlKanbanColumnsModel::removeCard(int row)
+{
+    removeRow(row);
 
     submitAll();
 }

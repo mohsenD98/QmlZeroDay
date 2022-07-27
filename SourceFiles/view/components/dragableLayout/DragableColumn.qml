@@ -2,6 +2,8 @@ import QtQuick 2.12
 import QtQml.Models 2.1
 import QtQuick.Particles 2.0
 
+import MGram.sql.Kanban 1.0
+
 import "../listDelegates"
 
 GridView {
@@ -13,8 +15,16 @@ GridView {
     clip: true
 
     function addCard(data){
-        cardModel.append({mLabelsModel:data.mLabelsModel, mTitle:data.mTitle, selected:data.selected})
+//        cardModel.append({mLabelsModel:data.mLabelsModel, mTitle:data.mTitle, selected:data.selected})
     }
+
+    function reset(){
+        console.log(mKanbanTableId)
+        visualModel.model.kanbanTableId = mKanbanTableId
+    }
+
+    property string mKanbanTableId
+    property string colName
 
     Behavior on height{
         NumberAnimation{
@@ -28,9 +38,7 @@ GridView {
 
     model: DelegateModel {
         id: visualModel
-        model: ListModel {
-            id: cardModel
-
+        model:SqlKanbanColumnsModel{
         }
 
         delegate: DropArea {
@@ -47,20 +55,20 @@ GridView {
                 id: card
                 property int visualIndex: 0
 
-                title: mTitle
-                labels: mLabelsModel
-                glowing: selected
+                title: model.cardDesc
+                labels: model.cardLabels
+                glowing: false
 
-                TapHandler {
-                    onTapped: {
-                        for(var i=0; i < cardModel.count; ++i){
-                            cardModel.setProperty(i, "selected", false)
-                        }
-                        cardModel.setProperty(index, "selected", true)
-                        starRain.enabled= true
-                        starRainTimer.running = true
-                    }
-                }
+//                TapHandler {
+//                    onTapped: {
+//                        for(var i=0; i < cardModel.count; ++i){
+//                            cardModel.setProperty(i, "selected", false)
+//                        }
+//                        cardModel.setProperty(index, "selected", true)
+//                        starRain.enabled= true
+//                        starRainTimer.running = true
+//                    }
+//                }
 
                 ParticleSystem {
                     anchors.fill: parent
@@ -121,11 +129,11 @@ GridView {
                 ]
 
                 onDeleteRequest: {
-                    cardModel.remove(index)
+//                    cardModel.remove(index)
                 }
 
                 onDuplicateRequest: {
-                    cardModel.append({mLabelsModel:cardModel.get(index).mLabelsModel, mTitle:cardModel.get(index).mTitle, selected:false})
+//                    cardModel.append({mLabelsModel:cardModel.get(index).mLabelsModel, mTitle:cardModel.get(index).mTitle, selected:false})
                 }
             }
         }

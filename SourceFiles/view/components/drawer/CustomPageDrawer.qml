@@ -17,10 +17,26 @@ Drawer{
     Overlay.modeless: Rectangle {
         color: "#33000000"
     }
+    property string mName
+    property string mColumns
+    property string mLabels
+
+    function reset(){
+        board.name= mName
+        board.columns= mColumns
+        board.labels= mLabels
+
+        board.reset()
+    }
+
     background: Rectangle{
         color: Style.theme.windowBg
 
         KanbanActivity{
+            id: board
+            name: mName
+            columns: mColumns
+            labels: mLabels
             anchors.fill: parent
         }
     }

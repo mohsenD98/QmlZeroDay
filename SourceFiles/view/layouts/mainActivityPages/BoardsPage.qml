@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 import Style 1.0
+import MGram.sql.Kanban 1.0
 
 import "../../components/listDelegates"
 
@@ -16,19 +17,31 @@ Rectangle {
         height: parent.height
         spacing: 4
 
-        ScrumBoardDelegate{
-            width: parent.width
-            height: 80
-            icon: "qrc:/icons/listItems/kanban.png"
-            title: qsTr("Kanaban Board")
-            lbl1: qsTr("Columns:  ")
-            lbl1Optins: qsTr("ToDo, InProgress, Done")
-            lbl2: qsTr("Labels:   ")
-            lbl2Options: qsTr("important, better Do, shoud Do")
-            imageBaseColor: Style.theme.sideBarIconFgActive
+        Repeater{
+            model: SqlKanbanTableModel {}
 
-            onSelected: pageFrame.open()
+            delegate: ScrumBoardDelegate{
+                width: parent.width
+                height: 80
+                icon: "qrc:/icons/listItems/kanban.png"
+                title: model.name
+                lbl1: qsTr("Columns:  ")
+                lbl1Optins: model.columns
+                lbl2: qsTr("Labels:   ")
+                lbl2Options:  model.labels
+                imageBaseColor: Style.theme.sideBarIconFgActive
+
+                onSelected: {
+                    pageFrame.mName= model.name
+                    pageFrame.mColumns= model.columns
+                    pageFrame.mLabels= model.labels
+
+                    pageFrame.reset()
+                    pageFrame.open()
+                }
+            }
         }
+
         ScrumBoardDelegate{
             width: parent.width
             height: 80
@@ -40,6 +53,7 @@ Rectangle {
             lbl2Options: qsTr("important, better Do, shoud Do")
             imageBaseColor: "#257862"
         }
+
         ScrumBoardDelegate{
             width: parent.width
             height: 80

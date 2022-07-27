@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
 
 import Style 1.0
+import MGram.sql.Kanban 1.0
 
 import "../../tools"
 import "../../components/buttons"
@@ -20,6 +21,12 @@ Rectangle {
     property real smallestHeight : 100
     property string  title
     property bool simpleView: false
+    property string kanbanName
+
+    function reset(){
+        cardsCol.mKanbanTableId = kanbanName
+        cardsCol.reset()
+    }
 
     Behavior on width{
         NumberAnimation{
@@ -108,6 +115,7 @@ Rectangle {
         visible: !simpleView
         anchors.right: parent.right
         anchors.left: parent.left
+        colName: title
     }
 
     CustomButton{

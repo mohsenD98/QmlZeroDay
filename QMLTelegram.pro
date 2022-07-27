@@ -1,7 +1,9 @@
-QT += quick
+QT += quick sql
 
 SOURCES += \
-        ./SourceFiles/main.cpp
+        ./SourceFiles/main.cpp \
+        SourceFiles/SqlKanbanColumnsModel.cpp \
+        SourceFiles/SqlKanbanTableModel.cpp
 
 RESOURCES += \
         Resources/qrc/emoji_1.qrc \
@@ -38,3 +40,7 @@ DISTFILES += \
     android/res/values/libs.xml
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+HEADERS += \
+    SourceFiles/SqlKanbanColumnsModel.h \
+    SourceFiles/SqlKanbanTableModel.h

@@ -9,7 +9,7 @@ import "../menu"
 
 Item {
     width: parent.width
-    height: rect.height
+    height: visible? rect.height : 0
 
     property bool glowing: false
     property string title

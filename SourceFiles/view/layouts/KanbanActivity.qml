@@ -2,6 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 import Style 1.0
+import MGram.sql.Kanban 1.0
+
 
 import "../components/toolbar"
 import "../components/editField"
@@ -12,6 +14,19 @@ Rectangle {
     id:root
     anchors.fill: parent
     color: Style.theme.windowBg
+
+    property string name
+    property string columns
+    property string labels
+
+    function reset(){
+        colsRepeater.kanbanBoardName = name
+        colsRepeater.model = columns.split(",")
+
+        for(var i=0; i<colsRepeater.count; ++i){
+            colsRepeater.itemAt(i).reset()
+        }
+    }
 
     BoardHeaderLayout{
         id: header
@@ -55,14 +70,16 @@ Rectangle {
                 spacing: 8
 
                 Repeater{
-                    model: ["To Do", "In Progress", "Done"]
+                    id: colsRepeater
+                    model: columns
+                    property string kanbanBoardName
                     delegate: BoardCardColumn{
                         title: modelData
+                        kanbanName: colsRepeater.kanbanBoardName
                     }
                 }
             }
         }
-
     }
 
     CustomAddCardDrawer{
@@ -71,8 +88,4 @@ Rectangle {
         width: parent.width/3 * 2
         height: parent.height
     }
-
-
-
-
 }

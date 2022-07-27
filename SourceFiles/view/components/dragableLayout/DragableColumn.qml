@@ -15,7 +15,7 @@ GridView {
     clip: true
 
     function addCard(data){
-//        cardModel.append({mLabelsModel:data.mLabelsModel, mTitle:data.mTitle, selected:data.selected})
+        visualModel.model.addCard(mKanbanTableId, data.mTitle, data.mLabelsModel, colName)
     }
 
     function reset(){
@@ -58,6 +58,7 @@ GridView {
 
                 title: model.cardDesc
                 labels: model.cardLabels
+                time: model.timestamp
                 glowing: false
 //                visible: colName === model.columnId
 

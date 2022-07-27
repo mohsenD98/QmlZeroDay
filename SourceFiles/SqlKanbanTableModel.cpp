@@ -39,7 +39,6 @@ QHash<int, QByteArray> SqlKanbanTableModel::roleNames() const
     return names;
 }
 
-#include <iostream>
 static void createTable()
 {
     if (QSqlDatabase::database().tables().contains(QStringLiteral("KanbanTables"))) {

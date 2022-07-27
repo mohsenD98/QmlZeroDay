@@ -14,6 +14,7 @@ Item {
     property bool glowing: false
     property string title
     property var labels
+    property var time
     property var labelsModel: []
 
     signal deleteRequest
@@ -119,7 +120,7 @@ Item {
 
         Text {
             id: dateText
-            text: "2022-10-11 02:25"
+            text: Qt.formatDateTime(time, "d MM hh:mm")
             anchors.left: parent.left
             anchors.leftMargin: 8
             anchors.bottom: parent.bottom

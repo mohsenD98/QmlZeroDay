@@ -49,6 +49,14 @@ static void createTable()
 }
 
 
+void SqlKanbanColumnsModel::setupFilters()
+{
+    const QString filterString = QString::fromLatin1(
+        "(kanbanTableId = '%1' AND columnId = '%2')").arg(m_kanbanTableId).arg(m_colId);
+    setFilter(filterString);
+    select();
+}
+
 QString SqlKanbanColumnsModel::kanbanTableId() const
 {
     return m_kanbanTableId;
@@ -61,12 +69,26 @@ void SqlKanbanColumnsModel::setKanbanTableId(const QString &kanbanTableId)
 
     m_kanbanTableId = kanbanTableId;
 
-    const QString filterString = QString::fromLatin1(
-        "(kanbanTableId = '%1' AND author = 'Mohsen')").arg(m_kanbanTableId);
-    setFilter(filterString);
-    select();
+    setupFilters();
 
     emit kanbanTableIdChanged();
+}
+
+QString SqlKanbanColumnsModel::colId() const
+{
+    return m_colId;
+}
+
+void SqlKanbanColumnsModel::setColId(const QString &colId)
+{
+    if (colId == m_colId)
+        return;
+
+    m_colId = colId;
+
+    setupFilters();
+
+    emit colIdChanged();
 }
 
 QVariant SqlKanbanColumnsModel::data(const QModelIndex &index, int role) const

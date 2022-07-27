@@ -21,6 +21,7 @@ GridView {
     function reset(){
         console.log(mKanbanTableId)
         visualModel.model.kanbanTableId = mKanbanTableId
+        visualModel.model.colId = colName
     }
 
     property string mKanbanTableId
@@ -58,6 +59,7 @@ GridView {
                 title: model.cardDesc
                 labels: model.cardLabels
                 glowing: false
+//                visible: colName === model.columnId
 
 //                TapHandler {
 //                    onTapped: {

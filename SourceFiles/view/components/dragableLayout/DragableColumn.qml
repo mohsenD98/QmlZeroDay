@@ -69,6 +69,13 @@ GridView {
 
                 property var refRoot: root
 
+                Component.onCompleted: {
+                    if(0 === model.row){
+                        starRain.enabled= true
+                        starRainTimer.running = true
+                    }
+                }
+
 
                 function addToNextColumn(){
                     var collist = allColIds.split(",")
@@ -87,16 +94,34 @@ GridView {
                     }
                 }
 
+                function addToPrevColumn(){
+                    var collist = allColIds.split(",")
+                    var currentId = collist.findIndex(q=>q === colName)
+
+                    if(currentId === -1){
+                        console.log("semething went wring! ")
+                        return
+                    }
+
+                    if(currentId === 0){
+                        // do nothing
+                    }else{
+                        visualModel.model.addCardAndRemove(model.row, mKanbanTableId, model.cardDesc, model.cardLabels, collist[currentId-1])
+                        refRoot.reloadAll()
+                    }
+                }
+
 
                 CardMoveOptions{
                     id: cardMoveOptions
 
+                    anchors.centerIn: parent
+
                     onNextColClicked: {
                         card.addToNextColumn()
-                        starRain.enabled= true
-                        starRainTimer.running = true
                     }
                     onPrevColClicked: {
+                        card.addToPrevColumn()
                     }
                 }
 
@@ -107,11 +132,6 @@ GridView {
                         }else{
                             selectedCardRow = model.row
                         }
-
-                        starRain.enabled= true
-                        starRainTimer.running = true
-                    }
-                    onLongPressed: {
                         cardMoveOptions.open()
                     }
                 }

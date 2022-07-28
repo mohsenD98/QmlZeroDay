@@ -5,6 +5,7 @@ import QtQuick.Particles 2.0
 import MGram.sql.Kanban 1.0
 
 import "../listDelegates"
+import "../menu"
 
 GridView {
     id: root
@@ -12,7 +13,6 @@ GridView {
     cellHeight: 150
     height: childrenRect.height
     width: parent.width
-    clip: true
 
     function addCard(data){
         visualModel.model.addCard(mKanbanTableId, data.mTitle, data.mLabelsModel, colName)
@@ -21,9 +21,14 @@ GridView {
     function reset(){
         visualModel.model.kanbanTableId = mKanbanTableId
         visualModel.model.colId = colName
+        visualModel.model.submitAll()
     }
 
+    signal reloadAll()
+
     property string mKanbanTableId
+    property var allColIds
+
     property string colName
     property real selectedCardRow: -1
 
@@ -39,7 +44,8 @@ GridView {
 
     model: DelegateModel {
         id: visualModel
-        model:SqlKanbanColumnsModel{
+        model: SqlKanbanColumnsModel{
+
         }
 
         delegate: DropArea {
@@ -61,6 +67,39 @@ GridView {
                 time: model.timestamp
                 glowing: selectedCardRow === model.row
 
+                property var refRoot: root
+
+
+                function addToNextColumn(){
+                    var collist = allColIds.split(",")
+                    var currentId = collist.findIndex(q=>q === colName)
+
+                    if(currentId === -1){
+                        console.log("semething went wring! ")
+                        return
+                    }
+
+                    if(currentId === collist.length-1){
+                        // do nothing
+                    }else{
+                        visualModel.model.addCardAndRemove(model.row, mKanbanTableId, model.cardDesc, model.cardLabels, collist[currentId+1])
+                        refRoot.reloadAll()
+                    }
+                }
+
+
+                CardMoveOptions{
+                    id: cardMoveOptions
+
+                    onNextColClicked: {
+                        card.addToNextColumn()
+                        starRain.enabled= true
+                        starRainTimer.running = true
+                    }
+                    onPrevColClicked: {
+                    }
+                }
+
                 TapHandler {
                     onTapped: {
                         if(selectedCardRow === model.row){
@@ -71,6 +110,9 @@ GridView {
 
                         starRain.enabled= true
                         starRainTimer.running = true
+                    }
+                    onLongPressed: {
+                        cardMoveOptions.open()
                     }
                 }
 

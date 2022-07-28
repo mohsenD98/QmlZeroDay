@@ -128,13 +128,18 @@ void SqlKanbanColumnsModel::addCard(const QString &kanbanTableId, const QString 
         qWarning() << "Failed to add card:" << lastError().text();
         return;
     }
+    submitAll();
+}
 
+void SqlKanbanColumnsModel::addCardAndRemove(int row, const QString &kanbanTableId, const QString &cardDesc, const QString &labels, const QString &colId)
+{
+    addCard(kanbanTableId, cardDesc,labels, colId);
+    removeCard(row);
     submitAll();
 }
 
 void SqlKanbanColumnsModel::removeCard(int row)
 {
     removeRow(row);
-
     submitAll();
 }

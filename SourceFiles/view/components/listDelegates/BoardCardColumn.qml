@@ -22,9 +22,13 @@ Rectangle {
     property string  title
     property bool simpleView: false
     property string kanbanName
+    property string allCols
+
+    signal reloadCols
 
     function reset(){
         cardsCol.mKanbanTableId = kanbanName
+        cardsCol.allColIds = allCols
         cardsCol.reset()
     }
 
@@ -42,6 +46,7 @@ Rectangle {
         anchors.leftMargin: -4
         anchors.verticalCenter: plusCard.verticalCenter
         rotation: !simpleView? 0 : 90
+        clip: false
 
         RoundButton{
             id: columnCollapsor
@@ -116,6 +121,11 @@ Rectangle {
         anchors.right: parent.right
         anchors.left: parent.left
         colName: title
+        clip: false
+
+        onReloadAll: {
+            reloadCols()
+        }
     }
 
     CustomButton{

@@ -37,5 +37,6 @@
         <file>components/buttons/GlowingButton.qml</file>
         <file>components/menu/CardMenuOptions.qml</file>
         <file>components/listDelegates/MenuRow.qml</file>
+        <file>components/menu/CardMoveOptions.qml</file>
     </qresource>
 </RCC>

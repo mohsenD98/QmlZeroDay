@@ -15,6 +15,14 @@ ApplicationWindow {
     flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
            | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0)
 
+
+    Component.onCompleted: {
+        if(Screen.width > Screen.height)
+        {
+            mainWindow.width = Screen.width / 2
+        }
+    }
+
     StackView {
         id: stackview
         anchors.fill: parent

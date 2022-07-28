@@ -28,7 +28,6 @@ static void connectToDatabase()
     // Ensure that we have a writable location on all devices.
     const QString fileName = writeDir.absolutePath() + "/kanban-database.sqlite3";
 
-    qDebug() << fileName;
     // When using the SQLite driver, open() will create the SQLite database if it doesn't exist.
     database.setDatabaseName(fileName);
     if (!database.open()) {

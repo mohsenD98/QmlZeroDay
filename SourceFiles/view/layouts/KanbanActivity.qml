@@ -68,14 +68,25 @@ Rectangle {
                 width: 3*250 + 10
                 height: root.height
                 spacing: 8
+                clip: false
 
                 Repeater{
                     id: colsRepeater
                     model: columns
+                    clip: false
                     property string kanbanBoardName
+
                     delegate: BoardCardColumn{
                         title: modelData
                         kanbanName: colsRepeater.kanbanBoardName
+                        allCols: columns
+                        clip: false
+
+                        onReloadCols: {
+                            for(var i=0 ; i<columns.split(",").length; ++i){
+                                colsRepeater.itemAt(i).reset()
+                            }
+                        }
                     }
                 }
             }

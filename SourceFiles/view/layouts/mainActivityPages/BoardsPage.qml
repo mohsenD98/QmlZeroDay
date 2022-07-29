@@ -5,10 +5,18 @@ import Style 1.0
 import MGram.sql.Kanban 1.0
 
 import "../../components/listDelegates"
+import "../../components/buttons"
 
 Rectangle {
     id:root
     color: "Transparent"
+
+    function closeOverlay(){
+        fab.controllerOptions.height = 0
+        fab.closing = true
+        moverlay.visible = !moverlay.visible
+
+    }
 
     Column{
         anchors.right: parent.right
@@ -18,26 +26,35 @@ Rectangle {
         spacing: 4
 
         Repeater{
+            id: kanbanRepeater
             model: SqlKanbanTableModel {}
 
             delegate: ScrumBoardDelegate{
                 width: parent.width
                 height: 80
                 icon: "qrc:/icons/listItems/kanban.png"
-                title: model.name
+                title: model.name?model.name:""
                 lbl1: qsTr("Columns:  ")
-                lbl1Optins: model.columns
+                lbl1Optins: model.columns?model.columns:""
                 lbl2: qsTr("Labels:   ")
-                lbl2Options:  model.labels
+                lbl2Options:  model.labels?model.labels: ""
                 imageBaseColor: Style.theme.sideBarIconFgActive
 
                 onSelected: {
-                    pageFrame.mName= model.name
-                    pageFrame.mColumns= model.columns
-                    pageFrame.mLabels= model.labels
+                    pageFrame.tableModel = model
+                    pageFrame.index = index
+                    pageFrame.sqlModel = kanbanRepeater.model
 
                     pageFrame.reset()
                     pageFrame.open()
+                }
+
+                onDeleteRequested: {
+                    kanbanRepeater.model.removeTable(model.row)
+                }
+
+                onDuplicateRequested: {
+                    console.log("under develop ...")
                 }
             }
         }
@@ -67,4 +84,54 @@ Rectangle {
         }
     }
 
+    Rectangle {
+        id: moverlay
+        anchors.fill: parent
+        color: "#20000000"
+        visible: false
+        z: 1
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                closeOverlay()
+            }
+        }
+    }
+
+    FabMore {
+        id: fab
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        icon: "+"
+        enableText: true
+        backgroundColor: "#1976D2"
+        accentColor: "white"
+        overlay: moverlay
+        z: 2
+        model: [{
+                "name": "Add Kanban",
+                "icon": "+",
+                "baseColor": "#5eb5f7"
+            }, {
+                "name": "Add Weekly",
+                "icon": "+",
+                "baseColor": "#257862"
+            }, {
+                "name": "Add timeLine",
+                "icon": "+",
+                "baseColor": "#D90171"
+            }]
+
+        onItemCalled: {
+            closeOverlay()
+
+            if(item === "Add Kanban"){
+                kanbanRepeater.model.addTabel("Tap To Set Title table _ "+kanbanRepeater.model.rowCount(), 'To Do,In Progress,Done','Feature,Bug,Important')
+            }
+            if(item === "Add Weekly"){
+                console.log("under develop")
+            }
+        }
+    }
 }

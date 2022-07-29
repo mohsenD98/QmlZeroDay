@@ -19,6 +19,8 @@ Rectangle {
     property string columns
     property string labels
 
+    signal tableNameChanged(var tbNewName)
+
     function reset(){
         colsRepeater.kanbanBoardName = name
         colsRepeater.model = columns.split(",")
@@ -37,13 +39,29 @@ Rectangle {
         onApplogoClicked: pageFrame.close()
     }
 
-    BoardSearchBar{
-        id: searchBar
+    EditableText{
+        id: editableName
         anchors.top: header.bottom
         anchors.topMargin: 8
-        width: parent.width * .95
         height: 35
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 8
+        currentText: colsRepeater.kanbanBoardName
+
+        onBoardNameChanged: {
+            tableNameChanged(newName)
+        }
+    }
+
+    BoardSearchBar{
+        id: searchBar
+        anchors.top: editableName.bottom
+        anchors.topMargin: 8
+        anchors.left: parent.left
+        anchors.leftMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+        height: 35
     }
 
     Rectangle{
@@ -75,6 +93,10 @@ Rectangle {
                     model: columns
                     clip: false
                     property string kanbanBoardName
+
+                    onKanbanBoardNameChanged: {
+                        editableName.currentText = kanbanBoardName
+                    }
 
                     delegate: BoardCardColumn{
                         title: modelData

@@ -7,6 +7,8 @@ import "../../tools"
 Rectangle{
     id: fab
 
+    signal fabClicked
+
     Text {
         text: qsTr("+")
         font.pixelSize: 22
@@ -17,7 +19,7 @@ Rectangle{
     MouseArea{
         id: fabBtnMouseArea
         anchors.fill: parent
-
+        onClicked: fabClicked()
     }
 
     RippleLayout{

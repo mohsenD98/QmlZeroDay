@@ -48,8 +48,6 @@ int main(int argc, char *argv[])
     format.setSamples(8);
     QSurfaceFormat::setDefaultFormat(format);
 
-
-
 //    QTranslator translator;
 //    const QStringList uiLanguages = QLocale::system().uiLanguages();
 //    for (const QString &locale : uiLanguages) {

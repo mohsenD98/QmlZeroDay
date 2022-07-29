@@ -4,7 +4,6 @@ import QtQuick.Controls 2.12
 import Style 1.0
 
 import "../components/toolbar"
-import "../components/buttons"
 import "../components/drawer"
 import "../tools"
 
@@ -58,16 +57,6 @@ Rectangle {
                 source: modelData
             }
         }
-    }
-
-    Fab {
-        width: 62
-        height: width
-        radius: width/2
-        color: Style.theme.dialogsBgActive
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.margins: 20
     }
 
     CustomMenuDrawer{

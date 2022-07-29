@@ -17,14 +17,15 @@ Drawer{
     Overlay.modeless: Rectangle {
         color: "#33000000"
     }
-    property string mName
-    property string mColumns
-    property string mLabels
+    property var tableModel
+    property var sqlModel
+    property var index
 
     function reset(){
-        board.name= mName
-        board.columns= mColumns
-        board.labels= mLabels
+        console.log(tableModel)
+        board.name= tableModel.name
+        board.columns= tableModel.columns
+        board.labels= tableModel.labels
 
         board.reset()
     }
@@ -34,10 +35,11 @@ Drawer{
 
         KanbanActivity{
             id: board
-            name: mName
-            columns: mColumns
-            labels: mLabels
             anchors.fill: parent
+
+            onTableNameChanged: {
+                control.sqlModel.updateTableName(control.index, tbNewName)
+            }
         }
     }
 }

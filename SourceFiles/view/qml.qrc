@@ -38,5 +38,9 @@
         <file>components/menu/CardMenuOptions.qml</file>
         <file>components/listDelegates/MenuRow.qml</file>
         <file>components/menu/CardMoveOptions.qml</file>
+        <file>components/buttons/FabMore.qml</file>
+        <file>components/listDelegates/FabMoreDelegate.qml</file>
+        <file>components/menu/ScrumBoardDelegateOptions.qml</file>
+        <file>components/editField/EditableText.qml</file>
     </qresource>
 </RCC>

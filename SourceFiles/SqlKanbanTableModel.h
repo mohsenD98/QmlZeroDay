@@ -1,14 +1,18 @@
 #pragma once
 
-#include <QSqlQueryModel>
+#include <QSqlTableModel>
 
-class SqlKanbanTableModel: public QSqlQueryModel
+class SqlKanbanTableModel: public QSqlTableModel
 {
+    Q_OBJECT
 public:
-    SqlKanbanTableModel(QObject *parent = 0);
+    SqlKanbanTableModel(QObject *parent=0);
 
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
 
+     Q_INVOKABLE void addTabel(const QString &name, const QString &columns, const QString &labels);
+     Q_INVOKABLE void removeTable(int row);
+     Q_INVOKABLE void updateTableName(const int &row, const QString &name);
 };
 

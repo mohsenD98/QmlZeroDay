@@ -4,6 +4,7 @@ import QtGraphicalEffects 1.0
 import Style 1.0
 
 import "../../tools"
+import "../menu"
 
 Rectangle {
     id: root
@@ -20,6 +21,22 @@ Rectangle {
     property string icon
 
     signal selected
+    signal duplicateRequested
+    signal deleteRequested
+
+    ScrumBoardDelegateOptions{
+        id: scrumBoardDelegateOptions
+        anchors.centerIn: parent
+
+        onDeleteClicked: {
+            deleteRequested()
+        }
+
+        onDuplicateClicked: {
+            duplicateRequested()
+        }
+
+    }
 
     Rectangle{
         id: imageSection
@@ -105,6 +122,9 @@ Rectangle {
         anchors.fill: parent
         onClicked: {
             selected()
+        }
+        onPressAndHold: {
+            scrumBoardDelegateOptions.open()
         }
     }
 

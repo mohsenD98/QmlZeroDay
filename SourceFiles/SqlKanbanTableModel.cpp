@@ -7,10 +7,14 @@
 
 static void createTable();
 
+static const char *kanbanTableName = "KanbanTables";
+
 SqlKanbanTableModel::SqlKanbanTableModel(QObject *parent):
-    QSqlQueryModel(parent)
+    QSqlTableModel(parent)
 {
     createTable();
+    setTable(kanbanTableName);;
+    setEditStrategy(QSqlTableModel::OnManualSubmit);
 
     QSqlQuery query;
     if (!query.exec("SELECT * FROM KanbanTables"))
@@ -41,7 +45,7 @@ QHash<int, QByteArray> SqlKanbanTableModel::roleNames() const
 
 static void createTable()
 {
-    if (QSqlDatabase::database().tables().contains(QStringLiteral("KanbanTables"))) {
+    if (QSqlDatabase::database().tables().contains(kanbanTableName)) {
         // The table already exists; we don't need to do anything.
         return;
     }
@@ -57,7 +61,36 @@ static void createTable()
         qFatal("Failed to query database: %s", qPrintable(query.lastError().text()));
     }
 
-    query.exec("INSERT INTO KanbanTables VALUES('Kanban - daily to do', 'To Do,In Progress,Done','Bug,Feature,Important')");
     query.exec("INSERT INTO KanbanTables VALUES('Kanban - weekly to do', 'To Do,In Progress,Test,Done','Bug,Important')");
     query.exec("INSERT INTO KanbanTables VALUES('Kanban - monthly to do', 'To Do,Done','Feature,Important')");
+}
+
+void SqlKanbanTableModel::addTabel(const QString &name, const QString &columns, const QString &labels)
+{
+    QSqlRecord newRecord = record();
+    newRecord.setValue("name", name);
+    newRecord.setValue("columns", columns);
+    newRecord.setValue("labels", labels);
+
+    if (!insertRecord(rowCount(), newRecord)) {
+        qWarning() << "Failed to add Table:" << lastError().text();
+        return;
+    }
+
+    submitAll();
+}
+
+void SqlKanbanTableModel::removeTable(int row)
+{
+    removeRow(row);
+    submitAll();
+}
+
+void SqlKanbanTableModel::updateTableName(const int &row, const QString &newVal)
+{
+    if(!setData(index(row, 0), newVal)){
+        qWarning() << "Failed to setData Table:" << lastError().text();
+        return;
+    }
+    submitAll();
 }

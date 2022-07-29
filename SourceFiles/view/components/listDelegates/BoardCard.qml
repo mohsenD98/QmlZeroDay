@@ -22,6 +22,9 @@ Item {
 
     onLabelsChanged: {
         var splitted = labels.split(",")
+        if(splitted.length % 2 == 1){
+            splitted = splitted.slice(0,splitted.length-1)
+        }
 
         for(var i=0; i<splitted.length; i= i+2){
             labelsModel.push({title:splitted[i] , color:splitted[i+1]})

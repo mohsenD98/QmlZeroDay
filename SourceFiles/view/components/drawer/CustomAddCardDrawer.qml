@@ -276,41 +276,47 @@ Drawer{
                     }
                 }
             }
-        }
 
+            GlowingButton{
+                title: "Add this Card"
+                y: input.focus? labelsFlow.y+labelsFlow.height + 10: parent.y+parent.height - 100
+                glowColor: Style.theme.sideBarIconFgActive
+                baseColor: headerBox.color
+                anchors.bottomMargin: input.focus? 8: 50
+                anchors.horizontalCenter: parent.horizontalCenter
 
-        GlowingButton{
-            title: "Add this Card"
-            glowColor: Style.theme.sideBarIconFgActive
-            baseColor: headerBox.color
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            onBtnClicked:{
-
-                var mLabelsModel=""
-                for(var i=0 ; i< lblData.length ; ++i){
-                    if(lblData[i].lblIsSelected){
-                        mLabelsModel += lblData[i].mText
-                        mLabelsModel += ","
-                        mLabelsModel += lblData[i].mColor
-
-                        if(i!=lblData.length-1)
-                             mLabelsModel += ","
-
+                Behavior on y{
+                    NumberAnimation{
+                        duration: 400
                     }
                 }
 
-                var data = {
-                    "mLabelsModel": mLabelsModel,
-                    "mTitle": input.text,
-                    "selected": false
-                }
+                onBtnClicked:{
 
-                refrenceCol.addCard(data)
-                control.close()
+                    var mLabelsModel=""
+                    for(var i=0 ; i< lblData.length ; ++i){
+                        if(lblData[i].lblIsSelected){
+                            mLabelsModel += lblData[i].mText
+                            mLabelsModel += ","
+                            mLabelsModel += lblData[i].mColor
+
+                            if(i!=lblData.length-1)
+                                 mLabelsModel += ","
+
+                        }
+                    }
+
+                    var data = {
+                        "mLabelsModel": mLabelsModel,
+                        "mTitle": input.text,
+                        "selected": false
+                    }
+
+                    refrenceCol.addCard(data)
+                    control.close()
+                }
             }
         }
+
     }
 }

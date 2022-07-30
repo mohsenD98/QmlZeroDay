@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 import Style 1.0
 
@@ -15,17 +16,40 @@ Rectangle{
         searchInput.focus = f
     }
 
+
+    RoundButton{
+        id: clear
+        icon.source: "qrc:/../icons/history_file_cancel@3x.png"
+        anchors.left: parent.left
+        anchors.leftMargin: 0
+        anchors.verticalCenter: parent.verticalAlignment
+        flat: true
+        width: parent.height
+        height: width
+        opacity: .8
+        z: 3
+        visible: searchInput.activeFocus
+        onPressed: {
+            searchInput.text = ""
+            focus = false
+        }
+    }
+
     TextInput{
         id: searchInput
         anchors.fill: parent
         anchors.margins: 8
+        anchors.leftMargin: 25
+        leftPadding: 18
         font.family: "Open Sans"
         color: Style.theme.dialogsTextFgActive
 
         Keys.onEnterPressed: {
+            if(text === "") focus = false
             searchInCards(text)
         }
         Keys.onReturnPressed: {
+            if(text === "") focus = false
             searchInCards(text)
         }
     }

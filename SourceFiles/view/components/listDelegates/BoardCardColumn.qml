@@ -102,6 +102,11 @@ Rectangle {
         icon.source: "qrc:/../icons/settings/add@3x.png"
         opacity: .5
         flat: true
+
+        onClicked: {
+            addNewCard.refrenceCol = cardsCol
+            addNewCard.open()
+        }
     }
 
     RoundButton{

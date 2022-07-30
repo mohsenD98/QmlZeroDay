@@ -24,6 +24,10 @@ GridView {
         visualModel.model.submitAll()
     }
 
+    function setSqlFilter(text){
+        visualModel.model.setFilterToBoard(text)
+    }
+
     signal reloadAll()
 
     property string mKanbanTableId

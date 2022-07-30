@@ -22,7 +22,6 @@ Drawer{
     property var index
 
     function reset(){
-        console.log(tableModel)
         board.name= tableModel.name
         board.columns= tableModel.columns
         board.labels= tableModel.labels

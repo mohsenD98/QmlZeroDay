@@ -9,12 +9,25 @@ Rectangle{
     radius: 2
     color: "transparent"
 
+    signal searchInCards(var text)
+
+    function setTextInputFocuse(f){
+        searchInput.focus = f
+    }
+
     TextInput{
         id: searchInput
         anchors.fill: parent
         anchors.margins: 8
         font.family: "Open Sans"
         color: Style.theme.dialogsTextFgActive
+
+        Keys.onEnterPressed: {
+            searchInCards(text)
+        }
+        Keys.onReturnPressed: {
+            searchInCards(text)
+        }
     }
 
     Text {
@@ -25,6 +38,4 @@ Rectangle{
         visible: !searchInput.activeFocus
         font.family: "Open Sans"
     }
-
-
 }

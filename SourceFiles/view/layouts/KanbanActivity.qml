@@ -62,6 +62,12 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: 8
         height: 35
+
+        onSearchInCards: {
+            for(var i=0; i< colsRepeater.count; ++i){
+                colsRepeater.itemAt(i).setSqlFilter(text)
+            }
+        }
     }
 
     Rectangle{
@@ -80,6 +86,10 @@ Rectangle {
             anchors.fill: parent
             contentWidth: cardColumns.implicitWidth
             contentHeight: cardColumns.implicitHeight
+
+            onDraggingChanged: {
+                searchBar.setTextInputFocuse(false)
+            }
 
             Row{
                 id: cardColumns

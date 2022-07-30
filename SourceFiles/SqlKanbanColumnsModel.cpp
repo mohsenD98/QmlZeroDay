@@ -138,6 +138,23 @@ void SqlKanbanColumnsModel::addCardAndRemove(int row, const QString &kanbanTable
     submitAll();
 }
 
+void SqlKanbanColumnsModel::setFilterToBoard(const QString &text)
+{
+    if(text == ""){
+        const QString filterString = QString::fromLatin1(
+            "(kanbanTableId = '%1' AND columnId = '%2')").arg(m_kanbanTableId).arg(m_colId);
+        setFilter(filterString);
+        select();
+
+        return;
+    }
+
+    const QString filterString = QString::fromLatin1(
+        "(kanbanTableId = '%1' AND columnId = '%2' AND cardDesc LIKE '%%3%')").arg(m_kanbanTableId).arg(m_colId).arg(text);
+    setFilter(filterString);
+    select();
+}
+
 void SqlKanbanColumnsModel::removeCard(int row)
 {
     removeRow(row);

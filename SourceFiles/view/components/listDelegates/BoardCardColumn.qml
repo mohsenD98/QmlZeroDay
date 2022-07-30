@@ -32,6 +32,10 @@ Rectangle {
         cardsCol.reset()
     }
 
+    function setSqlFilter(text){
+        cardsCol.setSqlFilter(text)
+    }
+
     Behavior on width{
         NumberAnimation{
             duration: 140

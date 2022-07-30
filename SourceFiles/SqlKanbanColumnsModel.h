@@ -25,6 +25,7 @@ public:
     Q_INVOKABLE void removeCard(int row);
 
     Q_INVOKABLE void addCardAndRemove(int row, const QString &kanbanTableId, const QString &cardDesc, const QString &labels, const QString &colId);
+    Q_INVOKABLE void setFilterToBoard(const QString &text);
 signals:
     void kanbanTableIdChanged();
     void colIdChanged();

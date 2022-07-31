@@ -42,5 +42,7 @@
         <file>components/listDelegates/FabMoreDelegate.qml</file>
         <file>components/menu/ScrumBoardDelegateOptions.qml</file>
         <file>components/editField/EditableText.qml</file>
+        <file>components/listDelegates/NewLabelSelectionRow.qml</file>
+        <file>components/dialog/ColorSelectionDialog.qml</file>
     </qresource>
 </RCC>

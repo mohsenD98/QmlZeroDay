@@ -12,8 +12,10 @@ Rectangle{
 
     property string currentText
     property real textSize: 14
+    property alias mainControl: searchInput
+    property color textColor: Style.theme.dialogsTextFgActive
 
-    signal boardNameChanged(var newName)
+    signal inputTextChanged(var newName)
 
     TextInput{
         id: searchInput
@@ -28,12 +30,12 @@ Rectangle{
 
         Keys.onEnterPressed: {
             currentText = text
-            boardNameChanged(searchInput.text)
+            inputTextChanged(searchInput.text)
             searchInput.focus = false
         }
         Keys.onReturnPressed: {
             currentText = text
-            boardNameChanged(searchInput.text)
+            inputTextChanged(searchInput.text)
             searchInput.focus = false
         }
     }

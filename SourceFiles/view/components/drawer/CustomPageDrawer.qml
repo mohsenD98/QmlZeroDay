@@ -25,7 +25,6 @@ Drawer{
         board.name= tableModel.name
         board.columns= tableModel.columns
         board.labels= tableModel.labels
-
         board.reset()
     }
 
@@ -38,6 +37,11 @@ Drawer{
 
             onTableNameChanged: {
                 control.sqlModel.updateTableName(control.index, tbNewName)
+            }
+            onAddTableLabel:{
+                control.sqlModel.addTableColor(control.index, board.labels + "," + lblName + "," + lblColor)
+                control.reset()
+                reset()
             }
         }
     }

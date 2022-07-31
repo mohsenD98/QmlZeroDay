@@ -37,7 +37,7 @@ Rectangle {
                 lbl1: qsTr("Columns:  ")
                 lbl1Optins: model.columns?model.columns:""
                 lbl2: qsTr("Labels:   ")
-                lbl2Options:  model.labels?model.labels: ""
+                lbl2Options:  model.labels?model.labels.split(",").filter((a,i)=>i%2===0).join(" - "): ""
                 imageBaseColor: Style.theme.sideBarIconFgActive
 
                 onSelected: {
@@ -55,6 +55,9 @@ Rectangle {
 
                 onDuplicateRequested: {
                     console.log("under develop ...")
+                }
+                Component.onCompleted: {
+                    pageFrame.tableModel = model
                 }
             }
         }
@@ -127,7 +130,7 @@ Rectangle {
             closeOverlay()
 
             if(item === "Add Kanban"){
-                kanbanRepeater.model.addTabel("Tap To Set Title table _ "+kanbanRepeater.model.rowCount(), 'To Do,In Progress,Done','Feature,Bug,Important')
+                kanbanRepeater.model.addTabel("Tap To Set Title table _ "+kanbanRepeater.model.rowCount(), 'To Do,In Progress,Done','Feature,#1F7E38,Important,#B6AA37,Bug,#BC2E2A')
             }
             if(item === "Add Weekly"){
                 console.log("under develop")

@@ -23,6 +23,7 @@ Drawer{
         }
     }
 
+    signal addNewLabel(var lbl, var col)
     property var refrenceCol
     property string title: qsTr("Add new Card")
     property bool editing: false
@@ -69,6 +70,13 @@ Drawer{
             }
         }
         lblData = lblData
+    }
+
+    function showError(msg){
+        errorBox.height = 40
+        errorMsg.text = msg
+        errorTimer.running = true
+
     }
 
     background: Rectangle{
@@ -244,20 +252,13 @@ Drawer{
                 height: 45
                 spacing: 8
 
-                CardLabel{
-                    labelColor: lblData[0].mColor
-                    title: lblData[0].mText
-                    visible:  lblData[0].lblIsSelected
-                }
-                CardLabel{
-                    labelColor: lblData[1].mColor
-                    title: lblData[1].mText
-                    visible:  lblData[1].lblIsSelected
-                }
-                CardLabel{
-                    labelColor: lblData[2].mColor
-                    title: lblData[2].mText
-                    visible:  lblData[2].lblIsSelected
+                Repeater{
+                    model: lblData
+                    delegate: CardLabel{
+                        labelColor: lblData[index].mColor
+                        title: lblData[index].mText
+                        visible:  lblData[index].lblIsSelected
+                    }
                 }
             }
 
@@ -268,44 +269,77 @@ Drawer{
 
                 background: Rectangle{
                     width: lblCombo.width
-                    height: 100
+                    height: lblData.length * 35 + 35
                     color: headerBox.color
                     Column{
                         anchors.fill: parent
 
-                        LabelSelectionRow{
-                            mColor: lblData[0].mColor
-                            mText: lblData[0].mText
-                            lblIsSelected: lblData[0].lblIsSelected
+                        Repeater{
+                            model: lblData
+                            delegate: LabelSelectionRow{
+                                mColor: lblData[index].mColor
+                                mText: lblData[index].mText
+                                lblIsSelected: lblData[index].lblIsSelected
 
-                            onLblSelected:{
-                                lblData[0].lblIsSelected = !lblData[0].lblIsSelected
-                                lblData = lblData
+                                onLblSelected:{
+                                    lblData[index].lblIsSelected = !lblData[index].lblIsSelected
+                                    lblData = lblData
+                                }
                             }
                         }
+                        NewLabelSelectionRow{
+                            mColor: "transparent"
+                            mText: "Click To Enter New Label"
+                            lblIsSelected: false
 
-                        LabelSelectionRow{
-                            mColor: lblData[1].mColor
-                            mText: lblData[1].mText
-                            lblIsSelected: lblData[1].lblIsSelected
-
-                            onLblSelected:{
-                                lblData[1].lblIsSelected = !lblData[1].lblIsSelected
-                                lblData = lblData
+                            onInsertNewLabel: {
+                                addNewLabel(lblName, lblColor)
+                                reset()
                             }
-                        }
 
-                        LabelSelectionRow{
-                            mColor: lblData[2].mColor
-                            mText: lblData[2].mText
-                            lblIsSelected: lblData[2].lblIsSelected
-
-                            onLblSelected:{
-                                lblData[2].lblIsSelected = !lblData[2].lblIsSelected
-                                lblData = lblData
+                            onEmitError: {
+                                showError(msg)
                             }
                         }
                     }
+                }
+            }
+
+            Rectangle{
+                id: errorBox
+                anchors.right: parent.right
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                color: "transparent"
+                anchors.margins: 4
+                height: 0
+                border.color: "red"
+                border.width: 1
+                radius: 2
+
+                Behavior on height{
+                    NumberAnimation{
+                        duration: 100
+                    }
+                }
+
+                Text {
+                    id: errorMsg
+                    text: ""
+                    font.pixelSize: 12
+                    color: "white"
+                    anchors.centerIn: parent
+                }
+            }
+
+            Timer{
+                id: errorTimer
+                interval: 4000
+                running: false
+                repeat: false
+                onTriggered: {
+                    errorBox.height = 0
+                    errorMsg.text = ""
                 }
             }
 
@@ -314,6 +348,7 @@ Drawer{
                 y: input.focus? labelsFlow.y+labelsFlow.height + 10: parent.y+parent.height - 100
                 glowColor: Style.theme.sideBarIconFgActive
                 baseColor: headerBox.color
+                anchors.bottom: errorBox.top
                 anchors.bottomMargin: input.focus? 8: 50
                 anchors.horizontalCenter: parent.horizontalCenter
 

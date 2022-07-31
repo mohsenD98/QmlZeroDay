@@ -7,12 +7,13 @@ import "../../tools"
 
 Rectangle{
     width: parent.width
-    height: parent.height/3
     color: "transparent"
+    height: 35
 
     property color mColor
     property string mText
     property bool lblIsSelected
+    property bool addingLbl: false
     signal lblSelected
 
     RoundButton{
@@ -35,6 +36,8 @@ Rectangle{
         radius: 4
         color: mColor
         anchors.verticalCenter: parent.verticalCenter
+        border.width: addingLbl ? 2: 0
+        border.color: addingLbl ? Style.theme.sideBarIconFgActive: "transparent"
     }
 
     Text {

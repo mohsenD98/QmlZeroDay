@@ -20,6 +20,7 @@ Rectangle {
     property string labels
 
     signal tableNameChanged(var tbNewName)
+    signal addTableLabel(var lblName, var lblColor)
 
     function reset(){
         colsRepeater.kanbanBoardName = name
@@ -28,6 +29,19 @@ Rectangle {
         for(var i=0; i<colsRepeater.count; ++i){
             colsRepeater.itemAt(i).reset()
         }
+        resetLbls();
+    }
+
+    function resetLbls(){
+        var labelsTempData = []
+        for(var i=0; i<(labels.split(",").length)-1; i+=2){
+            labelsTempData.push({
+                                mText: labels.split(",")[i],
+                                mColor: labels.split(",")[i+1],
+                                lblIsSelected: false
+                            })
+        }
+        addNewCard.lblData = labelsTempData
     }
 
     BoardHeaderLayout{
@@ -48,7 +62,7 @@ Rectangle {
         anchors.leftMargin: 8
         currentText: colsRepeater.kanbanBoardName
 
-        onBoardNameChanged: {
+        onInputTextChanged: {
             tableNameChanged(newName)
         }
     }
@@ -130,5 +144,9 @@ Rectangle {
         edge: Qt.RightEdge
         width: parent.width/3 * 2
         height: parent.height
+
+        onAddNewLabel: {
+            addTableLabel(lbl, col)
+        }
     }
 }

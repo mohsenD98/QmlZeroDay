@@ -13,6 +13,7 @@ Item {
     property string title
     property color glowColor
     property color baseColor
+    property real baseHeight: 35
 
     signal btnClicked
 
@@ -40,7 +41,7 @@ Item {
         opacity: 1
         anchors.centerIn: parent
         width: inpText.width * 1.8
-        height: 35
+        height: baseHeight
         radius: 1
 
         Text {

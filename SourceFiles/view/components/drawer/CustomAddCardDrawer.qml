@@ -16,29 +16,60 @@ Drawer{
     closePolicy: Popup.CloseOnPressOutside
     Overlay.modeless: Rectangle {
         color: "#33000000"
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: control.close()
+        }
     }
 
-
     property var refrenceCol
+    property string title: qsTr("Add new Card")
+    property bool editing: false
+    property string prevTitle: ""
+    property var prevLbls
     property var lblData:
     [
         {
             mColor: "#1F7E38",
             mText: qsTr("Feature"),
-            lblIsSelected: true
+            lblIsSelected: false
         },
         {
             mColor: "#BC2E2A",
             mText: qsTr("Bug"),
-            lblIsSelected: true
+            lblIsSelected: false
         },
         {
             mColor: "#B6AA37",
             mText: qsTr("Important"),
-            lblIsSelected: true
+            lblIsSelected: false
         }
 
     ]
+
+    function updateDesc(){
+        if(prevTitle !== ""){
+            input.text = prevTitle
+            input.focus = true
+        }
+    }
+
+    function updateLabels(){
+        for(var k=0; k<lblData.length; ++k){
+            lblData[k].lblIsSelected = false
+        }
+
+        for(var i=0; i<lblData.length; ++i){
+            for(var j=0; j<prevLbls.split(",").length; j+= 2){
+                if(lblData[i].mText === prevLbls.split(",")[j])
+                {
+                    lblData[i].lblIsSelected = true
+                }
+            }
+        }
+        lblData = lblData
+    }
 
     background: Rectangle{
         color: headerBox.color
@@ -52,7 +83,7 @@ Drawer{
             color: "transparent"
 
             Text {
-                text: qsTr("Add new Card")
+                text: title
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
                 anchors.leftMargin: 8
@@ -114,6 +145,7 @@ Drawer{
                     font.family: "Open Sans"
                     color: Style.theme.dialogsTextFgActive
                     wrapMode: TextEdit.Wrap
+                    text: prevTitle
                 }
 
                 Text {
@@ -121,7 +153,7 @@ Drawer{
                     anchors.fill: parent
                     anchors.margins: 8
                     color: Style.theme.sideBarTextFg
-                    visible: !input.activeFocus
+                    visible: !input.activeFocus && input.text === ""
                     font.family: "Open Sans"
                 }
 
@@ -278,7 +310,7 @@ Drawer{
             }
 
             GlowingButton{
-                title: "Add this Card"
+                title: editing? "Edit this Card": "Add this Card"
                 y: input.focus? labelsFlow.y+labelsFlow.height + 10: parent.y+parent.height - 100
                 glowColor: Style.theme.sideBarIconFgActive
                 baseColor: headerBox.color
@@ -292,7 +324,6 @@ Drawer{
                 }
 
                 onBtnClicked:{
-
                     var mLabelsModel=""
                     for(var i=0 ; i< lblData.length ; ++i){
                         if(lblData[i].lblIsSelected){
@@ -300,7 +331,7 @@ Drawer{
                             mLabelsModel += ","
                             mLabelsModel += lblData[i].mColor
 
-                            if(i!=lblData.length-1)
+                            if(i !== lblData.length-1)
                                  mLabelsModel += ","
 
                         }
@@ -310,6 +341,12 @@ Drawer{
                         "mLabelsModel": mLabelsModel,
                         "mTitle": input.text,
                         "selected": false
+                    }
+
+                    if(editing){
+                        refrenceCol.editCard(data)
+                        control.close()
+                        return
                     }
 
                     refrenceCol.addCard(data)

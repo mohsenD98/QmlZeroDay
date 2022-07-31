@@ -135,6 +135,17 @@ Rectangle {
         onReloadAll: {
             reloadCols()
         }
+
+        onEditCardRequest: {
+            addNewCard.refrenceCol = cardsCol
+            addNewCard.title = "Edit card"
+            addNewCard.editing = true
+            addNewCard.prevLbls =  cardLbls
+            addNewCard.prevTitle = cardName
+            addNewCard.updateDesc()
+            addNewCard.updateLabels()
+            addNewCard.open()
+        }
     }
 
     CustomButton{

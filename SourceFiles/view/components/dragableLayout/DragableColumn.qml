@@ -14,8 +14,14 @@ GridView {
     height: childrenRect.height
     width: parent.width
 
+    property real lastSelectedRow
+
     function addCard(data){
         visualModel.model.addCard(mKanbanTableId, data.mTitle, data.mLabelsModel, colName)
+    }
+
+    function editCard(data){
+        visualModel.model.editCard(lastSelectedRow, data.mTitle, data.mLabelsModel)
     }
 
     function reset(){
@@ -29,6 +35,7 @@ GridView {
     }
 
     signal reloadAll()
+    signal editCardRequest(var cardName, var cardLbls)
 
     property string mKanbanTableId
     property var allColIds
@@ -131,12 +138,23 @@ GridView {
 
                 TapHandler {
                     onTapped: {
+                        lastSelectedRow = model.row
                         if(selectedCardRow === model.row){
                             selectedCardRow = -1
                         }else{
                             selectedCardRow = model.row
                         }
                         cardMoveOptions.open()
+                    }
+
+                    onLongPressed: {
+                        lastSelectedRow = model.row
+                        if(selectedCardRow === model.row){
+                            selectedCardRow = -1
+                        }else{
+                            selectedCardRow = model.row
+                        }
+                        editCardRequest(model.cardDesc, model.cardLabels)
                     }
                 }
 
@@ -204,6 +222,11 @@ GridView {
 
                 onDuplicateRequest: {
                     addCard({mLabelsModel:model.cardLabels, mTitle:model.cardDesc, selected:false})
+                }
+
+                onEditRequest: {
+                    lastSelectedRow = model.row
+                    editCardRequest(model.cardDesc, model.cardLabels)
                 }
             }
         }

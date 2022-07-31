@@ -19,6 +19,7 @@ Item {
 
     signal deleteRequest
     signal duplicateRequest
+    signal editRequest
 
     onLabelsChanged: {
         var splitted = labels.split(",")
@@ -82,6 +83,9 @@ Item {
             }
             onDuplicated: {
                 duplicateRequest()
+            }
+            onEdited: {
+                editRequest()
             }
         }
 

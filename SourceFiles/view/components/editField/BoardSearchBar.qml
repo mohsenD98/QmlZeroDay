@@ -16,7 +16,6 @@ Rectangle{
         searchInput.focus = f
     }
 
-
     RoundButton{
         id: clear
         icon.source: "qrc:/../icons/history_file_cancel@3x.png"

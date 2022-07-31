@@ -131,6 +131,25 @@ void SqlKanbanColumnsModel::addCard(const QString &kanbanTableId, const QString 
     submitAll();
 }
 
+void SqlKanbanColumnsModel::editCard(const int &row, const QString &cardDesc, const QString &labels)
+{
+    const QString timestamp = QDateTime::currentDateTime().toString(Qt::ISODate);
+
+    if(!setData(index(row, 2), timestamp)){
+        qWarning() << "Failed to setData Table:" << lastError().text();
+        return;
+    }
+    if(!setData(index(row, 3), cardDesc)){
+        qWarning() << "Failed to setData Table:" << lastError().text();
+        return;
+    }
+    if(!setData(index(row, 4), labels)){
+        qWarning() << "Failed to setData Table:" << lastError().text();
+        return;
+    }
+    submitAll();
+}
+
 void SqlKanbanColumnsModel::addCardAndRemove(int row, const QString &kanbanTableId, const QString &cardDesc, const QString &labels, const QString &colId)
 {
     addCard(kanbanTableId, cardDesc,labels, colId);

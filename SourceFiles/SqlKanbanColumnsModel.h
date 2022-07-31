@@ -22,6 +22,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void addCard(const QString &kanbanTableId, const QString &cardDesc, const QString &labels, const QString &colId);
+    Q_INVOKABLE void editCard(const int &row, const QString &cardDesc, const QString &labels);
     Q_INVOKABLE void removeCard(int row);
 
     Q_INVOKABLE void addCardAndRemove(int row, const QString &kanbanTableId, const QString &cardDesc, const QString &labels, const QString &colId);

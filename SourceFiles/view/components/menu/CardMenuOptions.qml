@@ -15,6 +15,7 @@ Menu {
 
     signal deleted
     signal duplicated
+    signal edited
 
     background: Item{
         id: container
@@ -48,6 +49,15 @@ Menu {
                 width: parent.width
 
                 MenuRow{
+                    mText: qsTr("Edit")
+
+                    onBtnClicked:{
+                        edited()
+                        cardMenu.close()
+                    }
+                }
+
+                MenuRow{
                     mText: qsTr("Duplicate")
 
                     onBtnClicked:{
@@ -58,10 +68,12 @@ Menu {
 
                 MenuRow{
                     mText: qsTr("Copy to...")
+                    enabled: false
                 }
 
                 MenuRow{
                     mText: qsTr("Move to...")
+                    enabled: false
                 }
 
                 Rectangle{
@@ -72,6 +84,7 @@ Menu {
 
                 MenuRow{
                     mText: qsTr("Share")
+                    enabled: false
                 }
 
                 Rectangle{
@@ -82,6 +95,7 @@ Menu {
 
                 MenuRow{
                     mText: qsTr("Archive")
+                    enabled: false
                 }
 
                 MenuRow{

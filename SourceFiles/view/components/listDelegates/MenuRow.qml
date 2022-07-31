@@ -14,6 +14,8 @@ Rectangle {
 
     signal btnClicked
 
+    opacity: enabled?1:.5
+
     Text {
         text: mText
         anchors.verticalCenter: parent.verticalCenter

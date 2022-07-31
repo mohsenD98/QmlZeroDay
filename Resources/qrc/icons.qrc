@@ -30,5 +30,6 @@
         <file>../icons/top_bar_group_call@2x.png</file>
         <file>../icons/top_bar_group_call@3x.png</file>
         <file>../icons/passport_ready@3x.png</file>
+        <file>../icons/info/profilePic.jpg</file>
     </qresource>
 </RCC>

@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
+import QtGraphicalEffects 1.0
 
 import Style 1.0
 
@@ -35,6 +36,24 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: 8
         anchors.verticalCenter: parent.verticalCenter
+
+        layer.enabled: true
+        layer.effect: OpacityMask {
+            maskSource: Rectangle {
+                x: profilePhoto.x; y: profilePhoto.y
+                width: profilePhoto.width
+                height: profilePhoto.height
+                radius: profilePhoto.radius
+            }
+        }
+
+        Image {
+            id: imgAuthor
+            opacity: 1
+            smooth: false
+            anchors.fill: parent
+            source: "qrc:/../icons/info/profilePic.jpg"
+        }
     }
 
     RoundButton{

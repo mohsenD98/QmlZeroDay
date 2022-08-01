@@ -23,7 +23,7 @@
         <file>layouts/mainActivityPages/BoardsPage.qml</file>
         <file>layouts/KanbanActivity.qml</file>
         <file>components/toolbar/BoardHeaderLayout.qml</file>
-        <file>components/editField/BoardSearchBar.qml</file>
+        <file>components/editField/GlowingSearchBar.qml</file>
         <file>components/buttons/CustomButton.qml</file>
         <file>components/dragableLayout/DragableColumn.qml</file>
         <file>components/buttons/GlowingButton.qml</file>

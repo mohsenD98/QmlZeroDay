@@ -67,7 +67,7 @@ Rectangle {
         }
     }
 
-    BoardSearchBar{
+    GlowingSearchBar{
         id: searchBar
         anchors.top: editableName.bottom
         anchors.topMargin: 8

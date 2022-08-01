@@ -8,7 +8,7 @@ import MGram.sql.Kanban 1.0
 import "../components/toolbar"
 import "../components/editField"
 import "../components/listDelegates/board"
-import "../components/drawer"
+import "../components/drawer/board"
 
 Rectangle {
     id:root

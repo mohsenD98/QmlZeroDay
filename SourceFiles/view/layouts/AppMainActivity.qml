@@ -4,7 +4,7 @@ import QtQuick.Controls 2.12
 import Style 1.0
 
 import "../components/toolbar"
-import "../components/drawer"
+import "../components/drawer/board"
 import "../tools"
 
 Rectangle {

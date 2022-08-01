@@ -4,8 +4,8 @@ import QtQuick.Controls.Material 2.12
 
 import Style 1.0
 
-import "../listDelegates/board"
-import "../buttons"
+import "../../listDelegates/board"
+import "../../buttons"
 
 Drawer{
     id: control

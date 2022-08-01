@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.12
 
 import Style 1.0
 
-import "../../layouts"
+import "../../../layouts"
 
 Drawer{
     id: control

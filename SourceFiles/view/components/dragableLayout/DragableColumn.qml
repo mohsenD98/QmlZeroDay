@@ -5,7 +5,7 @@ import QtQuick.Particles 2.0
 import MGram.sql.Kanban 1.0
 
 import "../listDelegates/board"
-import "../menu"
+import "../menu/board"
 
 GridView {
     id: root

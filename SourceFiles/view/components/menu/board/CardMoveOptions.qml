@@ -5,16 +5,16 @@ import QtGraphicalEffects 1.0
 
 import Style 1.0
 
-import "../listDelegates/board"
-import "../buttons"
+import "../../listDelegates/board"
+import "../../buttons"
 
 Menu {
-    id: scrumBoardDelMenu
+    id: cardMoveMenu
     width: 150
     height: menus.height
 
-    signal duplicateClicked
-    signal deleteClicked
+    signal nextColClicked
+    signal prevColClicked
 
     background: Item{
         id: container
@@ -48,23 +48,20 @@ Menu {
                 width: parent.width
 
                 MenuRow{
-                    mText: qsTr("Duplicate")
-                    enabled: false
-                    opacity: enabled? 1 : .5
+                    mText: qsTr("Next Column")
 
                     onBtnClicked:{
-                        duplicateClicked()
-                        scrumBoardDelMenu.close()
+                        nextColClicked()
+                        cardMoveMenu.close()
                     }
                 }
 
                 MenuRow{
-                    mText: qsTr("Delete")
-                    backgroundColor: Style.theme.boxTextFgError
+                    mText: qsTr("Prev Column")
 
                     onBtnClicked: {
-                        deleteClicked()
-                        scrumBoardDelMenu.close()
+                        prevColClicked()
+                        cardMoveMenu.close()
                     }
                 }
             }

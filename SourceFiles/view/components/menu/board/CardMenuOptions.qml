@@ -5,8 +5,8 @@ import QtGraphicalEffects 1.0
 
 import Style 1.0
 
-import "../listDelegates/board"
-import "../buttons"
+import "../../listDelegates/board"
+import "../../buttons"
 
 Menu {
     id: cardMenu

@@ -27,10 +27,7 @@
         <file>components/buttons/CustomButton.qml</file>
         <file>components/dragableLayout/DragableColumn.qml</file>
         <file>components/buttons/GlowingButton.qml</file>
-        <file>components/menu/CardMenuOptions.qml</file>
-        <file>components/menu/CardMoveOptions.qml</file>
         <file>components/buttons/FabMore.qml</file>
-        <file>components/menu/ScrumBoardDelegateOptions.qml</file>
         <file>components/editField/EditableText.qml</file>
         <file>components/dialog/ColorSelectionDialog.qml</file>
         <file>layouts/mainActivityPages/PlaceHolderPage.qml</file>
@@ -47,5 +44,8 @@
         <file>components/drawer/board/CustomAddCardDrawer.qml</file>
         <file>components/drawer/board/CustomMenuDrawer.qml</file>
         <file>components/drawer/board/CustomPageDrawer.qml</file>
+        <file>components/menu/board/CardMenuOptions.qml</file>
+        <file>components/menu/board/CardMoveOptions.qml</file>
+        <file>components/menu/board/ScrumBoardDelegateOptions.qml</file>
     </qresource>
 </RCC>

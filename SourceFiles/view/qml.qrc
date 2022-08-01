@@ -21,28 +21,31 @@
         <file>tools/RippleLayout.qml</file>
         <file>components/buttons/Fab.qml</file>
         <file>components/drawer/CustomMenuDrawer.qml</file>
-        <file>components/listDelegates/ScrumBoardDelegate.qml</file>
         <file>layouts/mainActivityPages/BoardsPage.qml</file>
         <file>components/drawer/CustomPageDrawer.qml</file>
         <file>layouts/KanbanActivity.qml</file>
         <file>components/toolbar/BoardHeaderLayout.qml</file>
         <file>components/editField/BoardSearchBar.qml</file>
-        <file>components/listDelegates/BoardCard.qml</file>
-        <file>components/listDelegates/BoardCardColumn.qml</file>
         <file>components/buttons/CustomButton.qml</file>
-        <file>components/listDelegates/CardLabel.qml</file>
         <file>components/dragableLayout/DragableColumn.qml</file>
         <file>components/drawer/CustomAddCardDrawer.qml</file>
-        <file>components/listDelegates/LabelSelectionRow.qml</file>
         <file>components/buttons/GlowingButton.qml</file>
         <file>components/menu/CardMenuOptions.qml</file>
-        <file>components/listDelegates/MenuRow.qml</file>
         <file>components/menu/CardMoveOptions.qml</file>
         <file>components/buttons/FabMore.qml</file>
-        <file>components/listDelegates/FabMoreDelegate.qml</file>
         <file>components/menu/ScrumBoardDelegateOptions.qml</file>
         <file>components/editField/EditableText.qml</file>
-        <file>components/listDelegates/NewLabelSelectionRow.qml</file>
         <file>components/dialog/ColorSelectionDialog.qml</file>
+        <file>layouts/mainActivityPages/PlaceHolderPage.qml</file>
+        <file>layouts/ConversationActivity.qml</file>
+        <file>components/listDelegates/board/BoardCard.qml</file>
+        <file>components/listDelegates/board/BoardCardColumn.qml</file>
+        <file>components/listDelegates/board/CardLabel.qml</file>
+        <file>components/listDelegates/board/FabMoreDelegate.qml</file>
+        <file>components/listDelegates/board/LabelSelectionRow.qml</file>
+        <file>components/listDelegates/board/MenuRow.qml</file>
+        <file>components/listDelegates/board/NewLabelSelectionRow.qml</file>
+        <file>components/listDelegates/board/ScrumBoardDelegate.qml</file>
+        <file>components/listDelegates/conversation/ConversationDelegate.qml</file>
     </qresource>
 </RCC>

@@ -5,9 +5,9 @@ import QtGraphicalEffects 1.0
 import Style 1.0
 import MGram.sql.Kanban 1.0
 
-import "../../tools"
-import "../../components/buttons"
-import "../../components/dragableLayout"
+import "../../../tools"
+import "../../../components/buttons"
+import "../../../components/dragableLayout"
 
 Rectangle {
     id: root

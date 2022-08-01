@@ -4,7 +4,7 @@ import QtQuick.Controls 2.12
 import Style 1.0
 import MGram.sql.Kanban 1.0
 
-import "../../components/listDelegates"
+import "../../components/listDelegates/board"
 import "../../components/buttons"
 
 Rectangle {

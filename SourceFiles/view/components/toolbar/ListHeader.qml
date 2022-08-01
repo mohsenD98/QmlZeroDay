@@ -23,11 +23,11 @@ Rectangle {
             isSelected: bar.currentIndex == 0
         }
         CustomTabButton {
-            text: qsTr("Diary")
+            text: qsTr("Conversations")
             isSelected: bar.currentIndex == 1
         }
         CustomTabButton {
-            text: qsTr("Archive")
+            text: qsTr("Diary")
             isSelected: bar.currentIndex == 2
         }
         CustomTabButton {

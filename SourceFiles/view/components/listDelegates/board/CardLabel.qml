@@ -3,7 +3,7 @@ import QtGraphicalEffects 1.0
 
 import Style 1.0
 
-import "../../tools"
+import "../../../tools"
 
 Item {
     width: rect.width

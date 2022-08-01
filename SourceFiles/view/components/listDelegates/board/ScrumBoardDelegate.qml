@@ -3,8 +3,8 @@ import QtGraphicalEffects 1.0
 
 import Style 1.0
 
-import "../../tools"
-import "../menu"
+import "../../../tools"
+import "../../menu"
 
 Rectangle {
     id: root

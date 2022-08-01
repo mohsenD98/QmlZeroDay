@@ -3,7 +3,7 @@ import QtQuick.Controls 2.12
 
 import Style 1.0
 
-import "../../tools"
+import "../../../tools"
 
 Rectangle{
     width: parent.width

@@ -3,7 +3,7 @@ import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.12
 
-import "../listDelegates"
+import "../listDelegates/board"
 
 Item {
     property color backgroundColor: "#2e2e2e"

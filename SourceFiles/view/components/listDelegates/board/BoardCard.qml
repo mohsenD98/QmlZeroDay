@@ -4,8 +4,8 @@ import QtQuick.Controls 2.12
 
 import Style 1.0
 
-import "../../tools"
-import "../menu"
+import "../../../tools"
+import "../../menu"
 
 Item {
     width: parent.width

@@ -4,7 +4,7 @@ import QtQuick.Particles 2.0
 
 import MGram.sql.Kanban 1.0
 
-import "../listDelegates"
+import "../listDelegates/board"
 import "../menu"
 
 GridView {

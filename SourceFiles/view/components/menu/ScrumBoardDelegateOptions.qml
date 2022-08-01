@@ -5,7 +5,7 @@ import QtGraphicalEffects 1.0
 
 import Style 1.0
 
-import "../listDelegates"
+import "../listDelegates/board"
 import "../buttons"
 
 Menu {

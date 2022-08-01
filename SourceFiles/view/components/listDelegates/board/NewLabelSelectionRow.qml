@@ -3,10 +3,10 @@ import QtQuick.Controls 2.12
 
 import Style 1.0
 
-import "../../tools"
-import "../editField"
-import "../dialog"
-import "../buttons"
+import "../../../tools"
+import "../../editField"
+import "../../dialog"
+import "../../buttons"
 
 Rectangle{
     width: parent.width

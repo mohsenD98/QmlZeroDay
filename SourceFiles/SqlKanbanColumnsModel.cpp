@@ -33,8 +33,8 @@ static void createTable()
         "'author' TEXT NOT NULL,"
         "'kanbanTableId' TEXT NOT NULL,"
         "'timestamp' TEXT NOT NULL,"
-        "'cardDesc' TEXT NOT NULL,"
-        "'cardLabels' TEXT NOT NULL,"
+        "'cardDesc' TEXT,"
+        "'cardLabels' TEXT,"
         "'columnId' TEXT NOT NULL,"
         "FOREIGN KEY('kanbanTableId') REFERENCES KanbanTables ( name )"
         ")")) {

@@ -381,6 +381,7 @@ Drawer{
                     if(editing){
                         refrenceCol.editCard(data)
                         control.close()
+                        editing = false
                         return
                     }
 

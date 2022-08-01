@@ -47,5 +47,6 @@
         <file>components/menu/board/CardMenuOptions.qml</file>
         <file>components/menu/board/CardMoveOptions.qml</file>
         <file>components/menu/board/ScrumBoardDelegateOptions.qml</file>
+        <file>layouts/mainActivityPages/ConversationPage.qml</file>
     </qresource>
 </RCC>

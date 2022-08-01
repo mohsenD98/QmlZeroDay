@@ -14,49 +14,67 @@ Rectangle {
 
     property string  title
     property string  lbl1
-    property string  lbl1Optins
-    property string  lbl2
-    property string  lbl2Options
     property color imageBaseColor
     property string icon
 
     signal selected
-    signal duplicateRequested
     signal deleteRequested
-
-    ScrumBoardDelegateOptions{
-        id: scrumBoardDelegateOptions
-        anchors.centerIn: parent
-
-        onDeleteClicked: {
-            deleteRequested()
-        }
-
-        onDuplicateClicked: {
-            duplicateRequested()
-        }
-
-    }
 
     Rectangle{
         id: imageSection
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        width: height * 1.5
-        radius: 4
+        anchors.margins: 4
+        width: height
+        radius: width / 2
         color: imageBaseColor
 
+        layer.enabled: true
+        layer.effect: OpacityMask {
+            maskSource: Rectangle {
+                x: imageSection.x; y: imageSection.y
+                width: imageSection.width
+                height: imageSection.height
+                radius: imageSection.radius
+            }
+        }
+
         Image{
+            id: profilePhoto
             anchors.centerIn: parent
             source: icon
-            opacity: .2
+            anchors.fill: parent
+            fillMode: Image.PreserveAspectFit
+        }
+    }
 
-            ColorOverlay{
-                anchors.fill: parent
-                source: parent
-                color: imageBaseColor
-            }
+    Text {
+        id: lastPmDate
+        text: "2022-07-31"
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+        color: Style.theme.dialogsTextFgActive
+        font.pixelSize: 12
+        font.family: "Open Sans"
+        opacity: .6
+    }
+
+    Image{
+        id: recivedImg
+        anchors.verticalCenter: lastPmDate.verticalCenter
+        anchors.right: lastPmDate.left
+        anchors.rightMargin: 8
+        source: "qrc:/icons/history_received@3x.png"
+        fillMode: Image.PreserveAspectFit
+        opacity: .5
+
+        ColorOverlay{
+            anchors.fill: parent
+            source: parent
+            color: imageBaseColor
         }
     }
 
@@ -85,33 +103,9 @@ Rectangle {
             anchors.topMargin: 10
             Text {
                 text: lbl1
-                color: imageBaseColor
-                font.pixelSize: 10
-                opacity: 1
-                font.family: "Open Sans"
-            }
-            Text {
-                text: lbl1Optins
                 color: Style.theme.dialogsTextFgActive
                 font.pixelSize: 10
-                font.family: "Open Sans"
-            }
-        }
-
-        Row{
-            anchors.top: info1.bottom
-            anchors.topMargin: 4
-            Text {
-                text: lbl2
-                color: imageBaseColor
-                font.pixelSize: 10
                 opacity: 1
-                font.family: "Open Sans"
-            }
-            Text {
-                text: lbl2Options
-                color: Style.theme.dialogsTextFgActive
-                font.pixelSize: 10
                 font.family: "Open Sans"
             }
         }
@@ -122,9 +116,6 @@ Rectangle {
         anchors.fill: parent
         onClicked: {
             selected()
-        }
-        onPressAndHold: {
-            scrumBoardDelegateOptions.open()
         }
     }
 

@@ -34,5 +34,8 @@
         <file>../icons/intro_right.png</file>
         <file>../icons/intro_right@2x.png</file>
         <file>../icons/intro_right@3x.png</file>
+        <file>../icons/history_received.png</file>
+        <file>../icons/history_received@2x.png</file>
+        <file>../icons/history_received@3x.png</file>
     </qresource>
 </RCC>

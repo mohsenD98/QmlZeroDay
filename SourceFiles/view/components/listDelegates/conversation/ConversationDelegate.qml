@@ -104,9 +104,9 @@ Rectangle {
             Text {
                 text: lbl1
                 color: Style.theme.dialogsTextFgActive
-                font.pixelSize: 10
-                opacity: 1
+                font.pixelSize: 11
                 font.family: "Open Sans"
+                opacity: .8
             }
         }
     }

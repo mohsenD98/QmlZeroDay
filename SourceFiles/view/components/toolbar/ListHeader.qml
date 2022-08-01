@@ -18,25 +18,51 @@ Rectangle {
         Material.accent: Style.theme.sideBarIconFgActive
         Material.background: "transparent"
 
-        CustomTabButton {
-            text: qsTr("Boards")
-            isSelected: bar.currentIndex == 0
+        Repeater {
+            model: ["Boards", "Conversations", "Diary", "Catalan", "Discover"]
+
+            CustomTabButton {
+                text: modelData
+                isSelected: bar.currentIndex == index
+            }
         }
-        CustomTabButton {
-            text: qsTr("Conversations")
-            isSelected: bar.currentIndex == 1
-        }
-        CustomTabButton {
-            text: qsTr("Diary")
-            isSelected: bar.currentIndex == 2
-        }
-        CustomTabButton {
-            text: qsTr("Catalan")
-            isSelected: bar.currentIndex == 3
-        }
-        CustomTabButton {
-            text: qsTr("Discover")
-            isSelected: bar.currentIndex == 4
+        contentItem: ListView {
+             model: bar.contentModel
+             currentIndex: bar.currentIndex
+
+             spacing: bar.spacing
+             orientation: ListView.Horizontal
+             boundsBehavior: Flickable.StopAtBounds
+             flickableDirection: Flickable.HorizontalFlick
+             snapMode: ListView.SnapToItem
+
+             highlightMoveDuration: 250
+             highlightResizeDuration: 0
+             highlightFollowsCurrentItem: true
+             highlightRangeMode: ListView.ApplyRange
+             preferredHighlightBegin: 0
+             preferredHighlightEnd: width - 0
+
+             highlight: Item {
+                 z: 2
+                 Rectangle {
+                     id: roundRect
+                     height: 4
+                     width: parent.width / 3 * 2
+                     anchors.horizontalCenter: parent.horizontalCenter
+                     y: bar.position === TabBar.Footer ? 0 : parent.height - height
+                     color: bar.Material.accentColor
+                     radius: 10
+                 }
+                 Rectangle {
+                   id: squareRect
+                   color: bar.Material.accentColor
+                   height: 1
+                   anchors.bottom : roundRect.bottom
+                   anchors.left : roundRect.left
+                   anchors.right : roundRect.right
+                 }
+             }
         }
     }
 }

@@ -58,6 +58,14 @@ Rectangle {
                 color: imageBaseColor
             }
         }
+        Rectangle{
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: 50
+            color: parent.color
+
+        }
     }
 
     Rectangle{

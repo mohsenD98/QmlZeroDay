@@ -50,5 +50,7 @@
         <file>layouts/mainActivityPages/ConversationPage.qml</file>
         <file>components/drawer/conversation/ConversationPageDrawer.qml</file>
         <file>components/toolbar/ConversationHeaderLayout.qml</file>
+        <file>components/message/MessageRow.qml</file>
+        <file>animation/RecordingAnimation.qml</file>
     </qresource>
 </RCC>

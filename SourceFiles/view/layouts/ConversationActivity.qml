@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.12
 import Style 1.0
 
 import "../components/toolbar"
+import "../components/message"
 
 Page {
     id: root
@@ -25,7 +26,7 @@ Page {
             id: listView
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: pane.leftPadding + messageField.leftPadding
+            Layout.margins: pane.leftPadding + msgRow.msgField.leftPadding
             displayMarginBeginning: 40
             displayMarginEnd: 40
             verticalLayoutDirection: ListView.BottomToTop
@@ -46,79 +47,10 @@ Page {
             Layout.fillWidth: true
             Material.background: Style.theme.titleBgActive
 
-            RowLayout {
+            MessageRow{
+                id: msgRow
                 width: parent.width
                 anchors.bottom: parent.bottom
-
-                RoundButton{
-                    id: selectEmoje
-                    icon.source: "qrc:/../icons/emoji/emoji_people@4x.png"
-                    icon.height: 25
-                    icon.width: 25
-                    opacity: .5
-                    flat: true
-                    Layout.alignment: Qt.AlignBottom
-                    Layout.bottomMargin: -12
-                }
-
-                TextArea {
-                    id: messageField
-                    placeholderText: qsTr("Message")
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignBottom
-                    Layout.bottomMargin: -14
-                    selectByMouse: true
-                    selectByKeyboard: true
-                    Layout.maximumHeight: 250
-                    wrapMode: TextArea.Wrap
-                    background: Rectangle{
-                        color: "transparent"
-                    }
-
-                    onHeightChanged: {
-                        pane.Layout.preferredHeight = messageField.implicitHeight+8
-                    }
-
-                    Material.accent: Style.theme.sideBarIconFgActive
-                }
-
-                RoundButton{
-                    id: selectMedia
-                    icon.source: "qrc:/../icons/chat/input_attach@3x.png"
-                    opacity: .5
-                    flat: true
-                    icon.height: 35
-                    icon.width: 35
-                    Layout.alignment: Qt.AlignBottom
-                    Layout.bottomMargin: -16
-                    Layout.rightMargin: -16
-                    visible: messageField.length == 0
-                }
-
-                RoundButton{
-                    id: recordVoice
-                    icon.source: "qrc:/../icons/info/info_media_voice@3x.png"
-                    opacity: .5
-                    icon.height: 35
-                    icon.width: 35
-                    flat: true
-                    Layout.alignment: Qt.AlignBottom
-                    Layout.rightMargin: -8
-                    Layout.bottomMargin: -16
-                    visible: messageField.length == 0
-                }
-
-                RoundButton{
-                    id: sendPm
-                    icon.source: "qrc:/../icons/chat/input_send@3x.png"
-                    icon.height: 25
-                    icon.width: 25
-                    flat: true
-                    Layout.alignment: Qt.AlignBottom
-                    Layout.bottomMargin: -14
-                    visible: messageField.length > 0
-                    icon.color: Style.theme.sideBarIconFgActive
-                }
 
             }
         }

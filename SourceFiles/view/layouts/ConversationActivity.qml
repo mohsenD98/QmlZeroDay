@@ -7,6 +7,7 @@ import Style 1.0
 
 import "../components/toolbar"
 import "../components/message"
+import "../components/listDelegates/conversation"
 
 Page {
     id: root
@@ -32,11 +33,17 @@ Page {
             verticalLayoutDirection: ListView.BottomToTop
             spacing: 12
             model: 100
-            delegate: Rectangle{
+            delegate: MessageBox{
                 width: parent.width * .75
-                height: 30
-                radius: 4
-                opacity: .1
+                opacity: 1
+                msgColor: receiving? Style.theme.titleBgActive: Style.theme.msgOutBg
+                anchors.right: receiving ? undefined : parent.right
+                receiving: (Math.random()*10).toFixed(0)%2 == 0
+
+                Rectangle{
+                    anchors.fill: parent
+                    color: "transparent"
+                }
             }
 
             ScrollBar.vertical: ScrollBar {}
@@ -51,6 +58,7 @@ Page {
                 id: msgRow
                 width: parent.width
                 anchors.bottom: parent.bottom
+
 
             }
         }

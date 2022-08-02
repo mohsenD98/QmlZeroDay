@@ -52,5 +52,7 @@
         <file>components/toolbar/ConversationHeaderLayout.qml</file>
         <file>components/message/MessageRow.qml</file>
         <file>animation/RecordingAnimation.qml</file>
+        <file>components/listDelegates/conversation/MessageBox.qml</file>
+        <file>components/listDelegates/conversation/MessageBoxBorder.qml</file>
     </qresource>
 </RCC>

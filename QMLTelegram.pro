@@ -2,8 +2,10 @@ QT += quick sql
 
 SOURCES += \
         ./SourceFiles/main.cpp \
-        SourceFiles/SqlKanbanColumnsModel.cpp \
-        SourceFiles/SqlKanbanTableModel.cpp
+        SourceFiles/viewModel/conversation/SqlContactModel.cpp \
+        SourceFiles/viewModel/board/SqlKanbanColumnsModel.cpp \
+        SourceFiles/viewModel/board/SqlKanbanTableModel.cpp \
+        SourceFiles/viewModel/conversation/SqlConversationModel.cpp
 
 RESOURCES += \
         Resources/qrc/emoji_1.qrc \
@@ -42,5 +44,7 @@ DISTFILES += \
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
 HEADERS += \
-    SourceFiles/SqlKanbanColumnsModel.h \
-    SourceFiles/SqlKanbanTableModel.h
+    SourceFiles/viewModel/conversation/SqlContactModel.h \
+    SourceFiles/viewModel/board/SqlKanbanColumnsModel.h \
+    SourceFiles/viewModel/board/SqlKanbanTableModel.h \
+    SourceFiles/viewModel/conversation/SqlConversationModel.h

@@ -9,8 +9,11 @@
 #include <QSqlError>
 #include <QtQml>
 
-#include "SqlKanbanColumnsModel.h"
-#include "SqlKanbanTableModel.h"
+#include "viewModel/board/SqlKanbanColumnsModel.h"
+#include "viewModel/board/SqlKanbanTableModel.h"
+
+#include "viewModel/conversation/SqlContactModel.h"
+#include "viewModel/conversation/SqlConversationModel.h"
 
 static void connectToDatabase()
 {
@@ -60,6 +63,9 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<SqlKanbanTableModel>("MGram.sql.Kanban", 1, 0, "SqlKanbanTableModel");
     qmlRegisterType<SqlKanbanColumnsModel>("MGram.sql.Kanban", 1, 0, "SqlKanbanColumnsModel");
+
+    qmlRegisterType<SqlContactModel>("MGram.sql.conversation", 1, 0, "SqlContactModel");
+    qmlRegisterType<SqlConversationModel>("MGram.sql.conversation", 1, 0, "SqlConversationModel");
 
     connectToDatabase();
 

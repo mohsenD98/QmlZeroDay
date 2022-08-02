@@ -10,6 +10,10 @@ Item{
     property color micColor
     property bool startAnimations
 
+    property real animSpeed1: 240 * 2
+    property real animSpeed2: 200 * 2
+    property real animSpeed3: 374 * 2
+
     Rectangle{
         id: firstLayer
         width: animationMinHeight
@@ -23,7 +27,7 @@ Item{
 
         Behavior on width {
             NumberAnimation {
-                duration: 100
+                duration: animSpeed1
             }
         }
     }
@@ -40,7 +44,7 @@ Item{
 
         Behavior on width {
             NumberAnimation {
-                duration: 100
+                duration: animSpeed2
             }
         }
     }
@@ -57,54 +61,60 @@ Item{
 
         Behavior on width {
             NumberAnimation {
-                duration: 100
+                duration: animSpeed3
             }
         }
     }
 
     Timer{
         id: animationtimer1
-        interval: 240
+        interval: animSpeed1
         repeat: true
         running: startAnimations
         onTriggered: {
             if( firstLayer.animated ){
                 firstLayer.width = animationMaxHeight * 1.2
+                firstLayer.radius = (firstLayer.width) - 12
                 firstLayer.animated = false
             }else{
                 firstLayer.animated = true
                 firstLayer.width = animationMinHeight
+                firstLayer.radius = (firstLayer.width)
             }
 
         }
     }
     Timer{
         id: animationtimer2
-        interval: 200
+        interval: animSpeed2
         repeat: true
         running: startAnimations
         onTriggered: {
             if( secondLayer.animated ){
                 secondLayer.width = animationMaxHeight * 1.2
+                firstLayer.radius = (secondLayer.width) - 8
                 secondLayer.animated = false
             }else{
                 secondLayer.animated = true
                 secondLayer.width = animationMinHeight
+                secondLayer.radius = (secondLayer.width)
             }
         }
     }
     Timer{
         id: animationtimer3
-        interval: 374
+        interval: animSpeed3
         repeat: true
         running: startAnimations
         onTriggered: {
             if( thirdLayer.animated ){
                 thirdLayer.width = animationMaxHeight * 1.2
+                thirdLayer.radius = (thirdLayer.width) - 20
                 thirdLayer.animated = false
             }else{
                 thirdLayer.animated = true
                 thirdLayer.width = animationMinHeight
+                thirdLayer.radius = (thirdLayer.width)
             }
         }
     }

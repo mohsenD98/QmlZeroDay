@@ -39,6 +39,12 @@ MessageBoxBorder
         color: "transparent"
         clip: true
 
+        FontLoader
+        {
+             id: mainFont
+             source: "qrc:/tools/font/presianDefault.ttf"
+        }
+
         Text {
             id: msg
             height: parent.height
@@ -47,7 +53,7 @@ MessageBoxBorder
             text: qsTr("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
             color: "white"
             opacity: .99
-            font.family: "Open Sans"
+            font.family: mainFont.name
             font.pixelSize: 13
             font.weight: Font.Thin
         }

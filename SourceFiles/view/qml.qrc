@@ -54,5 +54,6 @@
         <file>animation/RecordingAnimation.qml</file>
         <file>components/listDelegates/conversation/MessageBox.qml</file>
         <file>components/listDelegates/conversation/MessageBoxBorder.qml</file>
+        <file>tools/font/presianDefault.ttf</file>
     </qresource>
 </RCC>

@@ -11,6 +11,12 @@ RowLayout {
 
     property alias msgField: messageField
 
+    FontLoader
+    {
+         id: presianFont
+         source: "qrc:/tools/font/presianDefault.ttf"
+    }
+
     RoundButton{
         id: selectEmoje
         icon.source: "qrc:/../icons/emoji/emoji_people@4x.png"
@@ -35,6 +41,10 @@ RowLayout {
         background: Rectangle{
             color: "transparent"
         }
+        font.bold: false
+        font.pixelSize: 14
+        font.family: presianFont.name
+        onPreeditTextChanged: Qt.inputMethod.commit() // to avoid Android's uncommited text
 
         onHeightChanged: {
             pane.Layout.preferredHeight = messageField.implicitHeight+8

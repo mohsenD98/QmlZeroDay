@@ -55,5 +55,6 @@
         <file>components/listDelegates/conversation/MessageBox.qml</file>
         <file>components/listDelegates/conversation/MessageBoxBorder.qml</file>
         <file>tools/font/presianDefault.ttf</file>
+        <file>components/menu/conversation/AddNewConversation.qml</file>
     </qresource>
 </RCC>

@@ -12,6 +12,7 @@ Item{
     antialiasing: true
 
     property color backgroundColor
+    property string conversationWithUserName
 
     DropShadow {
         id: rectShadow
@@ -80,7 +81,7 @@ Item{
 
             Text {
                 id: namelbl
-                text: "Mohsen"
+                text: conversationWithUserName
                 anchors.top: parent.top
                 anchors.topMargin: 8
                 font.bold: true

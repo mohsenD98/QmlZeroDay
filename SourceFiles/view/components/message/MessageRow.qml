@@ -10,6 +10,7 @@ import "../../animation"
 RowLayout {
 
     property alias msgField: messageField
+    signal sendMsg(var newMsg)
 
     FontLoader
     {
@@ -51,6 +52,14 @@ RowLayout {
         }
 
         Material.accent: Style.theme.sideBarIconFgActive
+
+        Keys.onPressed: (event)=> {
+                            if ((event.key == Qt.Key_Return || event.key == Qt.Key_Enter) && (event.modifiers & Qt.AltModifier)){
+                                sendMsg(messageField.text)
+                                messageField.text = ""
+                                messageField.focus = true
+                            }
+                        }
     }
 
     RoundButton{
@@ -106,6 +115,11 @@ RowLayout {
         Layout.bottomMargin: -14
         visible: messageField.length > 0
         icon.color: Style.theme.sideBarIconFgActive
-    }
 
+        onReleased: {
+            sendMsg(messageField.text)
+            messageField.text = ""
+            messageField.focus = true
+        }
+    }
 }

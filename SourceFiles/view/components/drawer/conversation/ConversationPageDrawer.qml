@@ -17,22 +17,18 @@ Drawer{
     Overlay.modeless: Rectangle {
         color: "#33000000"
     }
-    property var tableModel
-    property var sqlModel
-    property var index
+    property string conversationSide
 
     function reset(){
-        board.name= tableModel.name
-        board.columns= tableModel.columns
-        board.labels= tableModel.labels
-        board.reset()
+        conversation.inConversationWith = conversationSide
+//        conversation.reset()
     }
 
     background: Rectangle{
         color: Style.theme.windowBg
 
         ConversationActivity{
-            id: board
+            id: conversation
             anchors.fill: parent
         }
     }

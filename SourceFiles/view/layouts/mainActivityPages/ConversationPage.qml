@@ -2,11 +2,12 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 import Style 1.0
-import MGram.sql.Kanban 1.0
+import MGram.sql.conversation 1.0
 
 import "../../components/listDelegates/conversation"
 import "../../components/buttons"
 import "../../components/drawer/conversation"
+import "../../components/menu/conversation"
 
 Rectangle {
     id:root
@@ -33,18 +34,20 @@ Rectangle {
         spacing: 4
 
         Repeater{
-            id: kanbanRepeater
-            model: ["Mohsen", "Alireza", "Ashkan"]
+            id: conversationRepeater
+            model: SqlContactModel{}
 
             delegate: ConversationDelegate{
                 width: parent.width
                 height: 60
                 icon: "qrc:/icons/info/profilePic.jpg"
-                title: modelData
+                title: model.contactName? model.contactName: ""
                 lbl1: qsTr("this is last message")
                 imageBaseColor: Style.theme.sideBarIconFgActive
 
                 onSelected: {
+                    conversationPageFrame.conversationSide = model.contactName
+                    conversationPageFrame.reset()
                     conversationPageFrame.open()
                 }
 
@@ -70,6 +73,22 @@ Rectangle {
         }
     }
 
+    AddNewConversation{
+        id: addConversationMenu
+        width: Math.min(2 * parent.width / 3, 250)
+        height: Math.min(2 * parent.height / 3, 350)
+
+        onAddContact: {
+            if(contactName === "Saved Messages"){
+                conversationRepeater.model.addContact(contactName + "_" + conversationRepeater.model.rowCount())
+            }
+            else{
+                conversationRepeater.model.addContact(contactName)
+            }
+            addConversationMenu.close()
+        }
+    }
+
     FabMore {
         id: fab
         anchors.bottom: parent.bottom
@@ -90,7 +109,7 @@ Rectangle {
             closeOverlay()
 
             if(item === "Add Conversation"){
-                console.log("under develop ...")
+                addConversationMenu.open()
             }
         }
     }

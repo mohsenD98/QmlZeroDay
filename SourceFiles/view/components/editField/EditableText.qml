@@ -14,6 +14,7 @@ Rectangle{
     property real textSize: 14
     property alias mainControl: searchInput
     property color textColor: Style.theme.dialogsTextFgActive
+    property var defaultAlignment: Text.AlignLeft
 
     signal inputTextChanged(var newName)
 
@@ -24,6 +25,7 @@ Rectangle{
         anchors.left: parent.left
         anchors.leftMargin: 8
         font.family: "Open Sans"
+        horizontalAlignment: defaultAlignment
         text: searchInput.activeFocus?currentText : ""
 
         color: Style.theme.dialogsTextFgActive
@@ -38,6 +40,8 @@ Rectangle{
             inputTextChanged(searchInput.text)
             searchInput.focus = false
         }
+
+        onPreeditTextChanged: Qt.inputMethod.commit() // to avoid Android's uncommited text
     }
 
     Text {

@@ -83,10 +83,4 @@ Rectangle {
         id: mainMenu
         edge: Qt.LeftEdge
     }
-    CustomPageDrawer{
-        id: pageFrame
-        edge: Qt.RightEdge
-        dragMargin: 0
-        interactive: false
-    }
 }

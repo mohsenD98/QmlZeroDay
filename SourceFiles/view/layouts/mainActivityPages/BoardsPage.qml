@@ -6,7 +6,7 @@ import MGram.sql.Kanban 1.0
 
 import "../../components/listDelegates/board"
 import "../../components/buttons"
-
+import "../../components/drawer/board"
 Rectangle {
     id:root
     color: "Transparent"
@@ -16,6 +16,13 @@ Rectangle {
         fab.closing = true
         moverlay.visible = !moverlay.visible
 
+    }
+
+    CustomPageDrawer{
+        id: pageFrame
+        edge: Qt.RightEdge
+        dragMargin: 0
+        interactive: false
     }
 
     Column{

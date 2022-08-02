@@ -6,6 +6,7 @@ import MGram.sql.Kanban 1.0
 
 import "../../components/listDelegates/conversation"
 import "../../components/buttons"
+import "../../components/drawer/conversation"
 
 Rectangle {
     id:root
@@ -16,6 +17,12 @@ Rectangle {
         fab.closing = true
         moverlay.visible = !moverlay.visible
 
+    }
+
+    ConversationPageDrawer{
+        id: conversationPageFrame
+        edge: Qt.RightEdge
+        dragMargin: 0
     }
 
     Column{
@@ -38,7 +45,7 @@ Rectangle {
                 imageBaseColor: Style.theme.sideBarIconFgActive
 
                 onSelected: {
-                    console.log("under develop ...")
+                    conversationPageFrame.open()
                 }
 
                 onDeleteRequested: {

@@ -48,5 +48,7 @@
         <file>components/menu/board/CardMoveOptions.qml</file>
         <file>components/menu/board/ScrumBoardDelegateOptions.qml</file>
         <file>layouts/mainActivityPages/ConversationPage.qml</file>
+        <file>components/drawer/conversation/ConversationPageDrawer.qml</file>
+        <file>components/toolbar/ConversationHeaderLayout.qml</file>
     </qresource>
 </RCC>

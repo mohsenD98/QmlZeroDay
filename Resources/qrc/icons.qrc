@@ -37,5 +37,24 @@
         <file>../icons/history_received.png</file>
         <file>../icons/history_received@2x.png</file>
         <file>../icons/history_received@3x.png</file>
+        <file>../icons/info/info_back.png</file>
+        <file>../icons/info/info_back@2x.png</file>
+        <file>../icons/info/info_back@3x.png</file>
+        <file>../icons/calls/call_answer.png</file>
+        <file>../icons/calls/call_answer@2x.png</file>
+        <file>../icons/calls/call_answer@3x.png</file>
+        <file>../icons/emoji/emoji_people.png</file>
+        <file>../icons/emoji/emoji_people@2x.png</file>
+        <file>../icons/emoji/emoji_people@3x.png</file>
+        <file>../icons/emoji/emoji_people@4x.png</file>
+        <file>../icons/chat/input_attach.png</file>
+        <file>../icons/chat/input_attach@2x.png</file>
+        <file>../icons/chat/input_attach@3x.png</file>
+        <file>../icons/chat/input_send.png</file>
+        <file>../icons/chat/input_send@2x.png</file>
+        <file>../icons/chat/input_send@3x.png</file>
+        <file>../icons/info/info_media_voice.png</file>
+        <file>../icons/info/info_media_voice@2x.png</file>
+        <file>../icons/info/info_media_voice@3x.png</file>
     </qresource>
 </RCC>

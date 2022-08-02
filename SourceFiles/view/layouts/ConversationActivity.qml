@@ -1,145 +1,127 @@
 import QtQuick 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
+import QtQuick.Controls.Material 2.12
 
 import Style 1.0
 
-Rectangle {
-    id:root
-    anchors.fill: parent
-    color: Style.theme.windowBg
+import "../components/toolbar"
 
-    property string name
-    property string columns
-    property string labels
+Page {
+    id: root
 
-    signal tableNameChanged(var tbNewName)
-    signal addTableLabel(var lblName, var lblColor)
+    property string inConversationWith
+    Material.background: Style.theme.windowBg
 
-    function reset(){
-        colsRepeater.kanbanBoardName = name
-        colsRepeater.model = columns.split(",")
+    header:  ConversationHeaderLayout{
+        backgroundColor: Style.theme.titleBgActive
 
-        for(var i=0; i<colsRepeater.count; ++i){
-            colsRepeater.itemAt(i).reset()
-        }
-        resetLbls();
     }
 
-    function resetLbls(){
-        var labelsTempData = []
-        for(var i=0; i<(labels.split(",").length)-1; i+=2){
-            labelsTempData.push({
-                                mText: labels.split(",")[i],
-                                mColor: labels.split(",")[i+1],
-                                lblIsSelected: false
-                            })
-        }
-        addNewCard.lblData = labelsTempData
-    }
+    ColumnLayout {
+        anchors.fill: parent
 
-    BoardHeaderLayout{
-        id: header
-        width: parent.width
-        height: 45
-        color: Style.theme.titleBgActive
-
-        onApplogoClicked: pageFrame.close()
-    }
-
-    EditableText{
-        id: editableName
-        anchors.top: header.bottom
-        anchors.topMargin: 8
-        height: 35
-        anchors.left: parent.left
-        anchors.leftMargin: 8
-        currentText: colsRepeater.kanbanBoardName
-
-        onInputTextChanged: {
-            tableNameChanged(newName)
-        }
-    }
-
-    GlowingSearchBar{
-        id: searchBar
-        anchors.top: editableName.bottom
-        anchors.topMargin: 8
-        anchors.left: parent.left
-        anchors.leftMargin: 8
-        anchors.right: parent.right
-        anchors.rightMargin: 8
-        height: 35
-
-        onSearchInCards: {
-            for(var i=0; i< colsRepeater.count; ++i){
-                colsRepeater.itemAt(i).setSqlFilter(text)
-            }
-        }
-    }
-
-    Rectangle{
-        anchors.top: searchBar.bottom
-        anchors.topMargin: 8
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 4
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.leftMargin: 8
-        anchors.rightMargin: 8
-        clip: true
-        color: "transparent"
-
-        Flickable{
-            anchors.fill: parent
-            contentWidth: cardColumns.implicitWidth
-            contentHeight: cardColumns.implicitHeight
-
-            onDraggingChanged: {
-                searchBar.setTextInputFocuse(false)
+        ListView {
+            id: listView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.margins: pane.leftPadding + messageField.leftPadding
+            displayMarginBeginning: 40
+            displayMarginEnd: 40
+            verticalLayoutDirection: ListView.BottomToTop
+            spacing: 12
+            model: 100
+            delegate: Rectangle{
+                width: parent.width * .75
+                height: 30
+                radius: 4
+                opacity: .1
             }
 
-            Row{
-                id: cardColumns
-                width: 3*250 + 10
-                height: root.height
-                spacing: 8
-                clip: false
+            ScrollBar.vertical: ScrollBar {}
+        }
 
-                Repeater{
-                    id: colsRepeater
-                    model: columns
-                    clip: false
-                    property string kanbanBoardName
+        Pane {
+            id: pane
+            Layout.fillWidth: true
+            Material.background: Style.theme.titleBgActive
 
-                    onKanbanBoardNameChanged: {
-                        editableName.currentText = kanbanBoardName
-                    }
+            RowLayout {
+                width: parent.width
+                anchors.bottom: parent.bottom
 
-                    delegate: BoardCardColumn{
-                        title: modelData
-                        kanbanName: colsRepeater.kanbanBoardName
-                        allCols: columns
-                        clip: false
-
-                        onReloadCols: {
-                            for(var i=0 ; i<columns.split(",").length; ++i){
-                                colsRepeater.itemAt(i).reset()
-                            }
-                        }
-                    }
+                RoundButton{
+                    id: selectEmoje
+                    icon.source: "qrc:/../icons/emoji/emoji_people@4x.png"
+                    icon.height: 25
+                    icon.width: 25
+                    opacity: .5
+                    flat: true
+                    Layout.alignment: Qt.AlignBottom
+                    Layout.bottomMargin: -12
                 }
+
+                TextArea {
+                    id: messageField
+                    placeholderText: qsTr("Message")
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignBottom
+                    Layout.bottomMargin: -14
+                    selectByMouse: true
+                    selectByKeyboard: true
+                    Layout.maximumHeight: 250
+                    wrapMode: TextArea.Wrap
+                    background: Rectangle{
+                        color: "transparent"
+                    }
+
+                    onHeightChanged: {
+                        pane.Layout.preferredHeight = messageField.implicitHeight+8
+                    }
+
+                    Material.accent: Style.theme.sideBarIconFgActive
+                }
+
+                RoundButton{
+                    id: selectMedia
+                    icon.source: "qrc:/../icons/chat/input_attach@3x.png"
+                    opacity: .5
+                    flat: true
+                    icon.height: 35
+                    icon.width: 35
+                    Layout.alignment: Qt.AlignBottom
+                    Layout.bottomMargin: -16
+                    Layout.rightMargin: -16
+                    visible: messageField.length == 0
+                }
+
+                RoundButton{
+                    id: recordVoice
+                    icon.source: "qrc:/../icons/info/info_media_voice@3x.png"
+                    opacity: .5
+                    icon.height: 35
+                    icon.width: 35
+                    flat: true
+                    Layout.alignment: Qt.AlignBottom
+                    Layout.rightMargin: -8
+                    Layout.bottomMargin: -16
+                    visible: messageField.length == 0
+                }
+
+                RoundButton{
+                    id: sendPm
+                    icon.source: "qrc:/../icons/chat/input_send@3x.png"
+                    icon.height: 25
+                    icon.width: 25
+                    flat: true
+                    Layout.alignment: Qt.AlignBottom
+                    Layout.bottomMargin: -14
+                    visible: messageField.length > 0
+                    icon.color: Style.theme.sideBarIconFgActive
+                }
+
             }
-        }
-    }
-
-    CustomAddCardDrawer{
-        id: addNewCard
-        edge: Qt.RightEdge
-        width: parent.width/3 * 2
-        height: parent.height
-
-        onAddNewLabel: {
-            addTableLabel(lbl, col)
         }
     }
 }
+

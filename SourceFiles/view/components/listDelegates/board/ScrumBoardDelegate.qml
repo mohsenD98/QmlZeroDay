@@ -62,7 +62,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            width: 50
+            width: 8
             color: parent.color
 
         }

@@ -19,7 +19,7 @@ Rectangle {
         Material.background: "transparent"
 
         Repeater {
-            model: ["Boards", "Conversations", "Diary", "Catalan", "Discover"]
+            model: ["Boards", "Conversations", "Discover"]
 
             CustomTabButton {
                 text: modelData

@@ -62,5 +62,11 @@
         <file>../icons/contacts_online.png</file>
         <file>../icons/contacts_online@2x.png</file>
         <file>../icons/contacts_online@3x.png</file>
+        <file>../icons/dialogs/dialogs_unlock.png</file>
+        <file>../icons/dialogs/dialogs_unlock@2x.png</file>
+        <file>../icons/dialogs/dialogs_unlock@3x.png</file>
+        <file>../icons/dialogs/dialogs_channel.png</file>
+        <file>../icons/dialogs/dialogs_channel@2x.png</file>
+        <file>../icons/dialogs/dialogs_channel@3x.png</file>
     </qresource>
 </RCC>

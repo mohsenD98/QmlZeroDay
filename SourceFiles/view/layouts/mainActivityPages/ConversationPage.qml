@@ -37,7 +37,6 @@ Rectangle {
             else{
                 conversationRepeater.model.addContact(contactName)
             }
-            addConversationMenu.close()
         }
     }
 

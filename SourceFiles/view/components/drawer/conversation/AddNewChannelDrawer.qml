@@ -11,21 +11,15 @@ Drawer{
     width: parent.width
     height: parent.height
     dim: true
-    edge: Qt.rightEdge
+    edge: Qt.RightEdge
     modal: false
     closePolicy: Popup.CloseOnPressOutside
     Overlay.modeless: Rectangle {
         color: "#33000000"
     }
 
-    signal addContact(var contactName)
-
     background: Rectangle{
         color: Style.theme.windowBg
 
-        SelectNewConversationPage{
-            id: conversation
-            anchors.fill: parent
-        }
     }
 }

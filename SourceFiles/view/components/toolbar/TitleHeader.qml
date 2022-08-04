@@ -10,15 +10,16 @@ Rectangle {
         icon.source: "qrc:/../icons/dialogs/dialogs_menu@3x.png"
         flat: true
         onClicked: settingsBtnClicked()
+        scale: 1.4
     }
     Text {
         id: appTitle
-        text: qsTr("Routine")
+        text: qsTr("Zero Day")
         anchors.verticalCenter: menuBtn.verticalCenter
         anchors.left: menuBtn.right
         anchors.leftMargin: 8
         color: Style.theme.dialogsTextFgActive
-        font.pixelSize: 14
+        font.pixelSize: 18
         font.family: "Open Sans"
         font.bold: true
     }
@@ -27,5 +28,6 @@ Rectangle {
         anchors.right: parent.right
         icon.source: "qrc:/../icons/info/info_search@3x.png"
         flat: true
+        scale: 1.4
     }
 }

@@ -18,12 +18,12 @@ Rectangle {
     }
     Text {
         id: appTitle
-        text: qsTr("Routine")
+        text: qsTr("Zero Day")
         anchors.verticalCenter: appLogo.verticalCenter
         anchors.left: appLogo.right
         anchors.leftMargin: 8
         color: Style.theme.dialogsTextFgActive
-        font.pixelSize: 14
+        font.pixelSize: 18
         font.family: "Open Sans"
         font.bold: true
     }
@@ -53,6 +53,7 @@ Rectangle {
             smooth: false
             anchors.fill: parent
             source: "qrc:/../icons/info/profilePic.jpg"
+            scale: 1.4
         }
     }
 
@@ -63,6 +64,7 @@ Rectangle {
         anchors.right: profilePhoto.left
         anchors.rightMargin: 8
         anchors.verticalCenter: parent.verticalCenter
+        scale: 1.4
     }
     RoundButton{
         id: infoBtn
@@ -70,6 +72,7 @@ Rectangle {
         icon.source: "qrc:/../icons/info/info_report@3x.png"
         anchors.right: notifBtn.left
         anchors.verticalCenter: parent.verticalCenter
+        scale: 1.4
     }
 
 }

@@ -47,7 +47,7 @@ Rectangle {
     BoardHeaderLayout{
         id: header
         width: parent.width
-        height: 45
+        height: 55
         color: Style.theme.titleBgActive
 
         onApplogoClicked: pageFrame.close()

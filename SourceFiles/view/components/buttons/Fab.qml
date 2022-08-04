@@ -1,30 +1,39 @@
 import QtQuick 2.12
-
+import QtQuick.Controls 2.12
+import QtQuick.Controls.Material 2.12
 import Style 1.0
 
 import "../../tools"
 
-Rectangle{
+
+RoundButton {
     id: fab
+    width: 80
+    height: 80
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    anchors.margins: 20
+    highlighted: true
+    smooth: true
+    text: "+"
 
     signal fabClicked
 
-    Text {
-        text: qsTr("+")
-        font.pixelSize: 22
-        anchors.centerIn: parent
-        color: Style.theme.dialogsTextFgActive
-    }
+    property color backgroundColor
 
-    MouseArea{
-        id: fabBtnMouseArea
-        anchors.fill: parent
-        onClicked: fabClicked()
-    }
+    Material.background: backgroundColor
+    contentItem: Text {
+        text: fab.text
+        font.pixelSize: 35
+        opacity: enabled ? 1.0 : 0.3
+        color: "white"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
 
-    RippleLayout{
-        anchors.fill: fab
-        mouseArea: fabBtnMouseArea
-        mRadius: fab.radius
+    }
+    onClicked: {
+       fabClicked()
     }
 }
+

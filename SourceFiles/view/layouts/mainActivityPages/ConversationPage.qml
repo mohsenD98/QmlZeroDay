@@ -7,7 +7,6 @@ import MGram.sql.conversation 1.0
 import "../../components/listDelegates/conversation"
 import "../../components/buttons"
 import "../../components/drawer/conversation"
-import "../../components/menu/conversation"
 
 Rectangle {
     id:root
@@ -24,6 +23,22 @@ Rectangle {
         id: conversationPageFrame
         edge: Qt.RightEdge
         dragMargin: 0
+    }
+
+    NewConversationDrawer{
+        id: addConversationFrame
+        edge: Qt.RightEdge
+        dragMargin: 0
+
+        onAddContact: {
+            if(contactName === "Saved Messages"){
+                conversationRepeater.model.addContact(contactName + "_" + conversationRepeater.model.rowCount())
+            }
+            else{
+                conversationRepeater.model.addContact(contactName)
+            }
+            addConversationMenu.close()
+        }
     }
 
     Column{
@@ -73,44 +88,13 @@ Rectangle {
         }
     }
 
-    AddNewConversation{
-        id: addConversationMenu
-        width: Math.min(2 * parent.width / 3, 250)
-        height: Math.min(2 * parent.height / 3, 350)
-
-        onAddContact: {
-            if(contactName === "Saved Messages"){
-                conversationRepeater.model.addContact(contactName + "_" + conversationRepeater.model.rowCount())
-            }
-            else{
-                conversationRepeater.model.addContact(contactName)
-            }
-            addConversationMenu.close()
-        }
-    }
-
-    FabMore {
+    Fab {
         id: fab
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        icon: "+"
-        enableText: true
         backgroundColor: "#1976D2"
-        accentColor: "white"
-        overlay: moverlay
         z: 2
-        model: [{
-                "name": "Add Conversation",
-                "icon": "+",
-                "baseColor": "#5eb5f7"
-            }]
 
-        onItemCalled: {
-            closeOverlay()
-
-            if(item === "Add Conversation"){
-                addConversationMenu.open()
-            }
-        }
+        onFabClicked: addConversationFrame.open()
     }
 }

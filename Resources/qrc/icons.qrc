@@ -59,5 +59,8 @@
         <file>../icons/upload_chat_photo.png</file>
         <file>../icons/upload_chat_photo@2x.png</file>
         <file>../icons/upload_chat_photo@3x.png</file>
+        <file>../icons/contacts_online.png</file>
+        <file>../icons/contacts_online@2x.png</file>
+        <file>../icons/contacts_online@3x.png</file>
     </qresource>
 </RCC>

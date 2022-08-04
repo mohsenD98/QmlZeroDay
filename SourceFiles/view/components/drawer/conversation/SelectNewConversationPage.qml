@@ -25,14 +25,20 @@ Rectangle {
                             })
     }
 
+    signal addNewConversation(var convName)
+
     AddNewChannelDrawer{
         id: addNewChannel
+
+        onChannelNameSetted:{
+            addNewConversation(name)
+        }
     }
 
     NewConversationToolbar{
         id: header
         width: parent.width
-        height: 45
+        height: 55
         backgroundColor: Style.theme.titleBgActive
     }
 
@@ -45,19 +51,27 @@ Rectangle {
         model: ListModel{}
 
         delegate: Rectangle{
-            color: "transparent"
+            color: "#1D2733"
             width: parent.width
             height: 40
-            opacity: model.enable? 1: .4
 
-            Image{
+            Rectangle{
                 id: icon
-                source: model.icon
+                width: 40
+                height: 40
                 anchors.left: parent.left
                 anchors.leftMargin: 16
                 anchors.verticalCenter: parent.verticalCenter
-                opacity: .8
+                color: "transparent"
+
+                Image{
+                    source: model.icon
+                    opacity: .8
+                    anchors.centerIn: parent
+                    scale: 1.4
+                }
             }
+
             Text {
                 id: namelbl
                 text: model.title
@@ -65,7 +79,7 @@ Rectangle {
                 anchors.leftMargin: 32
                 anchors.verticalCenter: icon.verticalCenter
                 color: "white"
-                font.pixelSize: 14
+                font.pixelSize: 16
                 font.family: "Open Sans"
             }
 

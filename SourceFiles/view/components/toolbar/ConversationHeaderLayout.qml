@@ -8,7 +8,7 @@ import Style 1.0
 Item{
     id: container
     width:  parent.width
-    height: 50
+    height: 64
     antialiasing: true
 
     property color backgroundColor
@@ -39,6 +39,7 @@ Item{
             icon.source: "qrc:/../icons/info/info_back@3x.png"
             anchors.left: parent.left
             flat: true
+            scale: 1.5
 
             onClicked: conversationPageFrame.close()
         }
@@ -47,8 +48,8 @@ Item{
             id: imageSection
             anchors.left: backBtn.right
             anchors.verticalCenter: parent.verticalCenter
+            height: parent.height - 10
             width: height
-            height: parent.height - 8
             radius: width / 2
 
             layer.enabled: true
@@ -82,21 +83,21 @@ Item{
             Text {
                 id: namelbl
                 text: conversationWithUserName
-                anchors.top: parent.top
-                anchors.topMargin: 8
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -4
                 font.bold: true
                 color: Style.theme.dialogsTextFgActive
-                font.pixelSize: 12
+                font.pixelSize: 15
                 font.family: "Open Sans"
             }
             Row{
                 id: info1
-                anchors.top: namelbl.bottom
-                anchors.topMargin: 5
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 4
                 Text {
-                    text: "last seen at 1:09"
+                    text: "last seen at 1:19"
                     color: Style.theme.dialogsTextFgActive
-                    font.pixelSize: 11
+                    font.pixelSize: 14
                     font.family: "Open Sans"
                     opacity: .4
                 }
@@ -107,22 +108,24 @@ Item{
             id: options
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.rightMargin: -4
+            anchors.rightMargin: 4
             height: 40
             width: height
             icon.source: "qrc:/../icons/mediaview_more@3x.png"
             opacity: .8
             flat: true
+            scale: 1.2
         }
 
         RoundButton{
             id: call
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: options.left
-            anchors.rightMargin: -4
+            anchors.rightMargin: -0
             icon.source: "qrc:/../icons/calls/call_answer@3x.png"
             opacity: .8
             flat: true
+            scale: 1.5
         }
     }
 }

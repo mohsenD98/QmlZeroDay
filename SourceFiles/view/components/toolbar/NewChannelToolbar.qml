@@ -8,10 +8,12 @@ import Style 1.0
 Item{
     id: container
     width:  parent.width
-    height: 70
+    height: 55
     antialiasing: true
 
     property color backgroundColor
+
+    signal checkClicked
 
     DropShadow {
         id: rectShadow
@@ -52,7 +54,7 @@ Item{
 
             Text {
                 id: namelbl
-                text: "New Conversation"
+                text: "New Channel"
                 font.bold: true
                 color: Style.theme.dialogsTextFgActive
                 font.pixelSize: 18
@@ -61,27 +63,17 @@ Item{
         }
 
         RoundButton{
-            id: filter
+            id: check
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: -4
             height: 40
             width: height
-            icon.source: "qrc:/../icons/contacts_online@3x.png"
+            icon.source: "qrc:/../icons/player/player_check@3x.png"
             opacity: .8
             flat: true
-            scale: 1.4
-        }
-
-        RoundButton{
-            id: call
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: filter.left
-            anchors.rightMargin: -4
-            icon.source: "qrc:/../icons/info/info_search@3x.png"
-            opacity: .8
-            flat: true
-            scale: 1.4
+            scale: 1.6
+            onClicked: checkClicked()
         }
     }
 }

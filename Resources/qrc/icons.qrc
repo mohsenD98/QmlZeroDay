@@ -68,5 +68,8 @@
         <file>../icons/dialogs/dialogs_channel.png</file>
         <file>../icons/dialogs/dialogs_channel@2x.png</file>
         <file>../icons/dialogs/dialogs_channel@3x.png</file>
+        <file>../icons/player/player_check.png</file>
+        <file>../icons/player/player_check@2x.png</file>
+        <file>../icons/player/player_check@3x.png</file>
     </qresource>
 </RCC>

@@ -59,5 +59,6 @@
         <file>components/toolbar/NewConversationToolbar.qml</file>
         <file>components/drawer/conversation/SelectNewConversationPage.qml</file>
         <file>components/drawer/conversation/AddNewChannelDrawer.qml</file>
+        <file>components/toolbar/NewChannelToolbar.qml</file>
     </qresource>
 </RCC>

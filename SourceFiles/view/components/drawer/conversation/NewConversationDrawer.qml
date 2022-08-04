@@ -26,6 +26,11 @@ Drawer{
         SelectNewConversationPage{
             id: conversation
             anchors.fill: parent
+
+            onAddNewConversation:{
+                addContact(convName)
+                control.close()
+            }
         }
     }
 }

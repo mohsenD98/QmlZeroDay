@@ -2,6 +2,8 @@ import QtQuick 2.12
 import QtGraphicalEffects 1.0
 import QtQuick.Shapes 1.12
 
+import Style 1.0
+
 MessageBoxBorder
 {
     height: msg.implicitHeight + 16 // 16 is margins
@@ -11,6 +13,7 @@ MessageBoxBorder
     property bool receiving
     property string msgText
     property string msgDate
+    property color msgTextColor
 
     Image{
         id: recivedImg
@@ -19,7 +22,12 @@ MessageBoxBorder
         anchors.margins: 8
         source: "qrc:/icons/history_received@3x.png"
         fillMode: Image.PreserveAspectFit
-        opacity: .8
+
+        ColorOverlay{
+            anchors.fill: parent
+            source: parent
+            color: Style.theme.sideBarIconFgActive
+        }
     }
 
     Text {
@@ -28,7 +36,7 @@ MessageBoxBorder
         anchors.right: recivedImg.left
         anchors.rightMargin: 4
         text: msgDate
-        color: "white"
+        color: msgTextColor
         opacity: .8
         font.family: "Open Sans"
         font.pixelSize: 12
@@ -55,7 +63,7 @@ MessageBoxBorder
             width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             text: msgText
-            color: "white"
+            color: msgTextColor
             opacity: .99
             font.family: mainFont.name
             font.pixelSize: 13

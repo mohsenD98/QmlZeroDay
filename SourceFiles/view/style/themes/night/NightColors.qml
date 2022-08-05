@@ -191,7 +191,7 @@ QtObject
 	property color stickerPanDeleteFg: windowFgActive
 	property color stickerPreviewBg: "#000000b0"
 	property color historyTextInFg: windowFg
-	property color historyTextInFgSelected: "#ffffff"
+    property color historyTextInFgSelected: "#ffffff"
 	property color historyTextOutFg: "#e4ecf2"
 	property color historyTextOutFgSelected: "#ffffff"
 	property color historyLinkInFg: "#70baf5"
@@ -459,5 +459,5 @@ QtObject
 	property color sideBarBadgeBg: "#5eb5f7"
 	property color sideBarBadgeBgMuted: "#768c9e"
 
-    Behavior on windowBg { ColorAnimation { duration: 100 } }
+    property string chatBackgroundImg: "qrc:/style/themes/night/background.png"
 }

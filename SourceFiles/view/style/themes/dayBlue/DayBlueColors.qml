@@ -2,7 +2,7 @@ import QtQuick 2.12
 
 QtObject
 {
-	property color windowBg: "#ffffff"
+    property color windowBg: "#ffffff"
 	property color windowFg: "#000000"
 	property color windowBgOver: "#f1f1f1"
 	property color windowBgRipple: "#e5e5e5"
@@ -222,8 +222,8 @@ QtObject
 	property color historyScrollBgOver: "#0000001a"
 	property color msgInBg: windowBg
 	property color msgInBgSelected: "#bbe1fc"
-	property color msgOutBg: "#def1fd"
-	property color msgOutBgSelected: "#bbe1fc"
+    property color msgOutBg: "#2b5278"
+    property color msgOutBgSelected: "#2e70a5"
 	property color msgSelectOverlay: "#358cd44c"
 	property color msgStickerOverlay: "#358cd47f"
 	property color msgInServiceFg: windowActiveTextFg
@@ -365,7 +365,5 @@ QtObject
 	property color mediaviewTransparentBg: "#ffffff"
 	property color mediaviewTransparentFg: "#cccccc"
 	property color notificationBg: windowBg
-
-    Behavior on windowBg { ColorAnimation { duration: 100 } }
-
+    property string chatBackgroundImg: "qrc:/style/themes/dayBlue/background.png"
 }

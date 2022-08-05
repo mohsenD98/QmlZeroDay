@@ -12,13 +12,19 @@ import "../components/listDelegates/conversation"
 
 Page {
     id: root
-
     property string inConversationWith
-    Material.background: Style.theme.windowBg
 
     header:  ConversationHeaderLayout{
-        backgroundColor: Style.theme.titleBgActive
+        backgroundColor: "#242f3d"
         conversationWithUserName: inConversationWith
+    }
+
+    Rectangle{
+        anchors.fill: parent
+        Image{
+            anchors.fill: parent
+            source: Style.theme.chatBackgroundImg
+        }
     }
 
     ColumnLayout {
@@ -39,11 +45,12 @@ Page {
 
             delegate: MessageBox{
                 opacity: 1
-                msgColor: receiving? Style.theme.titleBgActive: Style.theme.msgOutBg
+                msgColor: receiving? Style.theme.msgInBg: Style.theme.msgOutBg
                 anchors.right: receiving ? undefined : parent.right
                 receiving: model.recipient === "Me"
 
                 msgText: model.message
+                msgTextColor: receiving? Style.theme.historyTextOutFg: "white"
                 msgDate: Qt.formatDateTime(model.timestamp, "hh:mm")
 
 
@@ -57,7 +64,7 @@ Page {
         Pane {
             id: pane
             Layout.fillWidth: true
-            Material.background: Style.theme.titleBgActive
+            Material.background: "#242f3d"
 
             MessageRow{
                 id: msgRow

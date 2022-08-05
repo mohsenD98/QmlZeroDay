@@ -260,8 +260,8 @@ Item
 	property color historyScrollBgOver: "#517c416b"
 	property color msgInBg: windowBg
 	property color msgInBgSelected: "#c2dcf2"
-	property color msgOutBg: "#effdde"
-	property color msgOutBgSelected: "#cbebb5"
+    property color msgOutBg: "#2b5278"
+    property color msgOutBgSelected: "#2e70a5"
 	property color msgSelectOverlay: "#358cd44c"
 	property color msgStickerOverlay: "#358cd47f"
 	property color msgInServiceFg: windowActiveTextFg
@@ -540,7 +540,6 @@ Item
 	property color photoEditorBg: boxTitleAdditionalFg
 	property color photoEditorItemBaseHandleFg: "#3ccaef"
 
-    Behavior on windowBg { ColorAnimation { duration: 100 } }
-
+    property string chatBackgroundImg: "qrc:/style/themes/dayCustomBase/background.jpg"
 }
 

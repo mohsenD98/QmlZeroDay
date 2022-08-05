@@ -459,5 +459,5 @@ Item
 	property color sideBarBadgeBg: "#5eb5f7"
 	property color sideBarBadgeBgMuted: "#768c9e"
 
-    Behavior on windowBg { ColorAnimation { duration: 100 } }
+    property string chatBackgroundImg: "qrc:/style/themes/nightCustomBase/background.jpg"
 }

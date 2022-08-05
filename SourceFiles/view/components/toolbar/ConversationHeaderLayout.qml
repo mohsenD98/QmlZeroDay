@@ -84,7 +84,7 @@ Item{
                 id: namelbl
                 text: conversationWithUserName
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: -4
+                anchors.verticalCenterOffset: -7
                 font.bold: true
                 color: Style.theme.dialogsTextFgActive
                 font.pixelSize: 15
@@ -93,7 +93,7 @@ Item{
             Row{
                 id: info1
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 4
+                anchors.bottomMargin: 7
                 Text {
                     text: "last seen at 1:19"
                     color: Style.theme.dialogsTextFgActive

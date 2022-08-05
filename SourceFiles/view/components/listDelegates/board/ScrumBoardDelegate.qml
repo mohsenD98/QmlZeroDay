@@ -83,7 +83,7 @@ Rectangle {
             anchors.top: parent.top
             anchors.topMargin: 8
             font.bold: true
-            color: Style.theme.dialogsTextFgActive
+            color: Style.theme.historyTextOutFg
             font.pixelSize: 12
             font.family: "Open Sans"
         }
@@ -95,12 +95,13 @@ Rectangle {
                 text: lbl1
                 color: imageBaseColor
                 font.pixelSize: 10
+                font.bold: true
                 opacity: 1
                 font.family: "Open Sans"
             }
             Text {
                 text: lbl1Optins
-                color: Style.theme.dialogsTextFgActive
+                color: Style.theme.historyTextOutFg
                 font.pixelSize: 10
                 font.family: "Open Sans"
             }
@@ -113,12 +114,13 @@ Rectangle {
                 text: lbl2
                 color: imageBaseColor
                 font.pixelSize: 10
+                font.bold: true
                 opacity: 1
                 font.family: "Open Sans"
             }
             Text {
                 text: lbl2Options
-                color: Style.theme.dialogsTextFgActive
+                color: Style.theme.historyTextOutFg
                 font.pixelSize: 10
                 font.family: "Open Sans"
             }

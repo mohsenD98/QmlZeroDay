@@ -1,18 +1,26 @@
 pragma Singleton
 
 import QtQuick 2.12
+import QtQuick.Controls.Material 2.12
 
 import "themes/dayBlue/"
 import "themes/dayCustomBase/"
 import "themes/night"
 import "themes/nightCustomBase"
 import "themes/nightGreen"
+import "themes/current"
 
 Item {
     // todo: set NightColors to QtObject to fix -> "Error: Cannot assign QObject* to NightColors_QMLTYPE_3*"
     // it's type is NightColors for IDE's autocompletion
-    property QtObject theme: nightColors
+    property Theme theme: currentTheme
     property string currentThemeName: "NightColors"
+
+    Theme{
+        id: currentTheme
+
+        model: nightColors
+    }
 
     DayBlueColors{
         id: dayBlueColors
@@ -37,19 +45,24 @@ Item {
     function setTheme(name){
         currentThemeName = name
         if(name === "NightGreenColors"){
-            theme = nightGreenColors
+            currentTheme.model = nightGreenColors
+            Material.theme = Material.Dark
         }
         if(name === "NightCustomColors"){
-            theme = nightCustomColors
+            currentTheme.model = nightCustomColors
+            Material.theme = Material.Dark
         }
         if(name === "NightColors"){
-            theme = nightColors
+            currentTheme.model = nightColors
+            Material.theme = Material.Dark
         }
         if(name === "DayCustomBaseColors"){
-            theme = dayCustomBaseColors
+            currentTheme.model = dayCustomBaseColors
+            Material.theme = Material.Light
         }
         if(name === "DayBlueColors"){
-            theme = dayBlueColors
+            currentTheme.model = dayBlueColors
+            Material.theme = Material.Light
         }
     }
 }

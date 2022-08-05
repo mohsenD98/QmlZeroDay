@@ -56,7 +56,7 @@ Rectangle {
         anchors.topMargin: 8
         anchors.right: parent.right
         anchors.rightMargin: 8
-        color: Style.theme.dialogsTextFgActive
+        color: Style.theme.historyTextOutFg
         font.pixelSize: 12
         font.family: "Open Sans"
         opacity: .6
@@ -93,7 +93,7 @@ Rectangle {
             anchors.top: parent.top
             anchors.topMargin: 8
             font.bold: true
-            color: Style.theme.dialogsTextFgActive
+            color: Style.theme.historyTextOutFg
             font.pixelSize: 12
             font.family: "Open Sans"
         }
@@ -103,7 +103,7 @@ Rectangle {
             anchors.topMargin: 10
             Text {
                 text: lbl1
-                color: Style.theme.dialogsTextFgActive
+                color: Style.theme.historyTextOutFg
                 font.pixelSize: 11
                 font.family: "Open Sans"
                 opacity: .8

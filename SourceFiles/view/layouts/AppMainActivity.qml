@@ -16,7 +16,7 @@ Rectangle {
         id:headerBox
         width: parent.width
         height: titleCol.implicitHeight
-        color: Style.theme.titleBgActive
+        color: "#242f3d"
 
         Column{
             width: parent.width

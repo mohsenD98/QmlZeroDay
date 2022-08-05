@@ -5,6 +5,7 @@ import "../../tools"
 Rectangle{
     property string title
     property color textColor
+    property bool boldFont: false
     signal btnClicked
 
     width: btnText.width * 1.4
@@ -16,6 +17,7 @@ Rectangle{
         anchors.centerIn: parent
         color: textColor
         font.pixelSize: 12
+        font.bold: boldFont
         font.family: "Open Sans"
     }
 

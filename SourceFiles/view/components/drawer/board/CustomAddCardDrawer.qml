@@ -151,7 +151,7 @@ Drawer{
                     anchors.fill: parent
                     anchors.margins: 8
                     font.family: "Open Sans"
-                    color: Style.theme.dialogsTextFgActive
+                    color: Style.theme.historyTextInFgSelected
                     wrapMode: TextEdit.Wrap
                     text: prevTitle
                 }
@@ -160,7 +160,7 @@ Drawer{
                     text: qsTr("Enter board description here")
                     anchors.fill: parent
                     anchors.margins: 8
-                    color: Style.theme.sideBarTextFg
+                    color: Style.theme.historyTextInFgSelected
                     visible: !input.activeFocus && input.text === ""
                     font.family: "Open Sans"
                 }
@@ -173,6 +173,7 @@ Drawer{
                 anchors.left: parent.left
                 anchors.top: inputRect.bottom
                 flat: true
+                icon.color: Style.theme.historyTextInFgSelected
                 opacity: .5
             }
             Text {
@@ -180,7 +181,7 @@ Drawer{
                 anchors.verticalCenter: descIcon.verticalCenter
                 anchors.left: descIcon.right
                 anchors.leftMargin: -8
-                color: Style.theme.dialogsTextFgActive
+                color: Style.theme.historyTextInFgSelected
                 font.pixelSize: 10
                 font.family: "Open Sans"
                 font.bold: true
@@ -189,7 +190,7 @@ Drawer{
 
             Rectangle{
                 id: sp1
-                color: Style.theme.dialogsTextFgActive
+                color: headerBox.color
                 opacity: .5
                 width: parent.width * .95
                 height: 1
@@ -203,6 +204,7 @@ Drawer{
                 anchors.left: parent.left
                 anchors.top: sp1.bottom
                 flat: true
+                icon.color: Style.theme.historyTextInFgSelected
                 opacity: .5
             }
             Text {
@@ -210,7 +212,7 @@ Drawer{
                 anchors.verticalCenter: lblIcon.verticalCenter
                 anchors.left: lblIcon.right
                 anchors.leftMargin: -8
-                color: Style.theme.dialogsTextFgActive
+                color: Style.theme.historyTextInFgSelected
                 font.pixelSize: 10
                 font.family: "Open Sans"
                 font.bold: true
@@ -222,7 +224,7 @@ Drawer{
                 anchors.top: lblIcon.bottom
                 width: parent.width * .95
                 height: 35
-                color: headerBox.color
+                color: Style.theme.titleBgActive
                 radius: 4
                 anchors.horizontalCenter: parent.horizontalCenter
 
@@ -230,7 +232,7 @@ Drawer{
                     text: qsTr("Add/Remove Labels")
                     anchors.fill: parent
                     anchors.margins: 8
-                    color: Style.theme.sideBarTextFg
+                    color: Style.theme.historyTextInFgSelected
                     font.family: "Open Sans"
                 }
                 MouseArea{
@@ -270,7 +272,7 @@ Drawer{
                 background: Rectangle{
                     width: lblCombo.width
                     height: lblData.length * 35 + 35
-                    color: headerBox.color
+                    color: Style.theme.titleBgActive
                     Column{
                         anchors.fill: parent
 
@@ -347,7 +349,8 @@ Drawer{
                 title: editing? "Edit this Card": "Add this Card"
                 y: input.focus? labelsFlow.y+labelsFlow.height + 10: parent.y+parent.height - 100
                 glowColor: Style.theme.sideBarIconFgActive
-                baseColor: headerBox.color
+                baseColor: Style.theme.titleBgActive
+                textColor: Style.theme.historyTextInFgSelected
                 anchors.bottom: errorBox.top
                 anchors.bottomMargin: input.focus? 8: 50
                 anchors.horizontalCenter: parent.horizontalCenter

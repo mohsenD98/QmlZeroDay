@@ -75,11 +75,12 @@ Rectangle{
 
     GlowingButton{
         title: "CONFIRM"
-        glowColor: Style.theme.sideBarIconFgActive
-        baseColor: headerBox.color
         anchors.verticalCenter: lblColor.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 8
+        textColor: Style.theme.historyTextInFgSelected
+        glowColor: Style.theme.sideBarIconFgActive
+        baseColor: Style.theme.titleBgActive
         baseHeight: 25
         z: 503
         onBtnClicked:{

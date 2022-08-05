@@ -1,16 +1,23 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
+
+import Style 1.0
 
 Rectangle {
     id:root
     color: "Transparent"
 
-    Image{
+    RoundButton{
         id: devLogo
         anchors.centerIn: parent
-        source: "qrc:/../icons/intro_right@3x.png"
-
+        icon.source: "qrc:/../icons/intro_right@3x.png"
+        flat: true
+        width: parent.width / 3
+        height: width
+        icon.width: parent.width / 3
+        icon.height: width
         opacity: .6
-        mipmap: true
+        icon.color: Style.theme.historyTextInFgSelected
     }
 
     Text {
@@ -19,9 +26,9 @@ Rectangle {
         font.family: "Open Sans"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: devLogo.bottom
-        anchors.topMargin: 16
+        anchors.topMargin: -32
         font.bold: true
         opacity: .7
-        color: "white"
+        color: Style.theme.historyTextInFgSelected
     }
 }

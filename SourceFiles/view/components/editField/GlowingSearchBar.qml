@@ -27,6 +27,7 @@ Rectangle{
         height: width
         opacity: .8
         z: 3
+        icon.color: Style.theme.historyTextInFgSelected
         visible: searchInput.activeFocus
         onPressed: {
             searchInput.text = ""
@@ -41,7 +42,7 @@ Rectangle{
         anchors.leftMargin: 25
         leftPadding: 18
         font.family: "Open Sans"
-        color: Style.theme.dialogsTextFgActive
+        color: Style.theme.historyTextInFgSelected
 
         Keys.onEnterPressed: {
             if(text === "") focus = false
@@ -57,7 +58,7 @@ Rectangle{
         text: qsTr("Filter cards on this board... (example: infinity stone)")
         anchors.fill: parent
         anchors.margins: 8
-        color: Style.theme.sideBarTextFg
+        color: Style.theme.historyTextInFgSelected
         visible: !searchInput.activeFocus
         font.family: "Open Sans"
     }

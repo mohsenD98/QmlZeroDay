@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtGraphicalEffects 1.0
 
 import Style 1.0
 
@@ -28,7 +29,7 @@ Rectangle {
     signal addNewConversation(var convName)
 
     AddNewChannelDrawer{
-        id: addNewChannel
+        id: addNewChannelDrawer
 
         onChannelNameSetted:{
             addNewConversation(name)
@@ -39,7 +40,7 @@ Rectangle {
         id: header
         width: parent.width
         height: 55
-        backgroundColor: Style.theme.titleBgActive
+        backgroundColor: "#242f3d"
     }
 
 
@@ -51,7 +52,7 @@ Rectangle {
         model: ListModel{}
 
         delegate: Rectangle{
-            color: "#1D2733"
+            color: Style.theme.titleBgActive
             width: parent.width
             height: 40
 
@@ -64,11 +65,12 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 color: "transparent"
 
-                Image{
-                    source: model.icon
-                    opacity: .8
+                RoundButton{
+                    icon.source: model.icon
+                    opacity: .6
                     anchors.centerIn: parent
-                    scale: 1.4
+                    flat: true
+                    icon.color: Style.theme.historyTextInFgSelected
                 }
             }
 
@@ -78,7 +80,7 @@ Rectangle {
                 anchors.left: icon.right
                 anchors.leftMargin: 32
                 anchors.verticalCenter: icon.verticalCenter
-                color: "white"
+                color: Style.theme.historyTextInFgSelected
                 font.pixelSize: 16
                 font.family: "Open Sans"
             }
@@ -89,7 +91,7 @@ Rectangle {
                 enabled: model.enable
 
                 onClicked: {
-                    addNewChannel.open()
+                    addNewChannelDrawer.open()
                 }
             }
             RippleLayout{

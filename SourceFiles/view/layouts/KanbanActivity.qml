@@ -48,7 +48,7 @@ Rectangle {
         id: header
         width: parent.width
         height: 55
-        color: Style.theme.titleBgActive
+        color: "#242f3d"
 
         onApplogoClicked: pageFrame.close()
     }

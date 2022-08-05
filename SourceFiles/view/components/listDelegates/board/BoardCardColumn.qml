@@ -61,6 +61,7 @@ Rectangle {
             icon.source: "qrc:/../icons/media_play@3x.png"
             opacity: .5
             flat: true
+            icon.color: Style.theme.historyTextInFgSelected
             onClicked: {
                 simpleView = !simpleView
             }
@@ -69,7 +70,7 @@ Rectangle {
         Text {
             id: titleLabel
             text: title
-            color: Style.theme.dialogsTextFgActive
+            color: Style.theme.historyTextInFgSelected
             anchors.verticalCenter: columnCollapsor.verticalCenter
             font.pixelSize: 12
             font.family: "Open Sans"
@@ -102,6 +103,7 @@ Rectangle {
         icon.source: "qrc:/../icons/settings/add@3x.png"
         opacity: .5
         flat: true
+        icon.color: Style.theme.historyTextInFgSelected
 
         onClicked: {
             addNewCard.refrenceCol = cardsCol
@@ -120,6 +122,7 @@ Rectangle {
         icon.source: "qrc:/../icons/mediaview_more@3x.png"
         opacity: .5
         flat: true
+        icon.color: Style.theme.historyTextInFgSelected
     }
 
     DragableColumn{
@@ -157,6 +160,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.margins: 4
         radius: 4
+        boldFont: true
         onBtnClicked: {
             addNewCard.refrenceCol = cardsCol
             addNewCard.open()

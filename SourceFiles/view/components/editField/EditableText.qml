@@ -28,7 +28,7 @@ Rectangle{
         horizontalAlignment: defaultAlignment
         text: searchInput.activeFocus?currentText : ""
 
-        color: Style.theme.dialogsTextFgActive
+        color: Style.theme.historyTextInFgSelected
 
         Keys.onEnterPressed: {
             currentText = text
@@ -51,7 +51,7 @@ Rectangle{
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 8
-        color: "white"
+        color: Style.theme.historyTextInFgSelected
         visible: !searchInput.activeFocus
         font.family: "Open Sans"
         font.pixelSize: textSize

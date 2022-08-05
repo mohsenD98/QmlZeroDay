@@ -12,6 +12,7 @@ Item {
     property bool glowing: true
     property string title
     property color glowColor
+    property color textColor: Style.theme.dialogsTextFgActive
     property color baseColor
     property real baseHeight: 35
 
@@ -48,7 +49,7 @@ Item {
             id: inpText
             text: title
             wrapMode: Text.WordWrap
-            color: Style.theme.dialogsTextFgActive
+            color: textColor
             font.pixelSize: 10
             font.family: "Open Sans"
             anchors.centerIn: parent

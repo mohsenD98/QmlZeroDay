@@ -42,7 +42,7 @@ Item{
             flat: true
             scale: 1.4
 
-            onClicked: addConversationFrame.close()
+            onClicked: addNewChannelDrawer.close()
         }
 
         Rectangle{

@@ -20,11 +20,11 @@ Drawer{
 
     signal channelNameSetted(var name)
     background: Rectangle{
-        color: Style.theme.windowBg
+        color: "#242f3d"
 
         NewChannelToolbar{
             id: header
-            backgroundColor: Style.theme.titleBgActive
+            backgroundColor: "#242f3d"
             onCheckClicked: {
                 if(channelName.text != ""){
                     channelNameSetted(channelName.text)

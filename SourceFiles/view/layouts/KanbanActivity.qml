@@ -70,6 +70,14 @@ Rectangle {
 
         onInputTextChanged: {
             tableNameChanged(newName)
+
+            for(var i=0 ; i<columns.split(",").length; ++i){
+                colsRepeater.itemAt(i).kanbanName = newName
+            }
+
+            for(var i=0 ; i<columns.split(",").length; ++i){
+                colsRepeater.itemAt(i).reset()
+            }
         }
     }
 

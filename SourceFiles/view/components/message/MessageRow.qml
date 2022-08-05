@@ -116,10 +116,10 @@ RowLayout {
         visible: messageField.length > 0
         icon.color: Style.theme.sideBarIconFgActive
 
-        onReleased: {
+        focusPolicy: Qt.NoFocus
+        onClicked: {
             sendMsg(messageField.text)
             messageField.text = ""
-            messageField.focus = true
         }
     }
 }

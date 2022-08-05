@@ -69,8 +69,6 @@ Rectangle {
         Repeater {
             model: ["qrc:/layouts/mainActivityPages/BoardsPage.qml",
                 "qrc:/layouts/mainActivityPages/ConversationPage.qml",
-                "qrc:/layouts/mainActivityPages/PlaceHolderPage.qml",
-                "qrc:/layouts/mainActivityPages/PlaceHolderPage.qml",
                 "qrc:/layouts/mainActivityPages/PlaceHolderPage.qml"]
             Loader {
                 active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem

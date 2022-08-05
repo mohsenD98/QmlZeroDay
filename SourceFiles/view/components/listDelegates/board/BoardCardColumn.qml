@@ -75,7 +75,6 @@ Rectangle {
             font.pixelSize: 12
             font.family: "Open Sans"
         }
-
     }
 
     Text {

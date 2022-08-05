@@ -19,6 +19,24 @@ Page {
         conversationWithUserName: inConversationWith
     }
 
+    Connections {
+        target: Qt.inputMethod
+
+        onKeyboardRectangleChanged: {
+            var newRect = Qt.inputMethod.keyboardRectangle
+
+            console.log(
+                "New keyboard rectangle size:" +
+                " x: " + newRect.x +
+                " y: " + newRect.y +
+                " width: " + newRect.width +
+                " height: " + newRect.height
+            )
+
+            // Your UI resizing / repositioning code goes here.
+        }
+    }
+
     Rectangle{
         anchors.fill: parent
         Image{
@@ -51,6 +69,7 @@ Page {
 
                 msgText: model.message
                 msgTextColor: receiving? Style.theme.historyTextOutFg: "white"
+
                 msgDate: Qt.formatDateTime(model.timestamp, "hh:mm")
 
 

@@ -22,6 +22,12 @@ Rectangle {
     signal tableNameChanged(var tbNewName)
     signal addTableLabel(var lblName, var lblColor)
 
+    function removeAllCardsInTable(){
+        for(var i=0; i<colsRepeater.count; ++i){
+            colsRepeater.itemAt(i).removeAllCardsInTable()
+        }
+    }
+
     function reset(){
         colsRepeater.kanbanBoardName = name
         colsRepeater.model = columns.split(",")

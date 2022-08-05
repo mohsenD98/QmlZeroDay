@@ -32,6 +32,10 @@ Rectangle {
         cardsCol.reset()
     }
 
+    function removeAllCardsInTable(){
+        cardsCol.removeCardsInTb()
+    }
+
     function setSqlFilter(text){
         cardsCol.setSqlFilter(text)
     }

@@ -179,3 +179,11 @@ void SqlKanbanColumnsModel::removeCard(int row)
     removeRow(row);
     submitAll();
 }
+
+void SqlKanbanColumnsModel::deleteCardsInTable()
+{
+    for(int i=0; i<rowCount(); ++i){
+        removeRow(i);
+    }
+    submitAll();
+}

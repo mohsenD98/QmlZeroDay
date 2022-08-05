@@ -57,6 +57,12 @@ Rectangle {
                 }
 
                 onDeleteRequested: {
+                    pageFrame.tableModel = model
+                    pageFrame.index = index
+                    pageFrame.sqlModel = kanbanRepeater.model
+
+                    pageFrame.reset()
+                    pageFrame.removeCardsInTable()
                     kanbanRepeater.model.removeTable(model.row)
                 }
 

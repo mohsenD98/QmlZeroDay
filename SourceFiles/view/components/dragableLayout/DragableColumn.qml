@@ -20,6 +20,10 @@ GridView {
         visualModel.model.addCard(mKanbanTableId, data.mTitle, data.mLabelsModel, colName)
     }
 
+    function removeCardsInTb(){
+        visualModel.model.deleteCardsInTable()
+    }
+
     function editCard(data){
         visualModel.model.editCard(lastSelectedRow, data.mTitle, data.mLabelsModel)
     }

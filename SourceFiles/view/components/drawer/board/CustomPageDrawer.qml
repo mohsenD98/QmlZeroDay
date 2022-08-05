@@ -28,6 +28,10 @@ Drawer{
         board.reset()
     }
 
+    function removeCardsInTable(){
+        board.removeAllCardsInTable()
+    }
+
     background: Rectangle{
         color: Style.theme.windowBg
 

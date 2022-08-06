@@ -3,7 +3,7 @@ import QtQuick 2.12
 Item
 {
 	property color windowBg: "#ffffff"
-	property color windowFg: "#000000"
+    property color windowFg: "#17212b"
 	property color windowBgOver: "#f1f1f1"
 	property color windowBgRipple: "#e5e5e5"
 	property color windowFgOver: windowFg

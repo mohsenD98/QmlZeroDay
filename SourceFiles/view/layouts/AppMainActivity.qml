@@ -12,11 +12,13 @@ Rectangle {
     anchors.fill: parent
     color: Style.theme.windowBg
 
+    property bool conversationSelected: false
+
     Rectangle{
         id:headerBox
         width: parent.width
         height: titleCol.implicitHeight
-        color: "#242f3d"
+        color: conversationSelected? "#17212b": "#242f3d"
 
         Column{
             width: parent.width
@@ -27,6 +29,25 @@ Rectangle {
                 color: "transparent"
                 onSettingsBtnClicked:{
                     mainMenu.open()
+                }
+                visible: !conversationSelected
+            }
+
+            OptionalHeader{
+                id: optionalHeader
+                height: 50
+                width: parent.width
+                color: "transparent"
+                clip: true
+
+                visible: conversationSelected
+                counter: "1"
+
+                onDeleteRequested: {
+                    pageRepeater.itemAt(1).item.deleteSelected()
+                }
+                onCancelRequested :{
+                    pageRepeater.itemAt(1).item.deSelectAll()
                 }
             }
             ListHeader{
@@ -66,13 +87,26 @@ Rectangle {
             Qt.Horizontal ? width : height)
         }
 
+        function conversationHoldingHandler(numberOfSelecteds){
+            conversationSelected = numberOfSelecteds>0
+            optionalHeader.counter = numberOfSelecteds
+        }
+
         Repeater {
+            id: pageRepeater
             model: ["qrc:/layouts/mainActivityPages/BoardsPage.qml",
                 "qrc:/layouts/mainActivityPages/ConversationPage.qml",
                 "qrc:/layouts/mainActivityPages/PlaceHolderPage.qml"]
+
             Loader {
+                id: pageLoader
                 active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
                 source: modelData
+
+                onLoaded: {
+                    if( typeof pageLoader.item.holdingConversationStateChanged === "function" )
+                        pageLoader.item.holdingConversationStateChanged.connect(swipeView.conversationHoldingHandler)
+                }
             }
         }
     }

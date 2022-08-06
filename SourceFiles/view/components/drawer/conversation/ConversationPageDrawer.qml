@@ -24,6 +24,10 @@ Drawer{
 //        conversation.reset()
     }
 
+    function removeMessages(){
+        conversation.removeConversationMessages()
+    }
+
     background: Rectangle{
         color: Style.theme.windowBg
 

@@ -61,5 +61,6 @@
         <file>components/drawer/conversation/AddNewChannelDrawer.qml</file>
         <file>components/toolbar/NewChannelToolbar.qml</file>
         <file>style/themes/current/Theme.qml</file>
+        <file>components/toolbar/OptionalHeader.qml</file>
     </qresource>
 </RCC>

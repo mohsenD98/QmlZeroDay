@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtGraphicalEffects 1.0
+import QtQuick.Controls 2.12
 
 import Style 1.0
 
@@ -16,8 +17,11 @@ Rectangle {
     property string  lbl1
     property color imageBaseColor
     property string icon
+    property bool holding: false
+    property bool holdingMode: false
 
     signal selected
+    signal setHoldingMode
     signal deleteRequested
 
     Rectangle{
@@ -46,6 +50,22 @@ Rectangle {
             source: icon
             anchors.fill: parent
             fillMode: Image.PreserveAspectFit
+        }
+    }
+    Rectangle{
+        width: imageSection.width / 3
+        height: width
+        radius: width/2
+        anchors.right: imageSection.right
+        anchors.bottom: imageSection.bottom
+        visible: holding
+        color: Style.theme.historyLinkOutFg
+
+        RoundButton {
+            id: fabImg
+            anchors.centerIn: parent
+            flat: true
+            icon.source: "qrc:/../icons/player/player_check@3x.png"
         }
     }
 
@@ -94,7 +114,7 @@ Rectangle {
             anchors.topMargin: 8
             font.bold: true
             color: Style.theme.historyTextOutFg
-            font.pixelSize: 12
+            font.pixelSize: 14
             font.family: "Open Sans"
         }
         Row{
@@ -104,7 +124,7 @@ Rectangle {
             Text {
                 text: lbl1
                 color: Style.theme.historyTextOutFg
-                font.pixelSize: 11
+                font.pixelSize: 12
                 font.family: "Open Sans"
                 opacity: .8
             }
@@ -115,7 +135,21 @@ Rectangle {
         id: mouse
         anchors.fill: parent
         onClicked: {
+            if(holdingMode){
+                holding = ! holding
+                setHoldingMode()
+                return
+            }
             selected()
+        }
+        onPressAndHold: {
+            if(holding){
+                holding = false
+            }
+            else{
+                holding = true
+            }
+            setHoldingMode()
         }
     }
 

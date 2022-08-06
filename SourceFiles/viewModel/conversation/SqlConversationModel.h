@@ -17,6 +17,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void sendMessage(const QString &recipient, const QString &message);
+    Q_INVOKABLE void deleteAllMessages();
 
 signals:
     void recipientChanged();

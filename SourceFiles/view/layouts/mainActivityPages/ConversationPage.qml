@@ -12,11 +12,40 @@ Rectangle {
     id:root
     color: "Transparent"
 
+    signal holdingConversationStateChanged(var numberOfSelected)
+
+    property real numberOfSelecteConversations: 0
+
     function closeOverlay(){
         fab.controllerOptions.height = 0
         fab.closing = true
         moverlay.visible = !moverlay.visible
 
+    }
+
+    function deleteSelected(){
+        for(var i=0; i<conversationRepeater.count; ++i){
+            if(conversationRepeater.itemAt(i).holding){
+
+                // remove messages
+                conversationPageFrame.conversationSide = conversationRepeater.itemAt(i).title
+                conversationPageFrame.reset()
+                conversationPageFrame.removeMessages()
+
+                //remove contact
+                conversationRepeater.model.deleteContact(i)
+            }
+        }
+        deSelectAll()
+    }
+
+    function deSelectAll(){
+        numberOfSelecteConversations = 0
+        holdingConversationStateChanged(numberOfSelecteConversations)
+        for(var i=0; i<conversationRepeater.count; ++i){
+            conversationRepeater.itemAt(i).holdingMode = false
+            conversationRepeater.itemAt(i).holding = false
+        }
     }
 
     ConversationPageDrawer{
@@ -53,7 +82,7 @@ Rectangle {
 
             delegate: ConversationDelegate{
                 width: parent.width
-                height: 60
+                height: 65
                 icon: "qrc:/icons/info/profilePic.jpg"
                 title: model.contactName? model.contactName: ""
                 lbl1: qsTr("this is last message")
@@ -67,6 +96,37 @@ Rectangle {
 
                 onDeleteRequested: {
                     console.log("under develop ...")
+                }
+                onSetHoldingMode: {
+                    if(holding){
+                        numberOfSelecteConversations++
+                        holdingConversationStateChanged(numberOfSelecteConversations)
+                        for(var i=0; i<conversationRepeater.count; ++i){
+                            conversationRepeater.itemAt(i).holdingMode = true
+                        }
+                    }
+                    else{
+                        numberOfSelecteConversations --
+                        var isThereHoldedConversation = false
+                        holdingConversationStateChanged(numberOfSelecteConversations)
+                        for(i=0; i<conversationRepeater.count; ++i){
+                            if(conversationRepeater.itemAt(i).holding){
+                                isThereHoldedConversation = true
+                            }
+                        }
+                        if(isThereHoldedConversation){
+                            holdingConversationStateChanged(numberOfSelecteConversations)
+                            for(i=0; i<conversationRepeater.count; ++i){
+                                conversationRepeater.itemAt(i).holdingMode = true
+                            }
+                        }else{
+                            numberOfSelecteConversations = 0
+                            holdingConversationStateChanged(false)
+                            for(i=0; i<conversationRepeater.count; ++i){
+                                conversationRepeater.itemAt(i).holdingMode = false
+                            }
+                        }
+                    }
                 }
             }
         }

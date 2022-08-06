@@ -73,3 +73,12 @@ void SqlContactModel::addContact(const QString &contactName)
 
     submitAll();
 }
+
+
+void SqlContactModel::deleteContact(const int &row)
+{
+    removeRow(row);
+
+    submitAll();
+}
+

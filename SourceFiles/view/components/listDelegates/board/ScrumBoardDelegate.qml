@@ -84,7 +84,7 @@ Rectangle {
             anchors.topMargin: 8
             font.bold: true
             color: Style.theme.historyTextOutFg
-            font.pixelSize: 12
+            font.pixelSize: 14
             font.family: "Open Sans"
         }
         Row{
@@ -94,7 +94,7 @@ Rectangle {
             Text {
                 text: lbl1
                 color: imageBaseColor
-                font.pixelSize: 10
+                font.pixelSize: 12
                 font.bold: true
                 opacity: 1
                 font.family: "Open Sans"
@@ -102,7 +102,7 @@ Rectangle {
             Text {
                 text: lbl1Optins
                 color: Style.theme.historyTextOutFg
-                font.pixelSize: 10
+                font.pixelSize: 12
                 font.family: "Open Sans"
             }
         }
@@ -113,7 +113,7 @@ Rectangle {
             Text {
                 text: lbl2
                 color: imageBaseColor
-                font.pixelSize: 10
+                font.pixelSize: 12
                 font.bold: true
                 opacity: 1
                 font.family: "Open Sans"
@@ -121,7 +121,7 @@ Rectangle {
             Text {
                 text: lbl2Options
                 color: Style.theme.historyTextOutFg
-                font.pixelSize: 10
+                font.pixelSize: 12
                 font.family: "Open Sans"
             }
         }

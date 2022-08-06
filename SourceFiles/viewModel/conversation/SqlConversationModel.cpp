@@ -104,3 +104,12 @@ void SqlConversationModel::sendMessage(const QString &recipient, const QString &
 
     submitAll();
 }
+
+void SqlConversationModel::deleteAllMessages()
+{
+    for(int i=0; i<rowCount(); ++i){
+        removeRow(i);
+    }
+
+    submitAll();
+}

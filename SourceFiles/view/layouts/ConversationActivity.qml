@@ -14,6 +14,10 @@ Page {
     id: root
     property string inConversationWith
 
+    function removeConversationMessages(){
+        listView.model.deleteAllMessages()
+    }
+
     header:  ConversationHeaderLayout{
         backgroundColor: "#242f3d"
         conversationWithUserName: inConversationWith

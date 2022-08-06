@@ -81,7 +81,7 @@ Rectangle {
             icon: "qrc:/icons/listItems/calendar.png"
             title: qsTr("Weekly Tasks")
             lbl1: qsTr("Columns:  ")
-            lbl1Optins: qsTr("Saturday, Sunday, Monday, Tuesday, Wednesday, ...")
+            lbl1Optins: qsTr("Saturday, Sunday, Monday, Tuesda...")
             lbl2: qsTr("Labels:   ")
             lbl2Options: qsTr("important, better Do, shoud Do")
             imageBaseColor: "#257862"

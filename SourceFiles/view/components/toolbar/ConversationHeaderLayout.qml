@@ -3,8 +3,11 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtGraphicalEffects 1.0
 
+import "../musicPlayer"
+
 import Style 1.0
 
+// dont set clip true
 Item{
     id: container
     width:  parent.width
@@ -12,7 +15,9 @@ Item{
     antialiasing: true
 
     property color backgroundColor
+    property color textColor
     property string conversationWithUserName
+    signal openMusicPlayerDrawer
 
     DropShadow {
         id: rectShadow
@@ -126,6 +131,29 @@ Item{
             opacity: .8
             flat: true
             scale: 1.5
+
+            onClicked: musicPlayer.height = 35
         }
+    }
+
+    MiniMusicPlayer{
+        id: musicPlayer
+        height: 35
+        width: parent.width
+        anchors.top: bg.bottom
+        backgroundColor: container.backgroundColor
+        textColor: container.textColor
+
+        Behavior on height{
+            NumberAnimation{
+                duration: 174
+            }
+        }
+
+        onClosePlayer:{
+            height = 0
+        }
+
+        onOpenMainMusicPlayer: openMusicPlayerDrawer()
     }
 }

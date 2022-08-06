@@ -9,6 +9,7 @@ import MGram.sql.conversation 1.0
 import "../components/toolbar"
 import "../components/message"
 import "../components/listDelegates/conversation"
+import "../components/musicPlayer"
 
 Page {
     id: root
@@ -20,7 +21,12 @@ Page {
 
     header:  ConversationHeaderLayout{
         backgroundColor: "#242f3d"
+        textColor: "#ffffff"
         conversationWithUserName: inConversationWith
+
+        onOpenMusicPlayerDrawer:{
+            musicplayerList.open()
+        }
     }
 
     Rectangle{
@@ -82,5 +88,15 @@ Page {
             }
         }
     }
+
+
+    MusicPlayerDrawer{
+        id: musicplayerList
+        width: parent.width
+        height: parent.height * 2 / 3
+        backgroundColor: "#242f3d"
+        textColor: "#ffffff"
+    }
+
 }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.1, 2022-08-06T17:14:22. -->
+<!-- Written by QtCreator 4.11.1, 2022-08-06T21:22:51. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -8,7 +8,7 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">1</value>
+  <value type="int">0</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -598,7 +598,6 @@
     <valuelist type="QVariantList" key="Android.PreStartShellCmdListKey"/>
     <value type="int" key="PE.EnvironmentAspect.Base">0</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">QmlDayZero</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.AndroidRunConfiguration:/home/mohsen/codes/qt/QmlZeroDay/QmlZeroDay/QmlDayZero.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/mohsen/codes/qt/QmlZeroDay/QmlZeroDay/QmlDayZero.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>

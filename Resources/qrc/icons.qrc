@@ -85,5 +85,37 @@
         <file>../icons/player/player_more@3x.png</file>
         <file>../icons/player/player_more.png</file>
         <file>../icons/player/player_more@2x.png</file>
+        <file>../icons/player/player_order.png</file>
+        <file>../icons/player/player_order@2x.png</file>
+        <file>../icons/player/player_order@3x.png</file>
+        <file>../icons/player/player_pause.png</file>
+        <file>../icons/player/player_pause@2x.png</file>
+        <file>../icons/player/player_pause@3x.png</file>
+        <file>../icons/player/player_pip_close.png</file>
+        <file>../icons/player/player_pip_close@2x.png</file>
+        <file>../icons/player/player_pip_close@3x.png</file>
+        <file>../icons/player/player_play.png</file>
+        <file>../icons/player/player_play@2x.png</file>
+        <file>../icons/player/player_play@3x.png</file>
+        <file>../icons/player/player_repeat_single@2x.png</file>
+        <file>../icons/player/player_repeat_single@3x.png</file>
+        <file>../icons/player/player_repeat.png</file>
+        <file>../icons/player/player_repeat@2x.png</file>
+        <file>../icons/player/player_repeat@3x.png</file>
+        <file>../icons/player/player_reverse.png</file>
+        <file>../icons/player/player_reverse@2x.png</file>
+        <file>../icons/player/player_reverse@3x.png</file>
+        <file>../icons/player/player_pip_pause.png</file>
+        <file>../icons/player/player_pip_pause@2x.png</file>
+        <file>../icons/player/player_pip_pause@3x.png</file>
+        <file>../icons/player/player_pip_play.png</file>
+        <file>../icons/player/player_pip_play@2x.png</file>
+        <file>../icons/player/player_pip_play@3x.png</file>
+        <file>../icons/player/player_backward.png</file>
+        <file>../icons/player/player_backward@2x.png</file>
+        <file>../icons/player/player_backward@3x.png</file>
+        <file>../icons/player/player_forward.png</file>
+        <file>../icons/player/player_forward@2x.png</file>
+        <file>../icons/player/player_forward@3x.png</file>
     </qresource>
 </RCC>

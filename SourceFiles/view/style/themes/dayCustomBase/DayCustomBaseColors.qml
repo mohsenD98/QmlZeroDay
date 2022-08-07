@@ -540,6 +540,7 @@ Item
 	property color photoEditorBg: boxTitleAdditionalFg
 	property color photoEditorItemBaseHandleFg: "#3ccaef"
 
-    property string chatBackgroundImg: "qrc:/style/themes/dayCustomBase/background.jpg"
+    property string chatBackgroundImg: "qrc:/style/themes/dayCustomBase/chat_background.jpg"
+    property string appBackgroundImg: "qrc:/style/themes/dayCustomBase/app_background.jpg"
 }
 

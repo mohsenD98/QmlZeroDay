@@ -6,9 +6,7 @@
         <file>style/Style.qml</file>
         <file>style/themes/dayBlue/background.png</file>
         <file>style/themes/dayBlue/DayBlueColors.qml</file>
-        <file>style/themes/dayCustomBase/background.jpg</file>
         <file>style/themes/dayCustomBase/DayCustomBaseColors.qml</file>
-        <file>style/themes/night/background.png</file>
         <file>style/themes/night/NightColors.qml</file>
         <file>style/themes/nightCustomBase/background.jpg</file>
         <file>style/themes/nightCustomBase/NightCustomColors.qml</file>
@@ -68,5 +66,9 @@
         <file>components/musicPlayer/MusicList.qml</file>
         <file>components/musicPlayer/MusicDelegate.qml</file>
         <file>components/toolbar/MessageOptionHeader.qml</file>
+        <file>style/themes/dayCustomBase/chat_background.jpg</file>
+        <file>style/themes/dayCustomBase/app_background.jpg</file>
+        <file>style/themes/night/app_background.jpg</file>
+        <file>style/themes/night/chat_background.jpg</file>
     </qresource>
 </RCC>

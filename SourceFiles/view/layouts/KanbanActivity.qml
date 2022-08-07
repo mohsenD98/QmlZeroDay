@@ -13,7 +13,7 @@ import "../components/drawer/board"
 Rectangle {
     id:root
     anchors.fill: parent
-    color: Style.theme.windowBg
+    color: "transparent"
 
     property string name
     property string columns
@@ -48,6 +48,14 @@ Rectangle {
                             })
         }
         addNewCard.lblData = labelsTempData
+    }
+    Rectangle{
+        anchors.fill: parent
+        z: -1
+        Image{
+            anchors.fill: parent
+            source: Style.theme.appBackgroundImg
+        }
     }
 
     BoardHeaderLayout{

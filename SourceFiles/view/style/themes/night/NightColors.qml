@@ -459,5 +459,6 @@ QtObject
 	property color sideBarBadgeBg: "#5eb5f7"
 	property color sideBarBadgeBgMuted: "#768c9e"
 
-    property string chatBackgroundImg: "qrc:/style/themes/night/background.png"
+    property string chatBackgroundImg: "qrc:/style/themes/night/chat_background.jpg"
+    property string appBackgroundImg: "qrc:/style/themes/night/app_background.jpg"
 }

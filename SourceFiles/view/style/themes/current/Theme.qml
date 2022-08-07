@@ -460,6 +460,7 @@ QtObject
     property color sideBarBadgeBg: model.sideBarBadgeBg
     property color sideBarBadgeBgMuted: model.sideBarBadgeBgMuted
     property string chatBackgroundImg: model.chatBackgroundImg
+    property string appBackgroundImg: model.appBackgroundImg
 
     Behavior on windowBg { ColorAnimation { duration: 500 } }
     Behavior on windowFg { ColorAnimation { duration: 500 } }

@@ -10,7 +10,7 @@ import "../tools"
 Rectangle {
     id:root
     anchors.fill: parent
-    color: Style.theme.windowBg
+    color: "transparent"
 
     property bool conversationSelected: false
 
@@ -56,6 +56,15 @@ Rectangle {
                 color: "transparent"
 
             }
+        }
+    }
+
+    Rectangle{
+        anchors.fill: parent
+        z: -1
+        Image{
+            anchors.fill: parent
+            source: Style.theme.appBackgroundImg
         }
     }
 

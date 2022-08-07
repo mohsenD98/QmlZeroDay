@@ -117,9 +117,11 @@ void SqlConversationModel::deleteAllMessages()
     submitAll();
 }
 
-void SqlConversationModel::deleteMsg(const int& row)
+void SqlConversationModel::deleteMsg(const QVector<int> &rows)
 {
-    removeRow(row);
+    for (int row=0 ; row<rows.size(); ++row){
+        removeRow(rows[row]);
+    }
 
     submitAll();
 }

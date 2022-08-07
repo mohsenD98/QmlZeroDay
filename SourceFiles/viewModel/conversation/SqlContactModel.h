@@ -12,6 +12,6 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void addContact(const QString &name);
-    Q_INVOKABLE void deleteContact(const int &row);
+    Q_INVOKABLE void deleteContact(const QVector<int> &rows);
 };
 

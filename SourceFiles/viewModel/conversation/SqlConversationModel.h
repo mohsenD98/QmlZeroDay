@@ -26,7 +26,7 @@ public:
 
     Q_INVOKABLE void sendMessage(const QString &recipient, const QString &message, const int &type);
     Q_INVOKABLE void deleteAllMessages();
-    Q_INVOKABLE void deleteMsg(const int& row);
+    Q_INVOKABLE void deleteMsg(const QVector<int> &rows);
 
 signals:
     void recipientChanged();

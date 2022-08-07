@@ -24,6 +24,7 @@ Rectangle {
     }
 
     function deleteSelected(){
+        var contactsListToRemove = []
         for(var i=0; i<conversationRepeater.count; ++i){
             if(conversationRepeater.itemAt(i).holding){
 
@@ -33,9 +34,11 @@ Rectangle {
                 conversationPageFrame.removeMessages()
 
                 //remove contact
-                conversationRepeater.model.deleteContact(i)
+                contactsListToRemove.push(i)
             }
         }
+
+        conversationRepeater.model.deleteContact(contactsListToRemove)
         deSelectAll()
     }
 

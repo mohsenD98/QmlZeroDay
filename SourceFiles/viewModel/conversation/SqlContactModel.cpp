@@ -75,9 +75,11 @@ void SqlContactModel::addContact(const QString &contactName)
 }
 
 
-void SqlContactModel::deleteContact(const int &row)
+void SqlContactModel::deleteContact(const QVector<int> &rows)
 {
-    removeRow(row);
+    for(int row=0; row < rows.size(); ++row){
+        removeRow(rows[row]);
+    }
 
     submitAll();
 }

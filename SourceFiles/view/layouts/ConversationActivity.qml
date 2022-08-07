@@ -47,11 +47,13 @@ Page {
             counter: numberOfSelecteMessages
 
             onDeleteRequested: {
+                var deleteList = []
                 for(var i=0; i<listView.count; ++i){
                     if(listView.itemAtIndex(i).selected){
-                        listView.model.deleteMsg(i)
+                        deleteList.push(i)
                     }
                 }
+                listView.model.deleteMsg(deleteList)
                 cancelRequested()
             }
             onCancelRequested :{

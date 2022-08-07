@@ -10,7 +10,7 @@ ApplicationWindow {
     visible: true
     width: 480
     height: 720
-    title: qsTr("Qml Telegram")
+    title: qsTr("Zero Day")
     color: "black"
     flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
            | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0)

@@ -113,3 +113,10 @@ void SqlConversationModel::deleteAllMessages()
 
     submitAll();
 }
+
+void SqlConversationModel::deleteMsg(const int& row)
+{
+    removeRow(row);
+
+    submitAll();
+}

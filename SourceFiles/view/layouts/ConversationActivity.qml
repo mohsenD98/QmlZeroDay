@@ -14,20 +14,58 @@ import "../components/musicPlayer"
 Page {
     id: root
     property string inConversationWith
+    property real numberOfSelecteMessages: 0
+
 
     function removeConversationMessages(){
         listView.model.deleteAllMessages()
     }
 
-    header:  ConversationHeaderLayout{
-        backgroundColor: "#242f3d"
-        textColor: "#ffffff"
-        conversationWithUserName: inConversationWith
+    header: Column {
+        width: parent.width
 
-        onOpenMusicPlayerDrawer:{
-            musicplayerList.open()
+        ConversationHeaderLayout{
+            id: profileHeader
+            backgroundColor: "#242f3d"
+            textColor: "#ffffff"
+            visible: numberOfSelecteMessages == 0
+            conversationWithUserName: inConversationWith
+
+            onOpenMusicPlayerDrawer:{
+                musicplayerList.open()
+            }
+        }
+
+        MessageOptionHeader{
+            id: optionalHeader
+            height: 64
+            width: parent.width
+            color: profileHeader.backgroundColor
+            clip: false
+
+            visible: numberOfSelecteMessages > 0
+            counter: numberOfSelecteMessages
+
+            onDeleteRequested: {
+                for(var i=0; i<listView.count; ++i){
+                    if(listView.itemAtIndex(i).selected){
+                        listView.model.deleteMsg(i)
+                    }
+                }
+                cancelRequested()
+            }
+            onCancelRequested :{
+                numberOfSelecteMessages = 0
+                for(var i=0; i<listView.count; ++i){
+                    listView.itemAtIndex(i).selectingMode = false
+                    listView.itemAtIndex(i).selected = false
+                }
+            }
         }
     }
+
+
+
 
     Rectangle{
         anchors.fill: parent
@@ -45,18 +83,20 @@ Page {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: pane.leftPadding + msgRow.msgField.leftPadding
+            Layout.leftMargin: messageSelectionMode? 40 : pane.leftPadding + msgRow.msgField.leftPadding
             displayMarginBeginning: 40
             displayMarginEnd: 40
             verticalLayoutDirection: ListView.BottomToTop
-            spacing: 12
+            spacing: 0
             model: SqlConversationModel {
                 recipient: inConversationWith
             }
 
+            property bool messageSelectionMode: false
+
             delegate: MessageBox{
                 opacity: 1
                 msgColor: receiving? Style.theme.msgInBg: Style.theme.msgOutBg
-                anchors.right: receiving ? undefined : parent.right
                 receiving: model.recipient === "Me"
 
                 msgText: model.message
@@ -68,6 +108,34 @@ Page {
                 Rectangle{
                     anchors.fill: parent
                     color: "transparent"
+                }
+
+                onSetSelectingMode: {
+                    if(selected){
+                        numberOfSelecteMessages++
+                        for(var i=0; i<listView.count; ++i){
+                            listView.itemAtIndex(i).selectingMode = true
+                        }
+                    }
+                    else{
+                        numberOfSelecteMessages --
+                        var isThereHoldedConversation = false
+                        for(i=0; i<listView.count; ++i){
+                            if(listView.itemAtIndex(i).selected){
+                                isThereHoldedConversation = true
+                            }
+                        }
+                        if(isThereHoldedConversation){
+                            for(i=0; i<listView.count; ++i){
+                                listView.itemAtIndex(i).selectingMode = true
+                            }
+                        }else{
+                            numberOfSelecteMessages = 0
+                            for(i=0; i<listView.count; ++i){
+                                listView.itemAtIndex(i).selectingMode = false
+                            }
+                        }
+                    }
                 }
             }
         }

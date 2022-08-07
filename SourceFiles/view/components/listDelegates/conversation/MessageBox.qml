@@ -19,6 +19,7 @@ Rectangle{
     property color msgTextColor
     property bool selectingMode
     property bool selected: false
+    property real messageType
 
     signal setSelectingMode
 
@@ -89,6 +90,7 @@ Rectangle{
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: (receiving && selectingMode) ? selectionMark.right: (receiving ? parent.left : undefined)
         anchors.leftMargin: (receiving && selectingMode) ? 12 : 0
+        visible: messageType == 1
 
         Image{
             id: recivedImg
@@ -144,6 +146,22 @@ Rectangle{
                 font.pixelSize: 13
                 font.weight: Font.Thin
             }
+        }
+    }
+
+    Rectangle{
+        id: dateBox
+        width: 80
+        height: 35
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        radius: width
+        color: "#50000000"
+        visible: messageType == 0
+        Text {
+            text: msgText
+            color: "white"
+            anchors.centerIn: parent
         }
     }
 }

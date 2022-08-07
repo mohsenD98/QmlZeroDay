@@ -2,6 +2,14 @@
 
 #include <QSqlTableModel>
 
+enum MessageType{
+    KEY_DATE,
+    KEY_MESSAGE,
+    KEY_MESSAGE_WITH_PHOTO,
+    KEY_MESSAGE_WITH_AUDIO,
+    KEY_MESSAGE_WITH_VIDEO,
+};
+
 class SqlConversationModel : public QSqlTableModel
 {
     Q_OBJECT
@@ -16,7 +24,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void sendMessage(const QString &recipient, const QString &message);
+    Q_INVOKABLE void sendMessage(const QString &recipient, const QString &message, const int &type);
     Q_INVOKABLE void deleteAllMessages();
     Q_INVOKABLE void deleteMsg(const int& row);
 

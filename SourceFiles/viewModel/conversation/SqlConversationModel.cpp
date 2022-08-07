@@ -34,19 +34,20 @@ static void createTable()
         "'recipient' TEXT NOT NULL,"
         "'timestamp' TEXT NOT NULL,"
         "'message' TEXT NOT NULL,"
+        "'type' INT NOT NULL,"
         "FOREIGN KEY('author') REFERENCES Contacts ( name ),"
         "FOREIGN KEY('recipient') REFERENCES Contacts ( name )"
         ")")) {
         qFatal("Failed to query database: %s", qPrintable(query.lastError().text()));
     }
 
-    query.exec("INSERT INTO Conversations VALUES('Me', 'Ernest Hemingway', '2016-01-07T14:36:06', 'Hello!')");
-    query.exec("INSERT INTO Conversations VALUES('Ernest Hemingway', 'Me', '2016-01-07T14:36:16', 'Good afternoon.')");
-    query.exec("INSERT INTO Conversations VALUES('Me', 'Albert Einstein', '2016-01-01T11:24:53', 'Hi!')");
-    query.exec("INSERT INTO Conversations VALUES('Albert Einstein', 'Me', '2016-01-07T14:36:16', 'Good morning.')");
-    query.exec("INSERT INTO Conversations VALUES('Hans Gude', 'Me', '2015-11-20T06:30:02', 'God morgen. Har du fått mitt maleri?')");
+    query.exec("INSERT INTO Conversations VALUES('Me', 'Ernest Hemingway', '2016-01-07T14:36:06', 'Hello!', 1)");
+    query.exec("INSERT INTO Conversations VALUES('Ernest Hemingway', 'Me', '2016-01-07T14:36:16', 'Good afternoon.', 1)");
+    query.exec("INSERT INTO Conversations VALUES('Me', 'Albert Einstein', '2016-01-01T11:24:53', 'Hi!'), 1");
+    query.exec("INSERT INTO Conversations VALUES('Albert Einstein', 'Me', '2016-01-07T14:36:16', 'Good morning.', 1)");
+    query.exec("INSERT INTO Conversations VALUES('Hans Gude', 'Me', '2015-11-20T06:30:02', 'God morgen. Har du fått mitt maleri?', 1)");
     query.exec("INSERT INTO Conversations VALUES('Me', 'Hans Gude', '2015-11-20T08:21:03', 'God morgen, Hans. Ja, det er veldig fint. Tusen takk! "
-               "Hvor mange timer har du brukt på den?')");
+               "Hvor mange timer har du brukt på den?', 1)");
 }
 
 QString SqlConversationModel::recipient() const
@@ -85,18 +86,20 @@ QHash<int, QByteArray> SqlConversationModel::roleNames() const
     names[Qt::UserRole + 1] = "recipient";
     names[Qt::UserRole + 2] = "timestamp";
     names[Qt::UserRole + 3] = "message";
+    names[Qt::UserRole + 4] = "type";
     return names;
 }
 
-void SqlConversationModel::sendMessage(const QString &recipient, const QString &message)
+void SqlConversationModel::sendMessage(const QString &recipient, const QString &message, const int& type)
 {
-    const QString timestamp = QDateTime::currentDateTime().toString(Qt::ISODate);
+    const QString timestamp = QDateTime::currentDateTime().toString("d MM hh:mm:ss:zzz");
 
     QSqlRecord newRecord = record();
     newRecord.setValue("author", "Me");
     newRecord.setValue("recipient", recipient);
     newRecord.setValue("timestamp", timestamp);
     newRecord.setValue("message", message);
+    newRecord.setValue("type", type);
     if (!insertRecord(rowCount(), newRecord)) {
         qWarning() << "Failed to send message:" << lastError().text();
         return;

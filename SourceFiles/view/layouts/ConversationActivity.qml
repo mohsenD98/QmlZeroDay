@@ -103,7 +103,9 @@ Page {
                 msgTextColor: receiving? Style.theme.historyTextOutFg: "white"
 
                 msgDate: Qt.formatDateTime(model.timestamp, "hh:mm")
+                messageType: model.type
 
+                property string dayDate: model.timestamp.split(" ")[0] + " " + model.timestamp.split(" ")[1]
 
                 Rectangle{
                     anchors.fill: parent
@@ -151,12 +153,15 @@ Page {
                 anchors.bottom: parent.bottom
 
                 onSendMsg: {
-                    listView.model.sendMessage(inConversationWith, newMsg);
+                    if(listView.count > 0 && Qt.formatDateTime( new Date(), "d MM") !== listView.itemAtIndex(0).dayDate){
+                        listView.model.sendMessage(inConversationWith, Qt.formatDateTime( new Date(), "d MM"), 0);
+                    }
+
+                    listView.model.sendMessage(inConversationWith, newMsg, 1);
                 }
             }
         }
     }
-
 
     MusicPlayerDrawer{
         id: musicplayerList

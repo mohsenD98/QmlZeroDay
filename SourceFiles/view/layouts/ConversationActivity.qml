@@ -50,7 +50,7 @@ Page {
             onDeleteRequested: {
                 var deleteList = []
                 for(var i=0; i<listView.count; ++i){
-                    if(listView.itemAtIndex(i).selected){
+                    if(listView.itemAtIndex(i) && listView.itemAtIndex(i).selected){
                         deleteList.push(i)
                     }
                 }
@@ -60,8 +60,10 @@ Page {
             onCancelRequested :{
                 numberOfSelecteMessages = 0
                 for(var i=0; i<listView.count; ++i){
-                    listView.itemAtIndex(i).selectingMode = false
-                    listView.itemAtIndex(i).selected = false
+                    if(listView.itemAtIndex(i)){
+                        listView.itemAtIndex(i).selectingMode = false
+                        listView.itemAtIndex(i).selected = false
+                    }
                 }
             }
         }
@@ -116,25 +118,28 @@ Page {
                     if(selected){
                         numberOfSelecteMessages++
                         for(var i=0; i<listView.count; ++i){
-                            listView.itemAtIndex(i).selectingMode = true
+                            if(listView.itemAtIndex(i))
+                                listView.itemAtIndex(i).selectingMode = true
                         }
                     }
                     else{
                         numberOfSelecteMessages --
                         var isThereHoldedConversation = false
                         for(i=0; i<listView.count; ++i){
-                            if(listView.itemAtIndex(i).selected){
+                            if(listView.itemAtIndex(i) && listView.itemAtIndex(i).selected){
                                 isThereHoldedConversation = true
                             }
                         }
                         if(isThereHoldedConversation){
                             for(i=0; i<listView.count; ++i){
-                                listView.itemAtIndex(i).selectingMode = true
+                                if(listView.itemAtIndex(i))
+                                    listView.itemAtIndex(i).selectingMode = true
                             }
                         }else{
                             numberOfSelecteMessages = 0
                             for(i=0; i<listView.count; ++i){
-                                listView.itemAtIndex(i).selectingMode = false
+                                if(listView.itemAtIndex(i))
+                                    listView.itemAtIndex(i).selectingMode = false
                             }
                         }
                     }

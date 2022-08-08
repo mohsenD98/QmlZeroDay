@@ -7,6 +7,7 @@ import Style 1.0
 import MGram.sql.conversation 1.0
 
 import "../components/toolbar"
+import "../components/buttons"
 import "../components/message"
 import "../components/listDelegates/conversation"
 import "../components/musicPlayer"
@@ -65,9 +66,6 @@ Page {
             }
         }
     }
-
-
-
 
     Rectangle{
         anchors.fill: parent
@@ -165,6 +163,28 @@ Page {
         }
     }
 
+    RoundButton {
+        id: fab
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        z: 2
+        width: 55
+        height: 55
+        icon.width: 20
+        icon.height: 20
+        anchors.bottomMargin: 80
+        anchors.rightMargin: 8
+        icon.source: "qrc:/../icons/calendar_down@3x.png"
+        icon.color: Style.theme.historyTextOutFg
+        opacity: .9
+
+        Material.background: Style.theme.msgInBg
+
+        onClicked: {
+            listView.positionViewAtBeginning()
+        }
+    }
+
     MusicPlayerDrawer{
         id: musicplayerList
         width: parent.width
@@ -172,6 +192,5 @@ Page {
         backgroundColor: "#242f3d"
         textColor: "#ffffff"
     }
-
 }
 

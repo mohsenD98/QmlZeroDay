@@ -16,11 +16,19 @@ Rectangle {
 
     property real numberOfSelecteConversations: 0
 
+    property var selectedChats: []
+
+    function arrayRemove(arr, value) {
+
+           return arr.filter(function(ele){
+               return ele != value;
+           });
+       }
+
     function closeOverlay(){
         fab.controllerOptions.height = 0
         fab.closing = true
         moverlay.visible = !moverlay.visible
-
     }
 
     function deleteSelected(){
@@ -44,6 +52,7 @@ Rectangle {
 
     function deSelectAll(){
         numberOfSelecteConversations = 0
+        selectedChats = []
         holdingConversationStateChanged(numberOfSelecteConversations)
         for(var i=0; i<conversationRepeater.count; ++i){
             conversationRepeater.itemAt(i).holdingMode = false
@@ -103,6 +112,7 @@ Rectangle {
                 onSetHoldingMode: {
                     if(holding){
                         numberOfSelecteConversations++
+                        selectedChats.push(title)
                         holdingConversationStateChanged(numberOfSelecteConversations)
                         for(var i=0; i<conversationRepeater.count; ++i){
                             conversationRepeater.itemAt(i).holdingMode = true
@@ -110,6 +120,7 @@ Rectangle {
                     }
                     else{
                         numberOfSelecteConversations --
+                        arrayRemove(selectedChats, title)
                         var isThereHoldedConversation = false
                         holdingConversationStateChanged(numberOfSelecteConversations)
                         for(i=0; i<conversationRepeater.count; ++i){
@@ -124,6 +135,7 @@ Rectangle {
                             }
                         }else{
                             numberOfSelecteConversations = 0
+                            selectedChats = []
                             holdingConversationStateChanged(false)
                             for(i=0; i<conversationRepeater.count; ++i){
                                 conversationRepeater.itemAt(i).holdingMode = false

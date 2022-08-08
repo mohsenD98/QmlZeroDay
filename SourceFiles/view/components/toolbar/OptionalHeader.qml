@@ -9,6 +9,7 @@ Rectangle {
 
     signal deleteRequested
     signal cancelRequested
+    signal openMultiple
 
     RoundButton{
         id: close
@@ -44,6 +45,7 @@ Rectangle {
             id: archiveBtn
             icon.source: "qrc:/../icons/archive_userpic@3x.png"
             flat: true
+            onClicked: openMultiple()
         }
 
         RoundButton{

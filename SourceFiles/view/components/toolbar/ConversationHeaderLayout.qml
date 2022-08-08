@@ -17,6 +17,8 @@ Item{
     property color backgroundColor
     property color textColor
     property string conversationWithUserName
+    property bool multichatMode: false
+
     signal openMusicPlayerDrawer
     signal openProfile
 
@@ -51,7 +53,13 @@ Item{
             flat: true
             scale: 1.5
 
-            onClicked: conversationPageFrame.close()
+            onClicked: {
+                if(!multichatMode)
+                    conversationPageFrame.close()
+                else
+                    multiOpenDrawer.close()
+
+            }
         }
 
         Rectangle{

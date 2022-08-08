@@ -5,6 +5,7 @@ import Style 1.0
 
 import "../components/toolbar"
 import "../components/drawer/board"
+import "../components/drawer/conversation"
 import "../tools"
 
 Rectangle {
@@ -48,6 +49,14 @@ Rectangle {
                 }
                 onCancelRequested :{
                     pageRepeater.itemAt(1).item.deSelectAll()
+                }
+                onOpenMultiple: {
+                    if(pageRepeater.itemAt(1).item.selectedChats.length <= 4){
+                        multiOpenDrawer.setSelectedChats(pageRepeater.itemAt(1).item.selectedChats)
+                        multiOpenDrawer.open()
+                    }
+                    // TODO: Toast that only 4 page should be open in same time!
+
                 }
             }
             ListHeader{
@@ -123,5 +132,11 @@ Rectangle {
     CustomMenuDrawer{
         id: mainMenu
         edge: Qt.LeftEdge
+    }
+
+    MultiConversationDrawer{
+        id: multiOpenDrawer
+        edge: Qt.RightEdge
+        dragMargin: 0
     }
 }

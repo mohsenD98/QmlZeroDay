@@ -72,5 +72,6 @@
         <file>style/themes/night/chat_background.jpg</file>
         <file>components/drawer/conversation/ConversationProfileDrawer.qml</file>
         <file>components/toolbar/ConversationProfileDrawerToolbar.qml</file>
+        <file>components/drawer/conversation/MultiConversationDrawer.qml</file>
     </qresource>
 </RCC>

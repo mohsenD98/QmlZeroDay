@@ -17,6 +17,7 @@ Page {
     id: root
     property string inConversationWith
     property real numberOfSelecteMessages: 0
+    property bool isMultiChatOpened: false
 
     function removeConversationMessages(){
         listView.model.deleteAllMessages()
@@ -31,6 +32,7 @@ Page {
             textColor: "#ffffff"
             visible: numberOfSelecteMessages == 0
             conversationWithUserName: inConversationWith
+            multichatMode: isMultiChatOpened
 
             onOpenMusicPlayerDrawer:{
                 musicplayerList.open()

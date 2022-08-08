@@ -70,5 +70,7 @@
         <file>style/themes/dayCustomBase/app_background.jpg</file>
         <file>style/themes/night/app_background.jpg</file>
         <file>style/themes/night/chat_background.jpg</file>
+        <file>components/drawer/conversation/ConversationProfileDrawer.qml</file>
+        <file>components/toolbar/ConversationProfileDrawerToolbar.qml</file>
     </qresource>
 </RCC>

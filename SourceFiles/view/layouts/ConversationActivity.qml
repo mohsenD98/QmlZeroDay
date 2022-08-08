@@ -11,12 +11,12 @@ import "../components/buttons"
 import "../components/message"
 import "../components/listDelegates/conversation"
 import "../components/musicPlayer"
+import "../components/drawer/conversation"
 
 Page {
     id: root
     property string inConversationWith
     property real numberOfSelecteMessages: 0
-
 
     function removeConversationMessages(){
         listView.model.deleteAllMessages()
@@ -35,6 +35,8 @@ Page {
             onOpenMusicPlayerDrawer:{
                 musicplayerList.open()
             }
+
+            onOpenProfile: profileDrawer.open()
         }
 
         MessageOptionHeader{
@@ -197,5 +199,11 @@ Page {
         backgroundColor: "#242f3d"
         textColor: "#ffffff"
     }
+
+    ConversationProfileDrawer{
+        id: profileDrawer
+        inConversationWith: root.inConversationWith
+    }
+
 }
 

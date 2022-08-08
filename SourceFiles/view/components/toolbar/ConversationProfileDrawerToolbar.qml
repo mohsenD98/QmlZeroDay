@@ -2,23 +2,22 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtGraphicalEffects 1.0
-
-import "../musicPlayer"
+import QtQuick.Particles 2.0
 
 import Style 1.0
 
-// dont set clip true
 Item{
     id: container
     width:  parent.width
-    height: 64
+    height: 64 * 2
     antialiasing: true
 
     property color backgroundColor
     property color textColor
     property string conversationWithUserName
-    signal openMusicPlayerDrawer
-    signal openProfile
+    property bool runStarAnimation
+
+    signal closeRequset
 
     DropShadow {
         id: rectShadow
@@ -38,10 +37,6 @@ Item{
         width: parent.width
         height: parent.height
 
-        MouseArea{
-            anchors.fill: parent
-            onClicked: openProfile()
-        }
 
         RoundButton{
             id: backBtn
@@ -51,14 +46,40 @@ Item{
             flat: true
             scale: 1.5
 
-            onClicked: conversationPageFrame.close()
+            onClicked: closeRequset()
+        }
+
+        ParticleSystem {
+            anchors.verticalCenter: imageSection.verticalCenter
+            anchors.horizontalCenter: imageSection.horizontalCenter
+            height: parent.height
+            width: height
+
+            ImageParticle {
+                anchors.fill: parent
+                source: "qrc:///particleresources/star.png"
+                alpha: 0
+                alphaVariation: 0.2
+                colorVariation: 1.0
+            }
+
+            Emitter {
+                id: starRain
+                anchors.centerIn: parent
+                emitRate: 10
+                lifeSpan: 1500
+                size: 20
+                sizeVariation: 0
+                velocity: AngleDirection {angleVariation: 180; magnitude: 60}
+                enabled: runStarAnimation
+            }
         }
 
         Rectangle{
             id: imageSection
-            anchors.left: backBtn.right
             anchors.verticalCenter: parent.verticalCenter
-            height: parent.height - 10
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: parent.height - 30
             width: height
             radius: width / 2
 
@@ -78,39 +99,6 @@ Item{
                 source: "qrc:/../icons/info/profilePic.jpg"
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectFit
-            }
-        }
-
-        Rectangle{
-            anchors.left: imageSection.right
-            anchors.leftMargin: 16
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.right: parent.right
-            anchors.rightMargin: 8
-            color: "transparent"
-
-            Text {
-                id: namelbl
-                text: conversationWithUserName
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: -7
-                font.bold: true
-                color: Style.theme.dialogsTextFgActive
-                font.pixelSize: 15
-                font.family: "Open Sans"
-            }
-            Row{
-                id: info1
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 7
-                Text {
-                    text: "last seen at 1:19"
-                    color: Style.theme.dialogsTextFgActive
-                    font.pixelSize: 14
-                    font.family: "Open Sans"
-                    opacity: .4
-                }
             }
         }
 
@@ -136,29 +124,6 @@ Item{
             opacity: .8
             flat: true
             scale: 1.5
-
-            onClicked: musicPlayer.height = 35
         }
-    }
-
-    MiniMusicPlayer{
-        id: musicPlayer
-        height: 35
-        width: parent.width
-        anchors.top: bg.bottom
-        backgroundColor: container.backgroundColor
-        textColor: container.textColor
-
-        Behavior on height{
-            NumberAnimation{
-                duration: 174
-            }
-        }
-
-        onClosePlayer:{
-            height = 0
-        }
-
-        onOpenMainMusicPlayer: openMusicPlayerDrawer()
     }
 }

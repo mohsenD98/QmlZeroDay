@@ -7,6 +7,7 @@ import Style 1.0
 Rectangle {
     height: bar.height
     property real currentSelectedBarIndex: bar.currentIndex
+    property var contentModel:  ["Boards", "Conversations", "Discover"]
 
     function setIndex(index){
         bar.setCurrentIndex(index)
@@ -19,7 +20,7 @@ Rectangle {
         Material.background: "transparent"
 
         Repeater {
-            model: ["Boards", "Conversations", "Discover"]
+            model: contentModel
 
             CustomTabButton {
                 text: modelData

@@ -7,6 +7,12 @@ SOURCES += \
         SourceFiles/viewModel/board/SqlKanbanTableModel.cpp \
         SourceFiles/viewModel/conversation/SqlConversationModel.cpp
 
+HEADERS += \
+        SourceFiles/viewModel/conversation/SqlContactModel.h \
+        SourceFiles/viewModel/board/SqlKanbanColumnsModel.h \
+        SourceFiles/viewModel/board/SqlKanbanTableModel.h \
+        SourceFiles/viewModel/conversation/SqlConversationModel.h
+
 RESOURCES += \
         Resources/qrc/emoji_1.qrc \
         Resources/qrc/emoji_2.qrc \
@@ -41,9 +47,3 @@ DISTFILES += \
     android/res/values/libs.xml
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
-
-HEADERS += \
-    SourceFiles/viewModel/conversation/SqlContactModel.h \
-    SourceFiles/viewModel/board/SqlKanbanColumnsModel.h \
-    SourceFiles/viewModel/board/SqlKanbanTableModel.h \
-    SourceFiles/viewModel/conversation/SqlConversationModel.h

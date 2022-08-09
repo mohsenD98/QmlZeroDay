@@ -11,6 +11,7 @@ int main(int argc, char** argv){
     failedTests += QTest::qExec(&tst_mtest1, argc, argv);
     failedTests += QTest::qExec(&tst_mtest2, argc, argv);
 
+
     if(failedTests > 0){
         qDebug() << "total number of failed tests: " << failedTests;
     }else{
@@ -18,3 +19,4 @@ int main(int argc, char** argv){
     }
     return failedTests;
 }
+

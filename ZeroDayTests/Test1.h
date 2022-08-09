@@ -7,6 +7,7 @@ class Test1 : public QObject
 public:
     Test1()
     {
+//        SqlKanbanColumnsModel a;
 
     }
     ~Test1()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.1, 2022-08-09T20:32:54. -->
+<!-- Written by QtCreator 4.11.1, 2022-08-09T23:56:24. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -646,7 +646,6 @@
     <valuelist type="QVariantList" key="Android.PreStartShellCmdListKey"/>
     <value type="int" key="PE.EnvironmentAspect.Base">0</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">ZeroDayProject</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.AndroidRunConfiguration:/home/mohsen/codes/qt/QmlZeroDay/QmlZeroDay/ZeroDayProject/ZeroDayProject.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/mohsen/codes/qt/QmlZeroDay/QmlZeroDay/ZeroDayProject/ZeroDayProject.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
@@ -721,7 +720,6 @@
     <valuelist type="QVariantList" key="Android.PreStartShellCmdListKey"/>
     <value type="int" key="PE.EnvironmentAspect.Base">0</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">ZeroDayTests</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.AndroidRunConfiguration:/home/mohsen/codes/qt/QmlZeroDay/QmlZeroDay/ZeroDayTests/ZeroDayTests.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/mohsen/codes/qt/QmlZeroDay/QmlZeroDay/ZeroDayTests/ZeroDayTests.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>

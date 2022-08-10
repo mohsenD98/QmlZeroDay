@@ -1,13 +1,17 @@
-QT += testlib sql
-
+TEMPLATE = app
+QT += testlib sql quick
 TARGET = ZeroDayTests
 
 SOURCES +=  \
         main.cpp
 
-
 HEADERS += \
-    Test1.h \
-    Test2.h
+    TestSqlContactModel.h \
+    TestSqlConversationModel.h \
+    TestSqlKanbanColumnsModel.h \
+    TestSqlKanbanTableModel.h
 
-include(ZeroDayTests.pri)
+INCLUDEPATH +=  ../ZeroDayLib
+
+LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib.a
+

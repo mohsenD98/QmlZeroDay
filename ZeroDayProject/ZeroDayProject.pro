@@ -1,17 +1,9 @@
 QT += quick sql
 
+DESTDIR += $$PWD/../Build/
+
 SOURCES += \
         ./SourceFiles/main.cpp \
-        SourceFiles/viewModel/conversation/SqlContactModel.cpp \
-        SourceFiles/viewModel/board/SqlKanbanColumnsModel.cpp \
-        SourceFiles/viewModel/board/SqlKanbanTableModel.cpp \
-        SourceFiles/viewModel/conversation/SqlConversationModel.cpp
-
-HEADERS += \
-        SourceFiles/viewModel/conversation/SqlContactModel.h \
-        SourceFiles/viewModel/board/SqlKanbanColumnsModel.h \
-        SourceFiles/viewModel/board/SqlKanbanTableModel.h \
-        SourceFiles/viewModel/conversation/SqlConversationModel.h
 
 RESOURCES += \
         Resources/qrc/emoji_1.qrc \
@@ -25,17 +17,12 @@ RESOURCES += \
         SourceFiles/view/qml.qrc \
         translations.qrc
 
+INCLUDEPATH +=  ../ZeroDayLib
+
+LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib.a
+
 TRANSLATIONS += \
         Resources/translations/qrcQMLTelegram_fa_IR.ts
-
-#CONFIG += lrelease
-
-#CONFIG += embed_translations
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
     android/AndroidManifest.xml \

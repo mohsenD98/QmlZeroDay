@@ -2,13 +2,6 @@
 
 #include <QSqlTableModel>
 
-class X {
-public: X(){}
-    QString xx(){
-        return "hello world";
-    }
-};
-
 class SqlKanbanColumnsModel: public QSqlTableModel
 {
     Q_OBJECT
@@ -17,7 +10,7 @@ class SqlKanbanColumnsModel: public QSqlTableModel
 
 public:
     SqlKanbanColumnsModel(QObject *parent = 0);
-    virtual ~SqlKanbanColumnsModel(){};
+    ~SqlKanbanColumnsModel(){};
 
     QString kanbanTableId() const;
     void setKanbanTableId(const QString &kanbanTableId);

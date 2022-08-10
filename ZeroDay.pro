@@ -1,3 +1,3 @@
 TEMPLATE = subdirs
 CONFIG = ordered
-SUBDIRS += ZeroDayProject ZeroDayTests
+SUBDIRS += ZeroDayLib ZeroDayProject ZeroDayTests

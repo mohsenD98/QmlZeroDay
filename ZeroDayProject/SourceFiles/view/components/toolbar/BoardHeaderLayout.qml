@@ -12,7 +12,7 @@ Rectangle {
     RoundButton{
         id: appLogo
         flat: true
-        icon.source: "qrc:/../icons/mGram/logo.png"
+        icon.source: "qrc:/../icons/mGram/logo_1.png"
         anchors.verticalCenter: parent.verticalCenter
         onClicked: applogoClicked()
     }

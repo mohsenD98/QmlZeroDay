@@ -22,6 +22,6 @@ private:
 private slots:
     void testCase1_modelRowCount()
     {
-        QCOMPARE(modelObject.rowCount(), 2);
+        QCOMPARE(modelObject.rowCount(), 0);
     }
 };

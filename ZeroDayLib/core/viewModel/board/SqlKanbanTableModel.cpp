@@ -60,9 +60,6 @@ static void createTable()
         ")")) {
         qFatal("Failed to query database: %s", qPrintable(query.lastError().text()));
     }
-
-    query.exec("INSERT INTO KanbanTables VALUES('Kanban - weekly to do', 'To Do,In Progress,Test,Done','Bug,#BC2E2A,Important,#B6AA37')");
-    query.exec("INSERT INTO KanbanTables VALUES('Kanban - monthly to do', 'To Do,Done','Feature,#1F7E38,Important,#B6AA37')");
 }
 
 void SqlKanbanTableModel::addTabel(const QString &name, const QString &columns, const QString &labels)

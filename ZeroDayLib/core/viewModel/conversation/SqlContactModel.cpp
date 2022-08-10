@@ -39,10 +39,6 @@ static void createTable()
         ")")) {
         qFatal("Failed to query database: %s", qPrintable(query.lastError().text()));
     }
-
-    query.exec("INSERT INTO Contacts VALUES('Albert Einstein')");
-    query.exec("INSERT INTO Contacts VALUES('Ernest Hemingway')");
-    query.exec("INSERT INTO Contacts VALUES('Hans Gude')");
 }
 
 QVariant SqlContactModel::data(const QModelIndex &index, int role) const

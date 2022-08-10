@@ -40,12 +40,6 @@ static void createTable()
         ")")) {
         qFatal("Failed to query database: %s", qPrintable(query.lastError().text()));
     }
-
-    query.exec("INSERT INTO KanbanColumns VALUES('Mohsen', 'Kanban - daily to do', '2016-01-07T14:36:06', 'Hello!', 'Bug,#BC2E2A,Feature,#1F7E38,Important,#B6AA37', 'To Do')");
-    query.exec("INSERT INTO KanbanColumns VALUES('Mohsen', 'Kanban - daily to do', '2016-01-07T14:36:16', 'Good afternoon.', 'Feature,#1F7E38,Important,#B6AA37', 'In Progress')");
-    query.exec("INSERT INTO KanbanColumns VALUES('Mohsen', 'Kanban - weekly to do', '2016-01-01T11:24:53', 'Hi!', 'Bug,#BC2E2A,Feature,#1F7E38', 'In Progress')");
-    query.exec("INSERT INTO KanbanColumns VALUES('Mohsen', 'Kanban - weekly to do', '2016-01-07T14:36:16', 'Good morning.', 'Bug,#BC2E2A,Important,#B6AA37', 'To Do')");
-    query.exec("INSERT INTO KanbanColumns VALUES('Mohsen', 'Kanban - monthly to do', '2015-11-20T06:30:02', 'God morgen. Har du fått mitt maleri?', 'Feature,#1F7E38,Important,#B6AA37', 'To Do')");
 }
 
 

@@ -85,6 +85,12 @@ Rectangle {
             lbl2: qsTr("Labels:   ")
             lbl2Options: qsTr("important, better Do, shoud Do")
             imageBaseColor: "#257862"
+
+            onSelected: {
+                snack.message = "Under Developement"
+                snack.iconColor = imageBaseColor
+                snack.open()
+            }
         }
 
         ScrumBoardDelegate{
@@ -97,6 +103,11 @@ Rectangle {
             lbl2: qsTr("Features:   ")
             lbl2Options: qsTr("Fast, Easy, Beautifule")
             imageBaseColor: "#D90171"
+            onSelected: {
+                snack.message = "Under Developement"
+                snack.iconColor = imageBaseColor
+                snack.open()
+            }
         }
     }
 

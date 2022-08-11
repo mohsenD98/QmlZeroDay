@@ -73,5 +73,6 @@
         <file>components/drawer/conversation/ConversationProfileDrawer.qml</file>
         <file>components/toolbar/ConversationProfileDrawerToolbar.qml</file>
         <file>components/drawer/conversation/MultiConversationDrawer.qml</file>
+        <file>components/snackbar/Snackbar.qml</file>
     </qresource>
 </RCC>

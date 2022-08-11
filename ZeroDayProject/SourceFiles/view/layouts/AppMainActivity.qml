@@ -7,6 +7,7 @@ import "../components/toolbar"
 import "../components/drawer/board"
 import "../components/drawer/conversation"
 import "../tools"
+import "../components/snackbar"
 
 Rectangle {
     id:root
@@ -138,5 +139,15 @@ Rectangle {
         id: multiOpenDrawer
         edge: Qt.RightEdge
         dragMargin: 0
+    }
+
+    Snackbar{
+        id: snack
+        anchors.bottom: parent.bottom
+        delayTime: 2500
+        color: Style.theme.titleBgActive
+        messageColor: Style.theme.historyTextOutFg
+        iconColor: Style.theme.historyTextOutFg
+        z: -1
     }
 }

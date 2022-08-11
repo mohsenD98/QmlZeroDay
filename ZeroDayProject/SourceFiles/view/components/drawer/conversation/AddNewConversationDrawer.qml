@@ -22,7 +22,7 @@ Drawer{
     background: Rectangle{
         color: "#242f3d"
 
-        NewChannelToolbar{
+        AddNewConversationToolbar{
             id: header
             backgroundColor: "#242f3d"
             onCheckClicked: {
@@ -55,7 +55,7 @@ Drawer{
             anchors.rightMargin: 8
             anchors.leftMargin: 8
             font.pixelSize: 15
-            placeholderText: "Channel name"
+            placeholderText: "Conversation name"
 
             Material.accent: Style.theme.sideBarIconFgActive
         }
@@ -75,7 +75,7 @@ Drawer{
         }
 
         Text {
-            text: qsTr("You can provide an optional description for your channel.")
+            text: qsTr("You can provide an optional description for your conversation.")
             font.pixelSize: 16
             color: "white"
             opacity: .6

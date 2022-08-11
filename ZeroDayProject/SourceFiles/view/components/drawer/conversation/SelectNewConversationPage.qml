@@ -15,7 +15,7 @@ Rectangle {
 
     Component.onCompleted: {
         listView.model.append({
-                                "title":"New Channel",
+                                "title":"New Conversation",
                                 "icon":"qrc:/icons/dialogs/dialogs_channel@3x.png",
                                 "enable": true
                             })
@@ -28,7 +28,7 @@ Rectangle {
 
     signal addNewConversation(var convName)
 
-    AddNewChannelDrawer{
+    AddNewConversationDrawer{
         id: addNewChannelDrawer
 
         onChannelNameSetted:{

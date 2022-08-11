@@ -54,7 +54,7 @@ Item{
 
             Text {
                 id: namelbl
-                text: "New Channel"
+                text: "New Conversation"
                 font.bold: true
                 color: Style.theme.dialogsTextFgActive
                 font.pixelSize: 18

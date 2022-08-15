@@ -17,18 +17,15 @@ Rectangle {
         anchors.right: parent.right
         highlighted: true
         smooth: true
-        text: le_icon
 
         Material.background: le_color
 
-        contentItem: Text {
-            text: fab.text
+        Text {
+            text: le_icon
             font.pixelSize: 24
             opacity: enabled ? 1.0 : 0.3
             color: "white"
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
+            anchors.centerIn: parent
         }
 
         onClicked: selected(le_name)

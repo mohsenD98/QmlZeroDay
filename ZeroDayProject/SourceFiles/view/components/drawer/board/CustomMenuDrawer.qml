@@ -1,11 +1,10 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
 
 import Style 1.0
 
 Drawer{
-    id: control
     width: Math.min(parent.width/1.4, 360)
     height: parent.height
     dim: true
@@ -14,7 +13,8 @@ Drawer{
     Overlay.modeless: Rectangle {
         color: "#33000000"
     }
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: headerBox.color
 
         Rectangle{
@@ -33,7 +33,11 @@ Drawer{
             anchors.bottom: parent.bottom
             color: Style.theme.windowBg
 
-            Button{
+            RoundButton{
+                width: 100
+                height: 45
+                flat: true
+                text: "change theme"
                 onClicked: {
                     if(Style.currentThemeName === "DayCustomBaseColors")
                         Style.setTheme("NightColors")

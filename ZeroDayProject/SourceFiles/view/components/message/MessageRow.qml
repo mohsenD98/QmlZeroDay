@@ -39,7 +39,8 @@ RowLayout {
         selectByKeyboard: true
         Layout.maximumHeight: 250
         wrapMode: TextArea.Wrap
-        background: Rectangle{
+        Rectangle{
+            anchors.fill: parent
             color: "transparent"
         }
         font.bold: false

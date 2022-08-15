@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 import Qt5Compat.GraphicalEffects
 
 import Style 1.0
@@ -18,7 +19,7 @@ Rectangle {
     property string  lbl2
     property string  lbl2Options
     property color imageBaseColor
-    property string icon
+    property string iconPath
 
     signal selected
     signal duplicateRequested
@@ -47,17 +48,19 @@ Rectangle {
         radius: 4
         color: imageBaseColor
 
-        Image{
+        RoundButton{
+            id: scrumLogo
             anchors.centerIn: parent
-            source: icon
-            opacity: .2
-
-            ColorOverlay{
-                anchors.fill: parent
-                source: parent
-                color: imageBaseColor
-            }
+            icon.source: iconPath
+            flat: true
+            smooth: true
+            width: parent.height
+            height: parent.height
+            icon.width: parent.width
+            icon.height: parent.height
+            icon.color: "#55ffffff"
         }
+
         Rectangle{
             anchors.right: parent.right
             anchors.top: parent.top

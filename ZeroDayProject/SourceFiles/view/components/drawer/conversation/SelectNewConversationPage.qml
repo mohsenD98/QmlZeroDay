@@ -31,7 +31,7 @@ Rectangle {
     AddNewConversationDrawer{
         id: addNewChannelDrawer
 
-        onChannelNameSetted:{
+        onChannelNameSetted:function(name){
             addNewConversation(name)
         }
     }

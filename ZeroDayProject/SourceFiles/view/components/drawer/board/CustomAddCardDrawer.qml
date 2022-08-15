@@ -79,7 +79,8 @@ Drawer{
 
     }
 
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: headerBox.color
 
         Rectangle{
@@ -269,7 +270,7 @@ Drawer{
                 x: lblCombo.x
                 y: lblCombo.y+lblCombo.height
 
-                background: Rectangle{
+                Rectangle{
                     width: lblCombo.width
                     height: lblData.length * 35 + 35
                     color: Style.theme.titleBgActive

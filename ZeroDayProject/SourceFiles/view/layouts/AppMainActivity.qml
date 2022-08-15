@@ -87,24 +87,6 @@ Rectangle {
         anchors.topMargin: 8
         currentIndex: bar.currentSelectedBarIndex
         onCurrentIndexChanged: bar.setIndex(currentIndex)
-        contentItem: ListView {
-            model: swipeView.contentModel
-            interactive: swipeView.interactive
-            currentIndex: swipeView.currentIndex
-
-            spacing: swipeView.spacing
-            orientation: swipeView.orientation
-            snapMode: ListView.SnapOneItem
-            boundsBehavior: Flickable.StopAtBounds
-
-            highlightRangeMode: ListView.StrictlyEnforceRange
-            preferredHighlightBegin: 0
-            preferredHighlightEnd: 0
-            highlightMoveDuration: 250
-
-            maximumFlickVelocity: 8 * (swipeView.orientation ===
-            Qt.Horizontal ? width : height)
-        }
 
         function conversationHoldingHandler(numberOfSelecteds){
             conversationSelected = numberOfSelecteds>0

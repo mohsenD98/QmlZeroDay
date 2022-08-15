@@ -16,7 +16,7 @@ Menu {
     signal nextColClicked
     signal prevColClicked
 
-    background: Item{
+    Item{
         id: container
         anchors.centerIn: parent
         width:  rect.width  + (2 * rectShadow.radius)

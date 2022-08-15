@@ -78,7 +78,8 @@ Rectangle{
         anchors.margins: 8
         Material.accent: Style.theme.sideBarIconFgActive
         value: .5
-        background: Rectangle {
+        Rectangle{
+            anchors.fill: parent
              y: slider.topPadding + slider.availableHeight / 2 - height / 2
              implicitHeight: 3
              width: slider.width

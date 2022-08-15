@@ -100,11 +100,11 @@ Rectangle{
             source: "qrc:/icons/history_received@3x.png"
             fillMode: Image.PreserveAspectFit
 
-            ColorOverlay{
-                anchors.fill: parent
-                source: parent
-                color: Style.theme.sideBarIconFgActive
-            }
+        }
+        ColorOverlay{
+            anchors.fill: recivedImg
+            source: recivedImg
+            color: Style.theme.sideBarIconFgActive
         }
 
         Text {

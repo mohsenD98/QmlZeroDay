@@ -20,14 +20,15 @@ Drawer{
 
     signal addContact(var contactName)
 
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: Style.theme.windowBg
 
         SelectNewConversationPage{
             id: conversation
             anchors.fill: parent
 
-            onAddNewConversation:{
+            onAddNewConversation:function(convName){
                 addContact(convName)
                 control.close()
             }

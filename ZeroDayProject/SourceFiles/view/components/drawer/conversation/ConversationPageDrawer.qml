@@ -28,7 +28,8 @@ Drawer{
         conversation.removeConversationMessages()
     }
 
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: Style.theme.windowBg
 
         ConversationActivity{

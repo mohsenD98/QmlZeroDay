@@ -16,7 +16,7 @@ Menu {
     signal duplicateClicked
     signal deleteClicked
 
-    background: Item{
+    Item{
         id: container
         anchors.centerIn: parent
         width:  rect.width  + (2 * rectShadow.radius)

@@ -16,7 +16,7 @@ Rectangle{
         padding: 10
         width: parent.width
         // Set background
-        background: Item{
+        Item{
             id: container
             width:  parent.width
             height: 100

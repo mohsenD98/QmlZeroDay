@@ -91,11 +91,11 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
         opacity: .5
 
-        ColorOverlay{
-            anchors.fill: parent
-            source: parent
-            color: imageBaseColor
-        }
+    }
+    ColorOverlay{
+        anchors.fill: recivedImg
+        source: recivedImg
+        color: imageBaseColor
     }
 
     Rectangle{

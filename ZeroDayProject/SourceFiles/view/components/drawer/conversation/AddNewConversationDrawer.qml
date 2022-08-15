@@ -19,7 +19,8 @@ Drawer{
     }
 
     signal channelNameSetted(var name)
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: "#242f3d"
 
         AddNewConversationToolbar{

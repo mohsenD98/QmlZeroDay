@@ -71,7 +71,7 @@ Rectangle {
         edge: Qt.RightEdge
         dragMargin: 0
 
-        onAddContact: {
+        onAddContact:function(contactName) {
             if(contactName === "Saved Messages"){
                 conversationRepeater.model.addContact(contactName + "_" + conversationRepeater.model.rowCount())
             }
@@ -167,6 +167,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         backgroundColor: "#1976D2"
+        btnText: "+"
         z: 2
 
         onFabClicked: addConversationFrame.open()

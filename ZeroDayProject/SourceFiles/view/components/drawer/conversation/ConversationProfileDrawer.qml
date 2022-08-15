@@ -26,7 +26,8 @@ Drawer{
     signal channelNameSetted(var name)
     property string  inConversationWith
 
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: "transparent"
 
         Rectangle{

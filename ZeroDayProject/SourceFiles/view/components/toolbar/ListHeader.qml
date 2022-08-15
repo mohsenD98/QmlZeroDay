@@ -23,7 +23,7 @@ Rectangle {
             model: contentModel
 
             CustomTabButton {
-                text: modelData
+                mText: modelData
                 isSelected: bar.currentIndex == index
             }
         }

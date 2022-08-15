@@ -15,21 +15,21 @@ RoundButton {
     anchors.margins: 20
     highlighted: true
     smooth: true
-    text: "+"
 
     signal fabClicked
 
     property color backgroundColor
+    property string btnText
 
     Material.background: backgroundColor
-    contentItem: Text {
-        text: fab.text
+
+    Text {
+        text: btnText
         font.pixelSize: 35
         opacity: enabled ? 1.0 : 0.3
         color: "white"
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
+        anchors.centerIn: parent
+//        elide: Text.ElideRight
 
     }
     onClicked: {

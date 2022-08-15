@@ -24,7 +24,8 @@ Drawer {
         color: "#33000000"
     }
 
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: "#242f3d"
 
         Rectangle{

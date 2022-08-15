@@ -39,7 +39,7 @@ Rectangle {
             delegate: ScrumBoardDelegate{
                 width: parent.width
                 height: 80
-                icon: "qrc:/icons/listItems/kanban.png"
+                iconPath: "qrc:/icons/listItems/kanban.png"
                 title: model.name?model.name:""
                 lbl1: qsTr("Columns:  ")
                 lbl1Optins: model.columns?model.columns:""
@@ -78,7 +78,7 @@ Rectangle {
         ScrumBoardDelegate{
             width: parent.width
             height: 80
-            icon: "qrc:/icons/listItems/calendar.png"
+            iconPath: "qrc:/icons/listItems/calendar.png"
             title: qsTr("Weekly Tasks")
             lbl1: qsTr("Columns:  ")
             lbl1Optins: qsTr("Saturday, Sunday, Monday, Tuesda...")
@@ -96,7 +96,7 @@ Rectangle {
         ScrumBoardDelegate{
             width: parent.width
             height: 80
-            icon: "qrc:/icons/listItems/timeline.png"
+            iconPath: "qrc:/icons/listItems/timeline.png"
             title: qsTr("Time Line")
             lbl1: qsTr("Time:  ")
             lbl1Optins: qsTr("Custom 1 month")
@@ -130,7 +130,7 @@ Rectangle {
         id: fab
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        icon: "+"
+        btnText: "+"
         enableText: true
         backgroundColor: "#1976D2"
         accentColor: "white"

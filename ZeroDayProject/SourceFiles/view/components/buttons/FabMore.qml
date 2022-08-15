@@ -9,7 +9,7 @@ Item {
     property color backgroundColor: "#2e2e2e"
     property color accentColor: "#2e2e2e"
     property bool enableText: false
-    property var icon
+    property var btnText
     property var model
     property var overlay
     property alias controllerOptions: options
@@ -44,17 +44,14 @@ Item {
         anchors.margins: 20
         highlighted: true
         smooth: true
-        text: "+"
 
         Material.background: backgroundColor
-        contentItem: Text {
-            text: fab.text
+        Text {
+            text: btnText
             font.pixelSize: 35
             opacity: enabled ? 1.0 : 0.3
             color: accentColor
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
+            anchors.centerIn: parent
 
             RotationAnimator {
                 id:openRotate

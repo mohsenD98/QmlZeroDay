@@ -32,7 +32,8 @@ Drawer{
         board.removeAllCardsInTable()
     }
 
-    background: Rectangle{
+    Rectangle{
+        anchors.fill: parent
         color: Style.theme.windowBg
 
         KanbanActivity{

@@ -6,14 +6,28 @@ offline database for Kanban Boards (in gitkraken style) and conversation pages (
 
 [icon link](https://jennirenas.com/zero-day)
 
+## Requirements:
+* Qt6
+* Clang for Android release 
 
-## Current State:   
+## Current features:   
 - [x] Initial Unit test's
 - [x] Seperate Lib's from project
 - [x] Build for android, Windows, linux 
 - [x] using SQLite as database
-
+- [x] Conversation(chatting) page
+ 
 ## work in progress: 
 - [ ] Weekly boards
 - [ ] Time lines
 - [ ] Use android api's for gallery and music player
+
+## Linux release: 
+* clone the project
+* open `ZeroDay.pro` with qtCreator
+* use `LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib.a` in ZeroDayProject.pro and ZeroDayTests.pro
+
+## android release: 
+* clone the project
+* open `ZeroDay.pro` with qtCreator
+* use `LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib_arm64-v8a.a` in ZeroDayProject.pro and ZeroDayTests.pro

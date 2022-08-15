@@ -13,5 +13,11 @@ HEADERS += \
 
 INCLUDEPATH +=  ../ZeroDayLib
 
-LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib.a
+# linux release
+#LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib.a
 
+# avd & linux release
+LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib_armeabi-v7a.a
+
+# sumsong release
+#LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib_arm64-v8a.a

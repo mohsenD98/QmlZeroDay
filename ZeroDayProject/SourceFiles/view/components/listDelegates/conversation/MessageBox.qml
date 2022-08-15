@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 import QtQuick.Shapes 1.12
 
 import Style 1.0
@@ -76,7 +76,7 @@ Rectangle{
             anchors.centerIn: parent
             flat: true
             visible: selected
-            icon.source: "qrc:/../icons/player/player_check@3x.png"
+            icon.source: "qrc:/icons/player/player_check@3x.png"
         }
     }
 

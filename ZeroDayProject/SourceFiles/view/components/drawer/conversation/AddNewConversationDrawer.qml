@@ -42,7 +42,7 @@ Drawer{
             anchors.margins: 16
             highlighted: true
             smooth: true
-            icon.source: "qrc:/../icons/upload_chat_photo@3x.png"
+            icon.source: "qrc:/icons/upload_chat_photo@3x.png"
 
             Material.background: Style.theme.sideBarIconFgActive
         }

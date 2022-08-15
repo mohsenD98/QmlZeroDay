@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 import "../musicPlayer"
 
@@ -29,7 +29,7 @@ Item{
         horizontalOffset: 3
         verticalOffset: 3
         radius: 1
-        samples: 2
+//        //            samples: 2
         color: "#10000000"
         smooth: true
         source: bg
@@ -48,7 +48,7 @@ Item{
         RoundButton{
             id: backBtn
             anchors.verticalCenter: parent.verticalCenter
-            icon.source: "qrc:/../icons/info/info_back@3x.png"
+            icon.source: "qrc:/icons/info/info_back@3x.png"
             anchors.left: parent.left
             flat: true
             scale: 1.5
@@ -83,7 +83,7 @@ Item{
             Image{
                 id: profilePhoto
                 anchors.centerIn: parent
-                source: "qrc:/../icons/info/profilePic.jpg"
+                source: "qrc:/icons/info/profilePic.jpg"
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectFit
             }
@@ -129,7 +129,7 @@ Item{
             anchors.rightMargin: 4
             height: 40
             width: height
-            icon.source: "qrc:/../icons/mediaview_more@3x.png"
+            icon.source: "qrc:/icons/mediaview_more@3x.png"
             opacity: .8
             flat: true
             scale: 1.2
@@ -140,7 +140,7 @@ Item{
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: options.left
             anchors.rightMargin: -0
-            icon.source: "qrc:/../icons/calls/call_answer@3x.png"
+            icon.source: "qrc:/icons/calls/call_answer@3x.png"
             opacity: .8
             flat: true
             scale: 1.5

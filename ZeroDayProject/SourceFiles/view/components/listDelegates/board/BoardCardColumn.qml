@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 import Style 1.0
 import MGram.sql.Kanban 1.0
@@ -62,7 +62,7 @@ Rectangle {
             height: width
             y: simpleView? 0 : 0
             anchors.verticalCenter: parent.verticalCenter
-            icon.source: "qrc:/../icons/media_play@3x.png"
+            icon.source: "qrc:/icons/media_play@3x.png"
             opacity: .5
             flat: true
             icon.color: Style.theme.historyTextInFgSelected
@@ -103,7 +103,7 @@ Rectangle {
         width: 45
         height: width
         visible: !simpleView
-        icon.source: "qrc:/../icons/settings/add@3x.png"
+        icon.source: "qrc:/icons/settings/add@3x.png"
         opacity: .5
         flat: true
         icon.color: Style.theme.historyTextInFgSelected
@@ -122,7 +122,7 @@ Rectangle {
         width: 40
         height: width
         visible: !simpleView
-        icon.source: "qrc:/../icons/mediaview_more@3x.png"
+        icon.source: "qrc:/icons/mediaview_more@3x.png"
         opacity: .5
         flat: true
         icon.color: Style.theme.historyTextInFgSelected

@@ -18,7 +18,7 @@ Rectangle{
 
     RoundButton{
         id: clear
-        icon.source: "qrc:/../icons/history_file_cancel@3x.png"
+        icon.source: "qrc:/icons/history_file_cancel@3x.png"
         anchors.left: parent.left
         anchors.leftMargin: 0
         anchors.verticalCenter: parent.verticalAlignment

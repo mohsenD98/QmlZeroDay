@@ -10,7 +10,7 @@ Rectangle {
     RoundButton{
         id: devLogo
         anchors.centerIn: parent
-        icon.source: "qrc:/../icons/intro_right@3x.png"
+        icon.source: "qrc:/icons/intro_right@3x.png"
         flat: true
         width: parent.width / 3
         height: width

@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 import Style 1.0
 
@@ -12,7 +12,7 @@ Rectangle {
     RoundButton{
         id: appLogo
         flat: true
-        icon.source: "qrc:/../icons/mGram/logo_1.png"
+        icon.source: "qrc:/icons/mGram/logo_1.png"
         anchors.verticalCenter: parent.verticalCenter
         onClicked: applogoClicked()
     }
@@ -52,7 +52,7 @@ Rectangle {
             opacity: 1
             smooth: false
             anchors.fill: parent
-            source: "qrc:/../icons/info/profilePic.jpg"
+            source: "qrc:/icons/info/profilePic.jpg"
             scale: 1.4
         }
     }
@@ -60,7 +60,7 @@ Rectangle {
     RoundButton{
         id: notifBtn
         flat: true
-        icon.source: "qrc:/../icons/menu/mute_for_plain@3x.png"
+        icon.source: "qrc:/icons/menu/mute_for_plain@3x.png"
         anchors.right: profilePhoto.left
         anchors.rightMargin: 8
         anchors.verticalCenter: parent.verticalCenter
@@ -69,7 +69,7 @@ Rectangle {
     RoundButton{
         id: infoBtn
         flat: true
-        icon.source: "qrc:/../icons/info/info_report@3x.png"
+        icon.source: "qrc:/icons/info/info_report@3x.png"
         anchors.right: notifBtn.left
         anchors.verticalCenter: parent.verticalCenter
         scale: 1.4

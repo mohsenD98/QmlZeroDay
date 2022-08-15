@@ -13,7 +13,7 @@ Rectangle {
 
     RoundButton{
         id: close
-        icon.source: "qrc:/../icons/history_file_cancel@3x.png"
+        icon.source: "qrc:/icons/history_file_cancel@3x.png"
         flat: true
         scale: 1
 
@@ -37,20 +37,20 @@ Rectangle {
 
         RoundButton{
             id: muteBtn
-            icon.source: "qrc:/../icons/settings/sound@3x.png"
+            icon.source: "qrc:/icons/settings/sound@3x.png"
             flat: true
         }
 
         RoundButton{
             id: archiveBtn
-            icon.source: "qrc:/../icons/archive_userpic@3x.png"
+            icon.source: "qrc:/icons/archive_userpic@3x.png"
             flat: true
             onClicked: openMultiple()
         }
 
         RoundButton{
             id: deleteBtn
-            icon.source: "qrc:/../icons/info/info_media_delete@3x.png"
+            icon.source: "qrc:/icons/info/info_media_delete@3x.png"
             flat: true
 
             onClicked: deleteRequested()
@@ -58,7 +58,7 @@ Rectangle {
 
         RoundButton{
             id: mroeBtn
-            icon.source: "qrc:/../icons/player/player_more@3x.png"
+            icon.source: "qrc:/icons/player/player_more@3x.png"
             flat: true
         }
     }

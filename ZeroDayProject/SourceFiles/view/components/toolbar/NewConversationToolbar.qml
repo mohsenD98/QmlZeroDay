@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 import Style 1.0
 
@@ -20,7 +20,7 @@ Item{
         horizontalOffset: 3
         verticalOffset: 3
         radius: 1
-        samples: 2
+        //            samples: 2
         color: "#10000000"
         smooth: true
         source: bg
@@ -35,7 +35,7 @@ Item{
         RoundButton{
             id: backBtn
             anchors.verticalCenter: parent.verticalCenter
-            icon.source: "qrc:/../icons/info/info_back@3x.png"
+            icon.source: "qrc:/icons/info/info_back@3x.png"
             anchors.left: parent.left
             flat: true
             scale: 1.4
@@ -67,7 +67,7 @@ Item{
             anchors.rightMargin: -4
             height: 40
             width: height
-            icon.source: "qrc:/../icons/contacts_online@3x.png"
+            icon.source: "qrc:/icons/contacts_online@3x.png"
             opacity: .8
             flat: true
             scale: 1.4
@@ -78,7 +78,7 @@ Item{
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: filter.left
             anchors.rightMargin: -4
-            icon.source: "qrc:/../icons/info/info_search@3x.png"
+            icon.source: "qrc:/icons/info/info_search@3x.png"
             opacity: .8
             flat: true
             scale: 1.4

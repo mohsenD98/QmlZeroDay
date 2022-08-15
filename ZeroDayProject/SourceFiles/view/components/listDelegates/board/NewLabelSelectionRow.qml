@@ -28,7 +28,7 @@ Rectangle{
 
     RoundButton{
         id: lblAdded
-        icon.source: "qrc:/../icons/passport_ready@3x.png"
+        icon.source: "qrc:/icons/passport_ready@3x.png"
         anchors.verticalCenter: parent.verticalCenter
         visible: lblIsSelected
         flat: true

@@ -20,7 +20,7 @@ RowLayout {
 
     RoundButton{
         id: selectEmoje
-        icon.source: "qrc:/../icons/emoji/emoji_people@4x.png"
+        icon.source: "qrc:/icons/emoji/emoji_people@4x.png"
         icon.height: 25
         icon.width: 25
         opacity: .5
@@ -64,7 +64,7 @@ RowLayout {
 
     RoundButton{
         id: selectMedia
-        icon.source: "qrc:/../icons/chat/input_attach@3x.png"
+        icon.source: "qrc:/icons/chat/input_attach@3x.png"
         opacity: .5
         flat: true
         icon.height: 35
@@ -77,7 +77,7 @@ RowLayout {
 
     RoundButton{
         id: recordVoice
-        icon.source: "qrc:/../icons/info/info_media_voice@3x.png"
+        icon.source: "qrc:/icons/info/info_media_voice@3x.png"
         opacity: .5
         icon.height: 35
         icon.width: 35
@@ -107,7 +107,7 @@ RowLayout {
 
     RoundButton{
         id: sendPm
-        icon.source: "qrc:/../icons/chat/input_send@3x.png"
+        icon.source: "qrc:/icons/chat/input_send@3x.png"
         icon.height: 25
         icon.width: 25
         flat: true

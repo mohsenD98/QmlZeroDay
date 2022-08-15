@@ -1,4 +1,4 @@
-QT += quick sql
+QT += quick sql core5compat
 
 DESTDIR += $$PWD/../Build/
 

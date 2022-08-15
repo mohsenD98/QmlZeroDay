@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 import QtQuick.Particles 2.0
 
 import Style 1.0
@@ -60,7 +60,7 @@ Rectangle {
         Image{
             id: profilePhoto
             anchors.centerIn: parent
-            source: "qrc:/../icons/info/profilePic.jpg"
+            source: "qrc:/icons/info/profilePic.jpg"
             anchors.fill: parent
             fillMode: Image.PreserveAspectFit
         }
@@ -68,7 +68,7 @@ Rectangle {
 
     RoundButton{
         id: close
-        icon.source: "qrc:/../icons/history_file_cancel@3x.png"
+        icon.source: "qrc:/icons/history_file_cancel@3x.png"
         flat: true
         scale: 1
         anchors.verticalCenter: parent.verticalCenter
@@ -94,7 +94,7 @@ Rectangle {
 
         RoundButton{
             id: deleteBtn
-            icon.source: "qrc:/../icons/info/info_media_delete@3x.png"
+            icon.source: "qrc:/icons/info/info_media_delete@3x.png"
             flat: true
             anchors.verticalCenter: parent.verticalCenter
             onClicked: deleteRequested()
@@ -102,7 +102,7 @@ Rectangle {
 
         RoundButton{
             id: mroeBtn
-            icon.source: "qrc:/../icons/player/player_more@3x.png"
+            icon.source: "qrc:/icons/player/player_more@3x.png"
             flat: true
             anchors.verticalCenter: parent.verticalCenter
         }

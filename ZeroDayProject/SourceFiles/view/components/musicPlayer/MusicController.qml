@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 import QtQuick.Controls.Material 2.12
 
 import Style 1.0
@@ -37,7 +37,7 @@ Rectangle{
         Image{
             id: profilePhoto
             anchors.centerIn: parent
-            source: "qrc:/../icons/info/profilePic.jpg"
+            source: "qrc:/icons/info/profilePic.jpg"
             anchors.fill: parent
             fillMode: Image.PreserveAspectFit
         }
@@ -107,12 +107,12 @@ Rectangle{
             anchors.fill: parent
 
             RoundButton{
-                icon.source: "qrc:/../icons/player/player_repeat@3x.png"
+                icon.source: "qrc:/icons/player/player_repeat@3x.png"
                 Layout.alignment: Qt.AlignLeft
                 flat: true
             }
             RoundButton{
-                icon.source: "qrc:/../icons/player/player_backward@3x.png"
+                icon.source: "qrc:/icons/player/player_backward@3x.png"
                 Layout.alignment: Qt.AlignCenter
                 scale: 1.5
                 flat: true
@@ -124,13 +124,13 @@ Rectangle{
                 onClicked: playing = !playing
             }
             RoundButton{
-                icon.source: "qrc:/../icons/player/player_forward@3x.png"
+                icon.source: "qrc:/icons/player/player_forward@3x.png"
                 scale: 1.5
                 Layout.alignment: Qt.AlignCenter
                 flat: true
             }
             RoundButton{
-                icon.source: "qrc:/../icons/player/player_more@3x.png"
+                icon.source: "qrc:/icons/player/player_more@3x.png"
                 Layout.alignment: Qt.AlignRight
                 flat: true
             }

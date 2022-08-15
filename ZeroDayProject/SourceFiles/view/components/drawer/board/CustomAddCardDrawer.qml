@@ -103,7 +103,7 @@ Drawer{
 
             RoundButton{
                 id: cancel
-                icon.source: "qrc:/../icons/history_file_cancel@3x.png"
+                icon.source: "qrc:/icons/history_file_cancel@3x.png"
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 flat: true
@@ -117,7 +117,7 @@ Drawer{
                 anchors.verticalCenter: parent.verticalCenter
                 width: 35
                 height: width
-                icon.source: "qrc:/../icons/mediaview_more@3x.png"
+                icon.source: "qrc:/icons/mediaview_more@3x.png"
                 opacity: .5
                 flat: true
             }
@@ -169,7 +169,7 @@ Drawer{
 
             RoundButton{
                 id: descIcon
-                icon.source: "qrc:/../icons/top_bar_group_call@3x.png"
+                icon.source: "qrc:/icons/top_bar_group_call@3x.png"
                 anchors.left: parent.left
                 anchors.top: inputRect.bottom
                 flat: true
@@ -200,7 +200,7 @@ Drawer{
 
             RoundButton{
                 id: lblIcon
-                icon.source: "qrc:/../icons/top_bar_group_call@3x.png"
+                icon.source: "qrc:/icons/top_bar_group_call@3x.png"
                 anchors.left: parent.left
                 anchors.top: sp1.bottom
                 flat: true

@@ -7,7 +7,7 @@ Rectangle {
     signal settingsBtnClicked
     RoundButton{
         id: menuBtn
-        icon.source: "qrc:/../icons/dialogs/dialogs_menu@3x.png"
+        icon.source: "qrc:/icons/dialogs/dialogs_menu@3x.png"
         flat: true
         onClicked: settingsBtnClicked()
         scale: 1.4
@@ -26,7 +26,7 @@ Rectangle {
     RoundButton{
         id: searchBtn
         anchors.right: parent.right
-        icon.source: "qrc:/../icons/info/info_search@3x.png"
+        icon.source: "qrc:/icons/info/info_search@3x.png"
         flat: true
         scale: 1.4
     }

@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 import QtQuick.Controls 2.12
 
 import Style 1.0
@@ -66,7 +66,7 @@ Item {
             anchors.top: parent.top
             width: 35
             height: width
-            icon.source: "qrc:/../icons/mediaview_more@3x.png"
+            icon.source: "qrc:/icons/mediaview_more@3x.png"
             opacity: .5
             flat: true
 

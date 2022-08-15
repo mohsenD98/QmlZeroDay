@@ -183,7 +183,7 @@ Page {
         icon.height: 20
         anchors.bottomMargin: 80
         anchors.rightMargin: 8
-        icon.source: "qrc:/../icons/calendar_down@3x.png"
+        icon.source: "qrc:/icons/calendar_down@3x.png"
         icon.color: Style.theme.historyTextOutFg
         opacity: .9
 

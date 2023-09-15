@@ -27,6 +27,14 @@ offline database for Kanban Boards (in gitkraken style) and conversation pages (
 * open `ZeroDay.pro` with qtCreator
 * use `LIBS += $$PWD/../ZeroDayLib/Build/libZeroDayLib.a` in ZeroDayProject.pro and ZeroDayTests.pro
 
+
+## Windows release: 
+* clone the project
+* open `ZeroDay.pro` with qtCreator
+* open `ZeroDayLib.pro`
+* comment `CONFIG += static`
+* use `LIBS += $$PWD/../ZeroDayLib/Build/ZeroDayLib.dll` in ZeroDayProject.pro and ZeroDayTests.pro
+
 ## android release: 
 * clone the project
 * open `ZeroDay.pro` with qtCreator

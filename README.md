@@ -6,6 +6,11 @@ offline database for Kanban Boards (in gitkraken style) and conversation pages (
 
 [icon link](https://jennirenas.com/zero-day)
 
+## Demo
+
+https://github.com/mohsenD98/QmlZeroDay/assets/36326627/635544b2-14d5-4810-9646-ddf747d0ce95
+
+
 ## Requirements:
 * Qt6
 * Clang for Android release 
